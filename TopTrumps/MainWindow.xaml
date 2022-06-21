@@ -30,16 +30,16 @@
             <Label FontSize="25" Margin="10 10 10 10" Foreground="White"> How Many Bots? </Label>
 
             <StackPanel Margin="10 10 10 10" Orientation="Horizontal" VerticalAlignment="Center">
-                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#282828" Foreground="White"> 1 </Button>
-                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#282828" Foreground="White"> 2 </Button>
-                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#282828" Foreground="White"> 3 </Button>
+                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#020000" Foreground="White" x:Name="botButton1"> 1 </Button>
+                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#282828" Foreground="White" x:Name="botButton2"> 2 </Button>
+                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#282828" Foreground="White" x:Name="botButton3"> 3 </Button>
             </StackPanel>
 
             <Label FontSize="25" Margin="10 10 10 10" Foreground="White"> Difficulty? </Label>
 
             <StackPanel Margin="10 10 10 10" Orientation="Horizontal" VerticalAlignment="Center">
-                <Button Margin="5 0 5 0" Padding="5 0 5 0" FontSize="25" Background="#282828" Foreground="White"> Easy </Button>
-                <Button Margin="5 0 5 0" Padding="5 0 5 0" FontSize="25" Background="#282828" Foreground="White"> Hard </Button>
+                <Button Margin="5 0 5 0" Padding="5 0 5 0" FontSize="25" Background="#020000" Foreground="White" x:Name="easyButton"> Easy </Button>
+                <Button Margin="5 0 5 0" Padding="5 0 5 0" FontSize="25" Background="#282828" Foreground="White" x:Name="hardButton"> Hard </Button>
             </StackPanel>
 
             <Button HorizontalAlignment="Left" Margin="15 40 15 0" Padding="5 0 5 0" FontSize="25" Background="#282828" Foreground="White">Play</Button>

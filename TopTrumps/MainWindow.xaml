@@ -6,7 +6,44 @@
         xmlns:local="clr-namespace:TopTrumps"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
 
+    <Grid Background="#121212">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Settings Buttons -->
+        <StackPanel Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Click="spMenuToggle" Background="#282828" Margin="10 10 10 10" FontSize="25" Foreground="White"> Single Player </Button>
+        </StackPanel>
+
+        <!-- Single Player Menu - CP -->
+        <StackPanel x:Name="SPMenu" Grid.Column="1" 
+                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                    Background="#282828"
+                    Margin="0 25 25 25"
+                    MaxWidth="500"
+                    MaxHeight="500"
+                    Visibility="Hidden">
+
+            <Label FontSize="25" Margin="10 10 10 10" Foreground="White"> How Many Bots? </Label>
+
+            <StackPanel Margin="10 10 10 10" Orientation="Horizontal" VerticalAlignment="Center">
+                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#282828" Foreground="White"> 1 </Button>
+                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#282828" Foreground="White"> 2 </Button>
+                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#282828" Foreground="White"> 3 </Button>
+            </StackPanel>
+
+            <Label FontSize="25" Margin="10 10 10 10" Foreground="White"> Difficulty? </Label>
+
+            <StackPanel Margin="10 10 10 10" Orientation="Horizontal" VerticalAlignment="Center">
+                <Button Margin="5 0 5 0" Padding="5 0 5 0" FontSize="25" Background="#282828" Foreground="White"> Easy </Button>
+                <Button Margin="5 0 5 0" Padding="5 0 5 0" FontSize="25" Background="#282828" Foreground="White"> Hard </Button>
+            </StackPanel>
+
+            <Button HorizontalAlignment="Left" Margin="15 40 15 0" Padding="5 0 5 0" FontSize="25" Background="#282828" Foreground="White">Play</Button>
+
+        </StackPanel>
     </Grid>
 </Window>

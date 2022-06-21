@@ -24,5 +24,27 @@ namespace TopTrumps
         {
             InitializeComponent();
         }
+
+        bool sp = false;
+        int bots = 0;
+        int players = 0;
+        string difficulty = "Easy";
+
+        // Opens or Closes Single Player Menu - CP
+        private void spMenuToggle(object sender, RoutedEventArgs e)
+        {
+            if (SPMenu.Visibility == Visibility.Visible)
+            {
+                SPMenu.Visibility = Visibility.Hidden;
+                sp = false; //Sets sp to false since sp menu is now hidden
+            }
+            else
+            {
+                SPMenu.Visibility=Visibility.Visible;
+                sp = true; //Sets sp to true since sp menu is visible
+
+            }
+
+        }
     }
 }

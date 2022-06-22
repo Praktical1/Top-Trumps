@@ -23,14 +23,23 @@ namespace TopTrumps
         public MainWindow()
         {
             InitializeComponent();
+
+            //Set up menu button listeners - CP
+            botButton1.Click += (object sender, RoutedEventArgs e) => { botSetAmount(sender, e, 1); };
+            botButton2.Click += (object sender, RoutedEventArgs e) => { botSetAmount(sender, e, 2); };
+            botButton3.Click += (object sender, RoutedEventArgs e) => { botSetAmount(sender, e, 3); };
+
+            easyButton.Click += (object sender, RoutedEventArgs e) => { difficultySet(sender, e, "easy"); };
+            hardButton.Click += (object sender, RoutedEventArgs e) => { difficultySet(sender, e, "hard"); };
         }
 
+        //Set up game settings attributes - CP
         bool sp = false;
-        int bots = 0;
+        int bots = 1;
         int players = 0;
-        string difficulty = "Easy";
+        string difficulty = "easy";
 
-        // Opens or Closes Single Player Menu - CP
+        // Opens or Closes Single Player Menu, changes SP game setting attribute - CP
         private void spMenuToggle(object sender, RoutedEventArgs e)
         {
             if (SPMenu.Visibility == Visibility.Visible)
@@ -46,5 +55,50 @@ namespace TopTrumps
             }
 
         }
+
+        // Visual feedback for bots amount game setting selected, changes bot amount game setting attribute - CP
+        private void botSetAmount(object sender, RoutedEventArgs e, int botAmount)
+        {
+            botButton1.Background = new SolidColorBrush(Color.FromRgb(40, 40, 40));
+            botButton2.Background = new SolidColorBrush(Color.FromRgb(40, 40, 40));
+            botButton3.Background = new SolidColorBrush(Color.FromRgb(40, 40, 40));
+
+            switch (botAmount)
+            {
+                case 0:
+                    break;
+                case 1:
+                    botButton1.Background = new SolidColorBrush(Color.FromRgb(2, 0, 0));
+                    bots = 1;
+                    break;
+                case 2:
+                    botButton2.Background = new SolidColorBrush(Color.FromRgb(2, 0, 0));
+                    bots = 2;
+                    break;
+                case 3:
+                    botButton3.Background = new SolidColorBrush(Color.FromRgb(2, 0, 0));
+                    bots = 3;
+                    break;
+            }
+
+        }
+
+        // visual feedback for difficulty game setting selected, changes difficulty game setting attribute - CP
+        private void difficultySet(object sender, RoutedEventArgs e, string newDifficulty)
+        {
+            easyButton.Background = new SolidColorBrush(Color.FromRgb(40, 40, 40));
+            hardButton.Background = new SolidColorBrush(Color.FromRgb(40, 40, 40));
+            if (newDifficulty.Equals("easy"))
+            {
+                easyButton.Background = new SolidColorBrush(Color.FromRgb(2, 0, 0));
+                difficulty = "easy";
+            }
+            else
+            {
+                hardButton.Background = new SolidColorBrush(Color.FromRgb(2, 0, 0));
+                difficulty = "hard";
+            }
+        }
+
     }
 }

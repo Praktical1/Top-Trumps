@@ -16,10 +16,11 @@
         <!-- Settings Buttons -->
         <StackPanel Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Button Click="spMenuToggle" Background="#282828" Margin="10 10 10 10" FontSize="25" Foreground="White"> Single Player </Button>
+            <Button Click="mpMenuToggle" Background="#282828" Margin="10 10 10 10" FontSize="25" Foreground="White"> Multi Player </Button>
         </StackPanel>
 
         <!-- Single Player Menu - CP -->
-        <StackPanel x:Name="SPMenu" Grid.Column="1" 
+        <StackPanel x:Name="spMenu" Grid.Column="1" 
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                     Background="#282828"
                     Margin="0 25 25 25"
@@ -30,16 +31,52 @@
             <Label FontSize="25" Margin="10 10 10 10" Foreground="White"> How Many Bots? </Label>
 
             <StackPanel Margin="10 10 10 10" Orientation="Horizontal" VerticalAlignment="Center">
-                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#020000" Foreground="White" x:Name="botButton1"> 1 </Button>
-                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#282828" Foreground="White" x:Name="botButton2"> 2 </Button>
-                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#282828" Foreground="White" x:Name="botButton3"> 3 </Button>
+                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#020000" Foreground="White" x:Name="spBotButton1"> 1 </Button>
+                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#282828" Foreground="White" x:Name="spBotButton2"> 2 </Button>
+                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#282828" Foreground="White" x:Name="spBotButton3"> 3 </Button>
             </StackPanel>
 
             <Label FontSize="25" Margin="10 10 10 10" Foreground="White"> Difficulty? </Label>
 
             <StackPanel Margin="10 10 10 10" Orientation="Horizontal" VerticalAlignment="Center">
-                <Button Margin="5 0 5 0" Padding="5 0 5 0" FontSize="25" Background="#020000" Foreground="White" x:Name="easyButton"> Easy </Button>
-                <Button Margin="5 0 5 0" Padding="5 0 5 0" FontSize="25" Background="#282828" Foreground="White" x:Name="hardButton"> Hard </Button>
+                <Button Margin="5 0 5 0" Padding="5 0 5 0" FontSize="25" Background="#020000" Foreground="White" x:Name="spEasyButton"> Easy </Button>
+                <Button Margin="5 0 5 0" Padding="5 0 5 0" FontSize="25" Background="#282828" Foreground="White" x:Name="spHardButton"> Hard </Button>
+            </StackPanel>
+
+            <Button HorizontalAlignment="Left" Margin="15 40 15 0" Padding="5 0 5 0" FontSize="25" Background="#282828" Foreground="White" Click="goToGame">Play</Button>
+
+        </StackPanel>
+
+        <!-- Multi Player Menu - CP -->
+        <StackPanel x:Name="mpMenu" Grid.Column="1" 
+                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                    Background="#282828"
+                    Margin="0 25 25 25"
+                    MaxWidth="500"
+                    MaxHeight="500"
+                    Visibility="Hidden">
+
+            <Label FontSize="25" Margin="10 10 10 10" Foreground="White">How Many Players?</Label>
+
+            <StackPanel Margin="10 10 10 10" Orientation="Horizontal" VerticalAlignment="Center">
+                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#020000" Foreground="White" x:Name="playerButton1">1</Button>
+                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#282828" Foreground="White" x:Name="playerButton2">2</Button>
+                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#282828" Foreground="White" x:Name="playerButton3">3</Button>
+            </StackPanel>
+            
+            <Label FontSize="25" Margin="10 10 10 10" Foreground="White">How Many Bots?</Label>
+
+            <StackPanel Margin="10 10 10 10" Orientation="Horizontal" VerticalAlignment="Center">
+                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#020000" Foreground="White" x:Name="mpBotButton1">1</Button>
+                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#282828" Foreground="White" x:Name="mpBotButton2">2</Button>
+                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#282828" Foreground="White" x:Name="mpBotButton3">3</Button>
+            </StackPanel>
+
+            <Label FontSize="25" Margin="10 10 10 10" Foreground="White">Difficulty?</Label>
+
+            <StackPanel Margin="10 10 10 10" Orientation="Horizontal" VerticalAlignment="Center">
+                <Button Margin="5 0 5 0" Padding="5 0 5 0" FontSize="25" Background="#020000" Foreground="White" x:Name="mpEasyButton">Easy</Button>
+                <Button Margin="5 0 5 0" Padding="5 0 5 0" FontSize="25" Background="#282828" Foreground="White" x:Name="mpHardButton">Hard</Button>
             </StackPanel>
 
             <Button HorizontalAlignment="Left" Margin="15 40 15 0" Padding="5 0 5 0" FontSize="25" Background="#282828" Foreground="White">Play</Button>

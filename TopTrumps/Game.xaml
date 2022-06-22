@@ -5,8 +5,118 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TopTrumps"
         mc:Ignorable="d"
-        Title="Game" Height="450" Width="800">
+        Title="Game" Height="720" Width="1280">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!--Your Card-->
+        <Grid x:Name="player1Card" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <Image Source="/Images/What.jpg" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 5 0 5"/>
+        </Grid>
+
+        <!--Your Deck-->
+        <Grid x:Name="player1Deck" Grid.Row="3" Grid.Column="2">
+            <Image Source="/Images/Cry.jpg" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 5 0 5"/>
+        </Grid>
+
+        <!--Player 2-->
+        <Grid x:Name="player2" Grid.Column="1"  Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <!--Player 2 Card-->
+            <Grid x:Name="player2Card" Grid.Column="1" Grid.RowSpan="2">
+                <Image Source="/Images/What.jpg" Margin="0 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
+                    <Image.LayoutTransform>
+                        <RotateTransform Angle="180"/>
+                    </Image.LayoutTransform>
+                </Image>
+            </Grid>
+
+            <!--Player 2 Deck-->
+            <Grid x:Name="player2Deck">
+                <Image Source="/Images/Cry.jpg" Margin="0 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right">
+                    <Image.LayoutTransform>
+                        <RotateTransform Angle="180"/>
+                    </Image.LayoutTransform>
+                </Image>
+            </Grid>
+        </Grid>
+
+        <!--Player 3-->
+        <Grid x:Name="player3" Grid.Row="1" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <!--Player 3 Card-->
+            <Grid x:Name="player3Card" Grid.Row="0">
+                <Image Source="/Images/What.jpg" Margin="10 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
+                    <Image.LayoutTransform>
+                        <RotateTransform Angle="90"/>
+                    </Image.LayoutTransform>
+                </Image>
+            </Grid>
+
+            <!--Player 3 Deck-->
+            <Grid x:Name="player3Deck" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Image Source="/Images/Cry.jpg" Margin="0 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
+                    <Image.LayoutTransform>
+                        <RotateTransform Angle="90"/>
+                    </Image.LayoutTransform>
+                </Image>
+            </Grid>
+        </Grid>
+
+        <!--Player 4-->
+        <Grid x:Name="player4" Grid.Row="1" Grid.Column="3" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <!--Player 4 Card-->
+            <Grid x:Name="player4Card" Grid.Row="1">
+                <Image Source="/Images/What.jpg" Margin="0 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right">
+                    <Image.LayoutTransform>
+                        <RotateTransform Angle="270"/>
+                    </Image.LayoutTransform>
+                </Image>
+            </Grid>
+
+            <!--Player 4 Deck-->
+            <Grid x:Name="player4Deck" Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Image Source="/Images/Cry.jpg" Margin="0 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Grid.Row="1">
+                    <Image.LayoutTransform>
+                        <RotateTransform Angle="270"/>
+                    </Image.LayoutTransform>
+                </Image>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>

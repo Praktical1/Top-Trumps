@@ -83,7 +83,6 @@ namespace TopTrumps
             {
                 spMenu.Visibility=Visibility.Visible;
                 s1.sp = true; //Sets sp to true since sp menu is visible
-
             }
 
         }

@@ -99,6 +99,10 @@ namespace TopTrumps
                 difficulty = "hard";
             }
         }
-
+        private void goToGame(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new Game2();
+            newWindow.ShowDialog();
+        }
     }
 }

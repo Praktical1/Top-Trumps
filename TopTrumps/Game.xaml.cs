@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace TopTrumps
 {
     /// <summary>
-    /// Interaction logic for Game2.xaml
+    /// Interaction logic for Game.xaml
     /// </summary>
-    public partial class Game2 : Window
+    public partial class Game : Window
     {
-        public Game2()
+        public Game()
         {
             InitializeComponent();
         }

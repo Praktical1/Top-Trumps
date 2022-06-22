@@ -105,8 +105,25 @@ namespace TopTrumps
         }
         private void goToGame(object sender, RoutedEventArgs e)
         {
-            var newWindow = new Game2();
-            newWindow.ShowDialog();
+            var newWindow = new Game();
+            newWindow.Show();
+            this.Close();
         }
+        //Open a Window
+        //private void goToGame(object sender, RoutedEventArgs e)
+        //{
+        //    var newWindow = new Game2();
+        //    newWindow.Show();
+        //    this.Close();
+        //}
+
+        //Open a Page (essentially with a nav bar)
+        //private void goToPage(object sender, RoutedEventArgs e)
+        //{
+        //    NavigationWindow window = new NavigationWindow();
+        //    window.Source = new Uri("Game.xaml",UriKind.Relative);
+        //    window.Show();
+        //}
+
     }
 }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TopTrumps.Model;
 
 namespace TopTrumps
 {
@@ -25,32 +26,30 @@ namespace TopTrumps
             InitializeComponent();
 
             //Set up menu button listeners - CP
-            botButton1.Click += (object sender, RoutedEventArgs e) => { botSetAmount(sender, e, 1); };
-            botButton2.Click += (object sender, RoutedEventArgs e) => { botSetAmount(sender, e, 2); };
-            botButton3.Click += (object sender, RoutedEventArgs e) => { botSetAmount(sender, e, 3); };
+            spBotButton1.Click += (object sender, RoutedEventArgs e) => { botSetAmount(sender, e, 1); };
+            spBotButton2.Click += (object sender, RoutedEventArgs e) => { botSetAmount(sender, e, 2); };
+            spBotButton3.Click += (object sender, RoutedEventArgs e) => { botSetAmount(sender, e, 3); };
 
-            easyButton.Click += (object sender, RoutedEventArgs e) => { difficultySet(sender, e, "easy"); };
-            hardButton.Click += (object sender, RoutedEventArgs e) => { difficultySet(sender, e, "hard"); };
+            spEasyButton.Click += (object sender, RoutedEventArgs e) => { difficultySet(sender, e, "easy"); };
+            spHardButton.Click += (object sender, RoutedEventArgs e) => { difficultySet(sender, e, "hard"); };
+
         }
 
-        //Set up game settings attributes - CP
-        bool sp = false;
-        int bots = 1;
-        int players = 0;
-        string difficulty = "easy";
+        //Set up game settings class - CP
+        Settings s1 = new Settings();
 
         // Opens or Closes Single Player Menu, changes SP game setting attribute - CP
         private void spMenuToggle(object sender, RoutedEventArgs e)
         {
-            if (SPMenu.Visibility == Visibility.Visible)
+            if (spMenu.Visibility == Visibility.Visible)
             {
-                SPMenu.Visibility = Visibility.Hidden;
-                sp = false; //Sets sp to false since sp menu is now hidden
+                spMenu.Visibility = Visibility.Hidden;
+                s1.sp = false; //Sets sp to false since sp menu is now hidden
             }
             else
             {
-                SPMenu.Visibility=Visibility.Visible;
-                sp = true; //Sets sp to true since sp menu is visible
+                spMenu.Visibility=Visibility.Visible;
+                s1.sp = true; //Sets sp to true since sp menu is visible
 
             }
 
@@ -59,25 +58,25 @@ namespace TopTrumps
         // Visual feedback for bots amount game setting selected, changes bot amount game setting attribute - CP
         private void botSetAmount(object sender, RoutedEventArgs e, int botAmount)
         {
-            botButton1.Background = new SolidColorBrush(Color.FromRgb(40, 40, 40));
-            botButton2.Background = new SolidColorBrush(Color.FromRgb(40, 40, 40));
-            botButton3.Background = new SolidColorBrush(Color.FromRgb(40, 40, 40));
+            spBotButton1.Background = new SolidColorBrush(Color.FromRgb(40, 40, 40));
+            spBotButton2.Background = new SolidColorBrush(Color.FromRgb(40, 40, 40));
+            spBotButton3.Background = new SolidColorBrush(Color.FromRgb(40, 40, 40));
 
             switch (botAmount)
             {
                 case 0:
                     break;
                 case 1:
-                    botButton1.Background = new SolidColorBrush(Color.FromRgb(2, 0, 0));
-                    bots = 1;
+                    spBotButton1.Background = new SolidColorBrush(Color.FromRgb(2, 0, 0));
+                    s1.bots = 1;
                     break;
                 case 2:
-                    botButton2.Background = new SolidColorBrush(Color.FromRgb(2, 0, 0));
-                    bots = 2;
+                    spBotButton2.Background = new SolidColorBrush(Color.FromRgb(2, 0, 0));
+                    s1.bots = 2;
                     break;
                 case 3:
-                    botButton3.Background = new SolidColorBrush(Color.FromRgb(2, 0, 0));
-                    bots = 3;
+                    spBotButton3.Background = new SolidColorBrush(Color.FromRgb(2, 0, 0));
+                    s1.bots = 3;
                     break;
             }
 
@@ -86,19 +85,23 @@ namespace TopTrumps
         // visual feedback for difficulty game setting selected, changes difficulty game setting attribute - CP
         private void difficultySet(object sender, RoutedEventArgs e, string newDifficulty)
         {
-            easyButton.Background = new SolidColorBrush(Color.FromRgb(40, 40, 40));
-            hardButton.Background = new SolidColorBrush(Color.FromRgb(40, 40, 40));
+            spEasyButton.Background = new SolidColorBrush(Color.FromRgb(40, 40, 40));
+            spHardButton.Background = new SolidColorBrush(Color.FromRgb(40, 40, 40));
             if (newDifficulty.Equals("easy"))
             {
-                easyButton.Background = new SolidColorBrush(Color.FromRgb(2, 0, 0));
-                difficulty = "easy";
+                spEasyButton.Background = new SolidColorBrush(Color.FromRgb(2, 0, 0));
+                s1.difficulty = "easy";
             }
             else
             {
-                hardButton.Background = new SolidColorBrush(Color.FromRgb(2, 0, 0));
-                difficulty = "hard";
+                spHardButton.Background = new SolidColorBrush(Color.FromRgb(2, 0, 0));
+                s1.difficulty = "hard";
             }
         }
 
+        private void mpMenuToggle(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

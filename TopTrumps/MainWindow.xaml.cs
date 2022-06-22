@@ -103,8 +103,6 @@ namespace TopTrumps
         {
 
         }
-    }
-}
         private void goToGame(object sender, RoutedEventArgs e)
         {
             var newWindow = new Game2();

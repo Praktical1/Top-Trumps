@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TopTrumps"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="720" Width="1280">
 
     <Grid Background="#121212">
         <Grid.ColumnDefinitions>
@@ -17,6 +17,8 @@
         <StackPanel Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Button Click="spMenuToggle" Background="#282828" Margin="10 10 10 10" FontSize="25" Foreground="White"> Single Player </Button>
             <Button Click="mpMenuToggle" Background="#282828" Margin="10 10 10 10" FontSize="25" Foreground="White"> Multi Player </Button>
+            <Button Click="deckMenuToggle" Background="#282828" Margin="10 10 10 10" FontSize="25" Foreground="White"> Deck </Button>
+            <Button Click="exitGame" Background="#282828" Margin="10 10 10 10" FontSize="25" Foreground="White"> Exit </Button>
         </StackPanel>
 
         <!-- Single Player Menu - CP -->
@@ -59,17 +61,17 @@
             <Label FontSize="25" Margin="10 10 10 10" Foreground="White">How Many Players?</Label>
 
             <StackPanel Margin="10 10 10 10" Orientation="Horizontal" VerticalAlignment="Center">
-                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#020000" Foreground="White" x:Name="playerButton1">1</Button>
-                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#282828" Foreground="White" x:Name="playerButton2">2</Button>
-                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#282828" Foreground="White" x:Name="playerButton3">3</Button>
+                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#020000" Foreground="White" x:Name="playerButton1">2</Button>
+                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#282828" Foreground="White" x:Name="playerButton2">3</Button>
+                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#282828" Foreground="White" x:Name="playerButton3">4</Button>
             </StackPanel>
             
             <Label FontSize="25" Margin="10 10 10 10" Foreground="White">How Many Bots?</Label>
 
             <StackPanel Margin="10 10 10 10" Orientation="Horizontal" VerticalAlignment="Center">
-                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#020000" Foreground="White" x:Name="mpBotButton1">1</Button>
-                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#282828" Foreground="White" x:Name="mpBotButton2">2</Button>
-                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#282828" Foreground="White" x:Name="mpBotButton3">3</Button>
+                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#020000" Foreground="White" x:Name="mpBotButton1">0</Button>
+                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#282828" Foreground="White" x:Name="mpBotButton2">1</Button>
+                <Button Margin="5 0 5 0" Padding="10 0 10 0" FontSize="25" Background="#282828" Foreground="White" x:Name="mpBotButton3">2</Button>
             </StackPanel>
 
             <Label FontSize="25" Margin="10 10 10 10" Foreground="White">Difficulty?</Label>
@@ -80,6 +82,25 @@
             </StackPanel>
 
             <Button HorizontalAlignment="Left" Margin="15 40 15 0" Padding="5 0 5 0" FontSize="25" Background="#282828" Foreground="White">Play</Button>
+
+        </StackPanel>
+
+        <!-- Deck Menu - CP -->
+        <StackPanel x:Name="deckMenu" Grid.Column="1" 
+                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                    Background="#282828"
+                    Margin="0 25 25 25"
+                    MaxWidth="500"
+                    MaxHeight="500"
+                    Visibility="Hidden">
+
+            <Label FontSize="25" Margin="10 10 10 10" Foreground="White">Deck Choice</Label>
+
+            <StackPanel Margin="10 10 10 10" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Left">
+                <Button Margin="5 0 5 10" Padding="10 0 10 0" FontSize="25" Background="#020000" Foreground="White" MaxWidth="100" x:Name="deckButtonBoxers">Boxers</Button>
+                <Button Margin="5 0 5 10" Padding="10 0 10 0" FontSize="25" Background="#282828" Foreground="White" MaxWidth="100" x:Name="deckButtonCats">Cats</Button>
+                <Button Margin="5 0 5 10" Padding="10 0 10 0" FontSize="25" Background="#282828" Foreground="White" MaxWidth="100" x:Name="deckButtonAnime">Anime</Button>
+            </StackPanel>
 
         </StackPanel>
     </Grid>

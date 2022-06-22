@@ -8,23 +8,23 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\fat_m\\.nuget\\packages\\": {},
+    "C:\\Users\\prize\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fat_m\\Source\\Repos\\Top-Trumps\\TopTrumps\\TopTrumps.csproj",
+      "projectUniqueName": "C:\\Users\\prize\\source\\repos\\Top-Trumps\\TopTrumps\\TopTrumps.csproj",
       "projectName": "TopTrumps",
-      "projectPath": "C:\\Users\\fat_m\\Source\\Repos\\Top-Trumps\\TopTrumps\\TopTrumps.csproj",
-      "packagesPath": "C:\\Users\\fat_m\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fat_m\\Source\\Repos\\Top-Trumps\\TopTrumps\\obj\\",
+      "projectPath": "C:\\Users\\prize\\source\\repos\\Top-Trumps\\TopTrumps\\TopTrumps.csproj",
+      "packagesPath": "C:\\Users\\prize\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\prize\\source\\repos\\Top-Trumps\\TopTrumps\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\fat_m\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\prize\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -71,5 +71,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\prize\\source\\repos\\Top-Trumps\\TopTrumps\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

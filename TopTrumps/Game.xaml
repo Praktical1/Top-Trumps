@@ -28,6 +28,13 @@
         <!--Your Deck-->
         <Grid x:Name="player1Deck" Grid.Row="3" Grid.Column="2">
             <Image Source="/Images/Cry.jpg" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 5 0 5"/>
+            <Viewbox Margin="0 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1">
+                <TextBlock>
+                    <TextBlock.Text>
+                        5
+                    </TextBlock.Text>
+                </TextBlock>
+            </Viewbox>
         </Grid>
 
         <!--Player 2-->
@@ -44,7 +51,7 @@
 
             <!--Player 2 Card-->
             <Grid x:Name="player2Card" Grid.Column="1" Grid.RowSpan="2">
-                <Image Source="/Images/What.jpg" Margin="0 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
+                <Image Source="/Images/What.jpg" Margin="0 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <Image.LayoutTransform>
                         <RotateTransform Angle="180"/>
                     </Image.LayoutTransform>
@@ -53,23 +60,33 @@
 
             <!--Player 2 Deck-->
             <Grid x:Name="player2Deck">
-                <Image Source="/Images/Cry.jpg" Margin="0 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right">
+                <Image Source="/Images/Cry.jpg" Margin="0 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" VerticalAlignment="Top">
                     <Image.LayoutTransform>
                         <RotateTransform Angle="180"/>
                     </Image.LayoutTransform>
                 </Image>
+                <Viewbox Margin="0 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right">
+                    <TextBlock>
+                        <TextBlock.LayoutTransform>
+                            <RotateTransform Angle="180"/>
+                        </TextBlock.LayoutTransform>
+                        <TextBlock.Text>
+                            5
+                        </TextBlock.Text>
+                    </TextBlock>
+                </Viewbox>
             </Grid>
         </Grid>
 
         <!--Player 3-->
-        <Grid x:Name="player3" Grid.Row="1" Grid.RowSpan="2">
+        <Grid x:Name="player3" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Left">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <!--Player 3 Card-->
             <Grid x:Name="player3Card" Grid.Row="0">
-                <Image Source="/Images/What.jpg" Margin="10 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
+                <Image Source="/Images/What.jpg" Margin="0 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Bottom">
                     <Image.LayoutTransform>
                         <RotateTransform Angle="90"/>
                     </Image.LayoutTransform>
@@ -82,23 +99,33 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Image Source="/Images/Cry.jpg" Margin="0 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
+                <Image Source="/Images/Cry.jpg" Margin="0 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <Image.LayoutTransform>
                         <RotateTransform Angle="90"/>
                     </Image.LayoutTransform>
                 </Image>
+                <Viewbox Margin="0 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
+                    <TextBlock>
+                        <TextBlock.LayoutTransform>
+                            <RotateTransform Angle="90"/>
+                        </TextBlock.LayoutTransform>
+                        <TextBlock.Text>
+                            5
+                        </TextBlock.Text>
+                    </TextBlock>
+                </Viewbox>
             </Grid>
         </Grid>
 
         <!--Player 4-->
-        <Grid x:Name="player4" Grid.Row="1" Grid.Column="3" Grid.RowSpan="2">
+        <Grid x:Name="player4" Grid.Row="1" Grid.Column="3" Grid.RowSpan="2" HorizontalAlignment="Right">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <!--Player 4 Card-->
             <Grid x:Name="player4Card" Grid.Row="1">
-                <Image Source="/Images/What.jpg" Margin="0 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right">
+                <Image Source="/Images/What.jpg" Margin="0 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" VerticalAlignment="Top">
                     <Image.LayoutTransform>
                         <RotateTransform Angle="270"/>
                     </Image.LayoutTransform>
@@ -111,11 +138,21 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Image Source="/Images/Cry.jpg" Margin="0 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Grid.Row="1">
+                <Image Source="/Images/Cry.jpg" Margin="0 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1">
                     <Image.LayoutTransform>
                         <RotateTransform Angle="270"/>
                     </Image.LayoutTransform>
                 </Image>
+                <Viewbox Margin="0 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1">
+                    <TextBlock>
+                        <TextBlock.LayoutTransform>
+                            <RotateTransform Angle="270"/>
+                        </TextBlock.LayoutTransform>
+                        <TextBlock.Text>
+                            5
+                        </TextBlock.Text>
+                    </TextBlock>
+                </Viewbox>
             </Grid>
         </Grid>
     </Grid>

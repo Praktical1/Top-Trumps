@@ -67,11 +67,11 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="choice1" Click="Game.select(1)" Grid.Column="0">Strength: 25</Button>
-            <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="choice2" Click="Game.select(2)" Grid.Column="1">Dexterity: 25</Button>
-            <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="choice3" Click="Game.select(3)" Grid.Column="2">Agility: 25</Button>
-            <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="choice4" Click="Game.select(4)" Grid.Column="3">Intelligence: 25</Button>
-            <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="choice5" Click="Game.select(5)" Grid.Column="4">Luck: 25</Button>
+            <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="choice1" Click="Select1" Grid.Column="0">Strength: 25</Button>
+            <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="choice2" Click="Select2" Grid.Column="1">Dexterity: 25</Button>
+            <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="choice3" Click="Select3" Grid.Column="2">Agility: 25</Button>
+            <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="choice4" Click="Select4" Grid.Column="3">Intelligence: 25</Button>
+            <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="choice5" Click="Select5" Grid.Column="4">Luck: 25</Button>
         </Grid>
 
         <!--Player 2-->

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TopTrumps.Model;
 
 namespace TopTrumps
 {
@@ -29,6 +30,27 @@ namespace TopTrumps
             var newWindow = new MainWindow();
             newWindow.Show();
             this.Close();
+        }
+
+        private void Select1(object sender, RoutedEventArgs e)
+        {
+            Program.choice(1);
+        }
+        private void Select2(object sender, RoutedEventArgs e)
+        {
+            Program.choice(2);
+        }
+        private void Select3(object sender, RoutedEventArgs e)
+        {
+            Program.choice(3);
+        }
+        private void Select4(object sender, RoutedEventArgs e)
+        {
+            Program.choice(4);
+        }
+        private void Select5(object sender, RoutedEventArgs e)
+        {
+            Program.choice(5);
         }
     }
 }

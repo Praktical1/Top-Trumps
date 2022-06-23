@@ -9,41 +9,16 @@ namespace TopTrumps.Model
     internal class Program
     {
 
-        List<Card> boxerDeck;
-        List<Card> catDeck;
-        List<Card> animeDeck;
+        public Deck boxerDeck { get; set; }
+        public Deck catDeck { get; set; }
+        public Deck animeDeck { get; set; }
 
 
         public Program()
         {
-            boxerDeck = new List<Card>();
-            catDeck = new List<Card>();
-            animeDeck = new List<Card>();
-        }
-
-
-        public void createDeck(string deckType)
-        {
-            switch (deckType)
-            {
-                case ("boxer"):
-
-                    for (int i = 0; i < 20; i++)
-                    {
-
-                    }
-                    break;
-
-                case ("cat"):
-
-                    for (int i = 0; i < 20; i++)
-                    {
-                    }
-                    break;
-
-                case ("anime"):
-                    break;
-            }
+            boxerDeck = new Deck("boxer");
+            catDeck = new Deck("cat");
+            animeDeck = new Deck("anime");
         }
 
         public static void choice(int selection)

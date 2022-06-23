@@ -15,7 +15,7 @@ namespace TopTrumps.Model
         public string propertyName4 { get; set; }
         public string propertyName5 { get; set; }
 
-        List<Card> deckList;
+        public List<Card> deckList { get; set; }
 
 
         public Deck(string deckType)

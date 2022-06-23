@@ -1,23 +1,56 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-List<Card> deck = new List<Card>();
-
-public class Game
+namespace TopTrumps.Model
 {
-	public List<Card> loadDeck()
+
+	public class Game
 	{
-		for (int i = 0; i < deck.Count; i++)
-		{
-			deck.Add();
+
+		List<Card> boxerDeck;
+		List<Card> catDeck;
+		List<Card> animeDeck;
+
+
+		public Game()
+        {
+			boxerDeck = new List<Card>();
+			catDeck = new List<Card>();
+			animeDeck = new List<Card>();
 		}
-	}
 
-	public static void main()
-	{
-		loadDeck();
-		
-		shuffleDeck();
 
-		playHand(int id);
+		public void createDeck(string deckType)
+		{
+            switch (deckType)
+            {
+				case("boxer"):
+
+					for (int i = 0; i < 20; i++)
+					{	
+
+					}
+					break;
+
+
+
+				case ("cat"):
+
+					for (int i = 0; i < 20; i++)
+					{
+					}
+					break ;
+
+				case ("anime"):
+					break;
+			}
+
+
+
+		}
+
 	}
 }

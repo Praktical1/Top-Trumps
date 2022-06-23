@@ -34,8 +34,6 @@ namespace TopTrumps.Model
                     }
                     break;
 
-
-
                 case ("cat"):
 
                     for (int i = 0; i < 20; i++)

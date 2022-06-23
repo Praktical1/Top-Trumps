@@ -18,11 +18,32 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition Height="50px"/>
         </Grid.RowDefinitions>
+
+        <!--Background-->
+        <Image Source="/Images/Background.jpg" Stretch="Fill" Grid.ColumnSpan="4" Grid.RowSpan="4"/>
+
+        <!--Back to Menu-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="backToMenu" Click="GoToMenu">Back to Menu</Button>
+        </Grid>
+        
+        <!--Your Turn-->
+        <Image Source="/Images/Your-Turn.jpg" Stretch="UniformToFill" Grid.Column="3" Grid.Row="3"/>
 
         <!--Your Card-->
         <Grid x:Name="player1Card" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2">
             <Image Source="/Images/What.jpg" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 5 0 5"/>
+            <Image Source="/Images/Winner.png" Margin="0 0 0 -10" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden"/>
         </Grid>
 
         <!--Your Deck-->
@@ -35,6 +56,22 @@
                     </TextBlock.Text>
                 </TextBlock>
             </Viewbox>
+        </Grid>
+        
+        <!--Card Selector-->
+        <Grid x:Name="choices" Grid.Row="4" Grid.ColumnSpan="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="choice1" Click="Game.select(1)" Grid.Column="0">Strength: 25</Button>
+            <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="choice2" Click="Game.select(2)" Grid.Column="1">Dexterity: 25</Button>
+            <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="choice3" Click="Game.select(3)" Grid.Column="2">Agility: 25</Button>
+            <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="choice4" Click="Game.select(4)" Grid.Column="3">Intelligence: 25</Button>
+            <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="choice5" Click="Game.select(5)" Grid.Column="4">Luck: 25</Button>
         </Grid>
 
         <!--Player 2-->
@@ -52,6 +89,11 @@
             <!--Player 2 Card-->
             <Grid x:Name="player2Card" Grid.Column="1" Grid.RowSpan="2">
                 <Image Source="/Images/What.jpg" Margin="0 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Image.LayoutTransform>
+                        <RotateTransform Angle="180"/>
+                    </Image.LayoutTransform>
+                </Image>
+                <Image Source="/Images/Winner.png" Margin="0 -5 0 0" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden">
                     <Image.LayoutTransform>
                         <RotateTransform Angle="180"/>
                     </Image.LayoutTransform>
@@ -91,6 +133,11 @@
                         <RotateTransform Angle="90"/>
                     </Image.LayoutTransform>
                 </Image>
+                <Image Source="/Images/Winner.png" Margin="-10 0 0 0" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Bottom" Visibility="Hidden">
+                    <Image.LayoutTransform>
+                        <RotateTransform Angle="90"/>
+                    </Image.LayoutTransform>
+                </Image>
             </Grid>
 
             <!--Player 3 Deck-->
@@ -104,16 +151,23 @@
                         <RotateTransform Angle="90"/>
                     </Image.LayoutTransform>
                 </Image>
-                <Viewbox Margin="0 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
-                    <TextBlock>
-                        <TextBlock.LayoutTransform>
-                            <RotateTransform Angle="90"/>
-                        </TextBlock.LayoutTransform>
-                        <TextBlock.Text>
-                            5
-                        </TextBlock.Text>
-                    </TextBlock>
-                </Viewbox>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="4.6*"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Viewbox Margin="0 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Grid.Row="1">
+                        <TextBlock>
+                            <TextBlock.LayoutTransform>
+                                <RotateTransform Angle="90"/>
+                            </TextBlock.LayoutTransform>
+                            <TextBlock.Text>
+                                5
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </Viewbox>
+                </Grid>
             </Grid>
         </Grid>
 
@@ -126,6 +180,11 @@
             <!--Player 4 Card-->
             <Grid x:Name="player4Card" Grid.Row="1">
                 <Image Source="/Images/What.jpg" Margin="0 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" VerticalAlignment="Top">
+                    <Image.LayoutTransform>
+                        <RotateTransform Angle="270"/>
+                    </Image.LayoutTransform>
+                </Image>
+                <Image Source="/Images/Winner.png" Margin="0 0 -10 0" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" VerticalAlignment="Top" Visibility="Hidden">
                     <Image.LayoutTransform>
                         <RotateTransform Angle="270"/>
                     </Image.LayoutTransform>
@@ -143,16 +202,23 @@
                         <RotateTransform Angle="270"/>
                     </Image.LayoutTransform>
                 </Image>
-                <Viewbox Margin="0 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1">
-                    <TextBlock>
-                        <TextBlock.LayoutTransform>
-                            <RotateTransform Angle="270"/>
-                        </TextBlock.LayoutTransform>
-                        <TextBlock.Text>
-                            5
-                        </TextBlock.Text>
-                    </TextBlock>
-                </Viewbox>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="4.6*"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Viewbox Margin="0 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1">
+                        <TextBlock>
+                            <TextBlock.LayoutTransform>
+                                <RotateTransform Angle="270"/>
+                            </TextBlock.LayoutTransform>
+                            <TextBlock.Text>
+                                5
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </Viewbox>
+                </Grid>
             </Grid>
         </Grid>
     </Grid>

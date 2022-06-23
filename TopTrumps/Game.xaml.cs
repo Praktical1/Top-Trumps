@@ -23,5 +23,12 @@ namespace TopTrumps
         {
             InitializeComponent();
         }
+
+        private void GoToMenu(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new MainWindow();
+            newWindow.Show();
+            this.Close();
+        }
     }
 }

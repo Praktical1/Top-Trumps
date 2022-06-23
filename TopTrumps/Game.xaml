@@ -22,7 +22,7 @@
         </Grid.RowDefinitions>
 
         <!--Background-->
-        <Image Source="/Images/Background.jpg" Stretch="Fill"/>
+        <Image Source="/Images/Background.jpg" Stretch="Fill" Grid.ColumnSpan="4" Grid.RowSpan="4"/>
 
         <!--Back to Menu-->
         <Grid>
@@ -34,7 +34,7 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="backToMenu" Click="goToMenu(1)">Back to Menu</Button>
+            <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="backToMenu" Click="GoToMenu">Back to Menu</Button>
         </Grid>
         
         <!--Your Turn-->
@@ -43,8 +43,8 @@
         <!--Your Card-->
         <Grid x:Name="player1Card" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2">
             <Image Source="/Images/What.jpg" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 5 0 5"/>
+            <Image Source="/Images/Winner.png" Margin="0 0 0 -10" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden"/>
         </Grid>
-        <Image Source="/Images/Winner.png" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden"/>
 
         <!--Your Deck-->
         <Grid x:Name="player1Deck" Grid.Row="3" Grid.Column="2">
@@ -67,11 +67,11 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="choice1" Click="select(1)" Grid.Column="0">Strength: 25</Button>
-            <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="choice2" Click="select(2)" Grid.Column="1">Dexterity: 25</Button>
-            <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="choice3" Click="select(3)" Grid.Column="2">Agility: 25</Button>
-            <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="choice4" Click="select(4)" Grid.Column="3">Intelligence: 25</Button>
-            <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="choice5" Click="select(5)" Grid.Column="4">Luck: 25</Button>
+            <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="choice1" Click="Game.select(1)" Grid.Column="0">Strength: 25</Button>
+            <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="choice2" Click="Game.select(2)" Grid.Column="1">Dexterity: 25</Button>
+            <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="choice3" Click="Game.select(3)" Grid.Column="2">Agility: 25</Button>
+            <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="choice4" Click="Game.select(4)" Grid.Column="3">Intelligence: 25</Button>
+            <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="choice5" Click="Game.select(5)" Grid.Column="4">Luck: 25</Button>
         </Grid>
 
         <!--Player 2-->
@@ -93,7 +93,11 @@
                         <RotateTransform Angle="180"/>
                     </Image.LayoutTransform>
                 </Image>
-                <Image Source="/Images/Winner.png" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden"/>
+                <Image Source="/Images/Winner.png" Margin="0 -5 0 0" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden">
+                    <Image.LayoutTransform>
+                        <RotateTransform Angle="180"/>
+                    </Image.LayoutTransform>
+                </Image>
             </Grid>
 
             <!--Player 2 Deck-->
@@ -129,7 +133,11 @@
                         <RotateTransform Angle="90"/>
                     </Image.LayoutTransform>
                 </Image>
-                <Image Source="/Images/Winner.png" HorizontalAlignment="Left" VerticalAlignment="Bottom" Visibility="Hidden"/>
+                <Image Source="/Images/Winner.png" Margin="-10 0 0 0" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Bottom" Visibility="Hidden">
+                    <Image.LayoutTransform>
+                        <RotateTransform Angle="90"/>
+                    </Image.LayoutTransform>
+                </Image>
             </Grid>
 
             <!--Player 3 Deck-->
@@ -176,7 +184,11 @@
                         <RotateTransform Angle="270"/>
                     </Image.LayoutTransform>
                 </Image>
-                <Image Source="/Images/Winner.png" HorizontalAlignment="Right" VerticalAlignment="Top" Visibility="Visible"/>
+                <Image Source="/Images/Winner.png" Margin="0 0 -10 0" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" VerticalAlignment="Top" Visibility="Hidden">
+                    <Image.LayoutTransform>
+                        <RotateTransform Angle="270"/>
+                    </Image.LayoutTransform>
+                </Image>
             </Grid>
 
             <!--Player 4 Deck-->

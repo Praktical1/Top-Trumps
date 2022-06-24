@@ -17,7 +17,12 @@ namespace TopTrumps.Model
         public string propertyName4 { get; set; }
         public string propertyName5 { get; set; }
 
+        public List<Card> sortedDeckList { get; set; }
         public List<Card> deckList { get; set; }
+        public List<Card> player1DeckList { get; set; }
+        public List<Card> player2DeckList { get; set; }
+        public List<Card> player3DeckList { get; set; }
+        public List<Card> player4DeckList { get; set; }
 
 
 
@@ -52,7 +57,12 @@ namespace TopTrumps.Model
                     break;
             }
 
+            sortedDeckList = new List<Card>();
             deckList = new List<Card>();
+            player1DeckList = new List<Card>();
+            player2DeckList = new List<Card>();
+            player3DeckList = new List<Card>();
+            player4DeckList = new List<Card>();
 
             createDeck(deckType);
         }
@@ -72,7 +82,7 @@ namespace TopTrumps.Model
                         foreach (string line in lines)
                         {
                             string[] lineParts = line.Split(" ");
-                            deckList.Add(new Card(lineParts[0], lineParts[1], Int16.Parse(lineParts[2]), Int16.Parse(lineParts[3]), Int16.Parse(lineParts[4]), Int16.Parse(lineParts[5]), Int16.Parse(lineParts[6])));
+                            sortedDeckList.Add(new Card(lineParts[0], lineParts[1], Int16.Parse(lineParts[2]), Int16.Parse(lineParts[3]), Int16.Parse(lineParts[4]), Int16.Parse(lineParts[5]), Int16.Parse(lineParts[6])));
                         }
 
                     }catch(Exception e) {
@@ -81,6 +91,79 @@ namespace TopTrumps.Model
                     break;
 
                 case ("anime"):
+                    break;
+            }
+
+            Shuffle(sortedDeckList);
+        }
+
+        //Shuffles card deck list - CP
+        public Random rng = new Random();
+        public void Shuffle(List<Card> listToShuffle)
+        {
+            for(int i=0; i<20; i++)
+            {
+                int randomNum = rng.Next(listToShuffle.Count); //gets random number between 0 and amount of cards in list
+                Card randomCard = listToShuffle[randomNum]; //stores a random card using randomNum as the index
+                listToShuffle.Remove(listToShuffle[randomNum]); //remove the random card from the list to not get duplicates
+                deckList.Add(randomCard); //add the random card to a new shuffled list
+            }
+        }
+
+        //Splits the deck list into seperate lists for the amount of players in the game
+        public void distributeCards(int players)
+        {
+            switch (players)
+            {
+                case 2:
+                    for(int i=0; i<20; i++)
+                    {
+                        if (i < 10)
+                        {
+                            player1DeckList.Add(deckList[i]);
+                        }
+                        else
+                        {
+                            player2DeckList.Add(deckList[i]);
+                        }
+                    }
+                    break;
+                case 3:
+                    for (int i = 0; i < 18; i++)
+                    {
+                        if (i < 6)
+                        {
+                            player1DeckList.Add(deckList[i]);
+                        }else if (i < 12)
+                        {
+                            player2DeckList.Add(deckList[i]);
+                        }
+                        else
+                        {
+                            player3DeckList.Add(deckList[i]);
+                        }
+                    }
+                    break;
+                case 4:
+                    for (int i = 0; i < 20; i++)
+                    {
+                        if (i < 5)
+                        {
+                            player1DeckList.Add(deckList[i]);
+                        }
+                        else if (i < 10)
+                        {
+                            player2DeckList.Add(deckList[i]);
+                        }
+                        else if (i < 15)
+                        {
+                            player3DeckList.Add(deckList[i]);
+                        }
+                        else
+                        {
+                            player4DeckList.Add(deckList[i]);
+                        }
+                    }
                     break;
             }
         }

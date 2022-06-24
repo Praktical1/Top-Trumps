@@ -118,7 +118,7 @@ namespace TopTrumps
             }
         }
 
-        public async void Winner(int player)
+        public async void Winner(int player, int cardsOnTable)
         {
             switch (player)
             {

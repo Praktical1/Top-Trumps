@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="CardValues\CatProperties" />
     <None Remove="Images\Background.jpg" />
     <None Remove="Images\Cry.jpg" />
     <None Remove="Images\What.jpg" />
@@ -15,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="CardValues\CatProperties" />
     <Resource Include="Images\Background.jpg" />
     <Resource Include="Images\Cry.jpg" />
     <Resource Include="Images\What.jpg" />

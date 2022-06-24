@@ -18,7 +18,6 @@ namespace TopTrumps
 {
     public partial class Game : Window
     {
-        private int countPlayer;
         int count1;
         int count2;
         int count3;
@@ -80,19 +79,16 @@ namespace TopTrumps
             choices.Visibility = Visibility.Visible;
         }
 
-        public void Players(int Playercount)
+        public void Players(int playercount)
         {
-            switch (Playercount)
+            switch (playercount)
             {
                 case 2:
-                    countPlayer = 2;
                     break;
                 case 3:
-                    countPlayer = 3;
                     player3.Visibility = Visibility.Visible;
                     break;
                 case 4:
-                    countPlayer = 4;
                     player3.Visibility = Visibility.Visible;
                     player4.Visibility = Visibility.Visible;
                     break;

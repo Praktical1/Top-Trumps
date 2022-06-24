@@ -8,12 +8,12 @@ namespace TopTrumps.Model
 {
     internal class Deck
     {
-        public string deckType {get; set;}
-        public string propertyName1 { get; set; }
-        public string propertyName2 { get; set; }
-        public string propertyName3 { get; set; }
-        public string propertyName4 { get; set; }
-        public string propertyName5 { get; set; }
+        public string? deckType {get; set;}
+        public string? propertyName1 { get; set; }
+        public string? propertyName2 { get; set; }
+        public string? propertyName3 { get; set; }
+        public string? propertyName4 { get; set; }
+        public string? propertyName5 { get; set; }
 
         public List<Card> deckList { get; set; }
 
@@ -41,11 +41,12 @@ namespace TopTrumps.Model
                     break;
 
                 case ("anime"):
-                    this.propertyName1 = "Power";
-                    this.propertyName2 = "Intimidation";
-                    this.propertyName3 = "Charm";
-                    this.propertyName4 = "Reflexes";
-                    this.propertyName5 = "Endurance";
+                    string[] MClines = System.IO.File.ReadAllLines("CardValue/MCProperties.txt");
+                    this.propertyName1 = MClines[0];
+                    this.propertyName2 = MClines[1];
+                    this.propertyName3 = MClines[2];
+                    this.propertyName4 = MClines[3];
+                    this.propertyName5 = MClines[4];
                     break;
             }
 
@@ -54,7 +55,7 @@ namespace TopTrumps.Model
             createDeck(deckType);
         }
 
-        public void createDeck(string deckType)
+        public List<Card> createDeck(string deckType)
         {
             switch (deckType)
             {
@@ -72,8 +73,16 @@ namespace TopTrumps.Model
                     break;
 
                 case ("anime"):
+                    string[] MClines = System.IO.File.ReadAllLines("CardValue/MCProperties.txt");
+                    for (int i = 5; i < MClines.Length; i++)
+                    {
+                        string[] lineParts = MClines[i].Split(" ");
+                        deckList.Add(new Card(lineParts[0], lineParts[1], Int16.Parse(lineParts[2]), Int16.Parse(lineParts[3]), Int16.Parse(lineParts[4]), Int16.Parse(lineParts[5]), Int16.Parse(lineParts[6])));
+                    }
                     break;
             }
+
+            return deckList;
         }
     }
 }

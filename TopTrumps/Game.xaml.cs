@@ -32,7 +32,7 @@ namespace TopTrumps
         {
             InitializeComponent();
             gameProgram = new Program(s1);
-            Players(s1.players);
+            Players(s1.players+s1.bots);
         }
 
         private void GoToMenu(object sender, RoutedEventArgs e)

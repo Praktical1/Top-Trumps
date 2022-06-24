@@ -57,6 +57,7 @@ namespace TopTrumps.Model
             createDeck(deckType);
         }
 
+        // Read txt file containing card information to create card objects based on the values in the txt file - CP + PK
         public void createDeck(string deckType)
         {
             switch (deckType)

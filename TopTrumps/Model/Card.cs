@@ -8,7 +8,7 @@ namespace TopTrumps.Model
 {
 	public class Card
 	{
-		// values of each card
+		// values of each card - RS
 		public string deck { get; set; }
 		public string id { get; set; }
 		public int property1 { get; set; }
@@ -17,7 +17,7 @@ namespace TopTrumps.Model
 		public int property4 { get; set; }
 		public int property5 { get; set; }
 
-		// constructor for cards
+		// constructor for cards - RS
 		public Card(string deck, string id, int property1, int property2, int property3, int property4, int property5)
 		{
 			this.deck = deck;

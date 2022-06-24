@@ -38,11 +38,75 @@ namespace TopTrumps
             InitializeComponent();
             gameSettings = s1;
             setUpSettings();
+            Deck catDeck = new Deck("cat");
         }
 
         public void setUpSettings()
         {
             Players(gameSettings.players, gameSettings.bots);
+        }
+
+        private void GoToMenu(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new MainWindow();
+            newWindow.Show();
+            this.Close();
+        }
+
+        private void Select1(object sender, RoutedEventArgs e)
+        {
+            urTurn.Visibility = Visibility.Hidden;
+            choices.Visibility = Visibility.Hidden;
+            Program.choice(1);
+            Winner(1);
+        }
+        private void Select2(object sender, RoutedEventArgs e)
+        {
+            urTurn.Visibility = Visibility.Hidden;
+            choices.Visibility = Visibility.Hidden;
+            Program.choice(2);
+        }
+        private void Select3(object sender, RoutedEventArgs e)
+        {
+            urTurn.Visibility = Visibility.Hidden;
+            choices.Visibility = Visibility.Hidden;
+            Program.choice(3);
+            Winner(3);
+        }
+        private void Select4(object sender, RoutedEventArgs e)
+        {
+            urTurn.Visibility = Visibility.Hidden;
+            choices.Visibility = Visibility.Hidden;
+            Program.choice(4);
+            Winner(4);
+        }
+        private void Select5(object sender, RoutedEventArgs e)
+        {
+            urTurn.Visibility = Visibility.Hidden;
+            choices.Visibility = Visibility.Hidden;
+            Program.choice(5);
+            Winner(1);
+            Winner(2);
+            Winner(3);
+            Winner(4);
+        }
+
+        public void YourTurn()
+        {
+            urTurn.Visibility = Visibility.Visible;
+            choices.Visibility = Visibility.Visible;
+        }
+
+        public void Draw()
+        {
+            count1--;
+            player1Deck.Text = count1.ToString();
+            count2--;
+            player2Deck.Text = count2.ToString();
+            count3--;
+            player3Deck.Text = count3.ToString();
+            count4--;
+            player4Deck.Text = count4.ToString();
         }
 
         // Shows the cards based on how many players/bots there are. Sets bool values to identify which players are bots - PK + CP
@@ -119,68 +183,6 @@ namespace TopTrumps
             }
         }
 
-        private void GoToMenu(object sender, RoutedEventArgs e)
-        {
-            var newWindow = new MainWindow();
-            newWindow.Show();
-            this.Close();
-        }
-
-        private void Select1(object sender, RoutedEventArgs e)
-        {
-            urTurn.Visibility = Visibility.Hidden;
-            choices.Visibility = Visibility.Hidden;
-            Program.choice(1);
-            Winner(1);
-        }
-        private void Select2(object sender, RoutedEventArgs e)
-        {
-            urTurn.Visibility = Visibility.Hidden;
-            choices.Visibility = Visibility.Hidden;
-            Program.choice(2);
-        }
-        private void Select3(object sender, RoutedEventArgs e)
-        {
-            urTurn.Visibility = Visibility.Hidden;
-            choices.Visibility = Visibility.Hidden;
-            Program.choice(3);
-            Winner(3);
-        }
-        private void Select4(object sender, RoutedEventArgs e)
-        {
-            urTurn.Visibility = Visibility.Hidden;
-            choices.Visibility = Visibility.Hidden;
-            Program.choice(4);
-            Winner(4);
-        }
-        private void Select5(object sender, RoutedEventArgs e)
-        {
-            urTurn.Visibility = Visibility.Hidden;
-            choices.Visibility = Visibility.Hidden;
-            Program.choice(5);
-            Winner(1);
-            Winner(2);
-            Winner(3);
-            Winner(4);
-        }
-
-        public void YourTurn()
-        {
-            urTurn.Visibility = Visibility.Visible;
-            choices.Visibility = Visibility.Visible;
-        }
-
-        public void Draw()
-        {
-            count1--;
-            player1Deck.Text = count1.ToString();
-            count2--;
-            player2Deck.Text = count2.ToString();
-            count3--;
-            player3Deck.Text = count3.ToString();
-            count4--;
-            player4Deck.Text = count4.ToString();
-        }
         public async void Winner(int player)
         {
             switch (player)

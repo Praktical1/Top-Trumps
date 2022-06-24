@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +18,7 @@ namespace TopTrumps.Model
         public string propertyName5 { get; set; }
 
         public List<Card> deckList { get; set; }
+
 
 
         public Deck(string deckType)
@@ -62,12 +65,17 @@ namespace TopTrumps.Model
                     break;
 
                 case ("cat"):
-                    string[] lines = System.IO.File.ReadAllLines("CardValue/CatProperties.txt");
-
-                    foreach (string line in lines)
+                    try
                     {
-                        string[]lineParts = line.Split(" ");
-                        deckList.Add(new Card(lineParts[0], lineParts[1], Int16.Parse(lineParts[2]), Int16.Parse(lineParts[3]), Int16.Parse(lineParts[4]), Int16.Parse(lineParts[5]), Int16.Parse(lineParts[6])));
+                        string[] lines = System.IO.File.ReadAllLines("../../../CardValues/CatProperties");
+                        foreach (string line in lines)
+                        {
+                            string[] lineParts = line.Split(" ");
+                            deckList.Add(new Card(lineParts[0], lineParts[1], Int16.Parse(lineParts[2]), Int16.Parse(lineParts[3]), Int16.Parse(lineParts[4]), Int16.Parse(lineParts[5]), Int16.Parse(lineParts[6])));
+                        }
+
+                    }catch(Exception e) {
+                        Trace.WriteLine("File not found");
                     }
                     break;
 

@@ -21,29 +21,18 @@ namespace TopTrumps
     public partial class Game : Window
     {
         private int countPlayer;
-        private int countBot;
         int count1;
         int count2;
         int count3;
         int count4;
 
-        bool isPlayer2Bot=false;
-        bool isPlayer3Bot=false;
-        bool isPlayer4Bot=false;
-
-        Settings gameSettings;
+        Program gameProgram;
 
         public Game(Settings s1)
         {
             InitializeComponent();
-            gameSettings = s1;
-            setUpSettings();
-            Deck catDeck = new Deck("cat");
-        }
-
-        public void setUpSettings()
-        {
-            Players(gameSettings.players, gameSettings.bots);
+            gameProgram = new Program(s1);
+            Players(s1.players);
         }
 
         private void GoToMenu(object sender, RoutedEventArgs e)
@@ -110,73 +99,19 @@ namespace TopTrumps
         }
 
         // Shows the cards based on how many players/bots there are. Sets bool values to identify which players are bots - PK + CP
-        public void Players(int playerCount, int botCount)
+        public void Players(int playerCount)
         {
             switch (playerCount)
             {
-                case 1:
-                    countPlayer = 1;
-                    switch (botCount)
-                    {
-                        case 1:
-                            countBot = 1;
-                            isPlayer2Bot = true;
-                            break;
-                        case 2:
-                            countBot = 2;
-                            isPlayer2Bot = true;
-                            isPlayer3Bot = true;
-                            player3.Visibility = Visibility.Visible;
-                            break;
-                        case 3:
-                            countBot = 3;
-                            isPlayer2Bot = true;
-                            isPlayer3Bot = true;
-                            isPlayer4Bot = true;
-                            player3.Visibility = Visibility.Visible;
-                            player4.Visibility = Visibility.Visible;
-                            break;
-                    }
-                    break;
                 case 2:
                     countPlayer = 2;
-                    switch (botCount)
-                    {
-                        case 1:
-                            countBot = 1;
-                            isPlayer3Bot = true;
-                            player3.Visibility = Visibility.Visible;
-                            break;
-                        case 2:
-                            countBot = 2;
-                            isPlayer3Bot = true;
-                            isPlayer4Bot = true;
-                            player3.Visibility = Visibility.Visible;
-                            player4.Visibility = Visibility.Visible;
-                            break;
-                        default:
-                            countBot = 0;
-                            break;
-                    }
                     break;
                 case 3:
                     countPlayer = 3;
                     player3.Visibility = Visibility.Visible;
-                    switch (botCount)
-                    {
-                        case 1:
-                            countBot = 1;
-                            isPlayer4Bot = true;
-                            player4.Visibility = Visibility.Visible;
-                            break;
-                        default:
-                            countBot = 0;
-                            break;
-                    }
                     break;
                 case 4:
                     countPlayer = 4;
-                    countBot = 0;
                     player3.Visibility = Visibility.Visible;
                     player4.Visibility = Visibility.Visible;
                     break;

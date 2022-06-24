@@ -37,9 +37,6 @@
             <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="backToMenu" Click="GoToMenu">Back to Menu</Button>
         </Grid>
         
-        <!--Your Turn-->
-        <Image Source="/Images/Your-Turn.jpg" Stretch="UniformToFill" Grid.Column="3" Grid.Row="3"/>
-
         <!--Your Card-->
         <Grid x:Name="player1Card" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2">
             <Image Source="/Images/What.jpg" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 5 0 5"/>
@@ -73,6 +70,9 @@
             <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="choice4" Click="Select4" Grid.Column="3">Intelligence: 25</Button>
             <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="choice5" Click="Select5" Grid.Column="4">Luck: 25</Button>
         </Grid>
+        <!--Your Turn-->
+        <Image x:Name="urTurn" Source="/Images/Your-Turn.jpg" Stretch="UniformToFill" Grid.Column="3" Grid.Row="3" Visibility="Hidden"/>
+
 
         <!--Player 2-->
         <Grid x:Name="player2" Grid.Column="1"  Grid.ColumnSpan="2" Grid.RowSpan="2">
@@ -135,7 +135,7 @@
         </Grid>
 
         <!--Player 3-->
-        <Grid x:Name="player3" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Left">
+        <Grid x:Name="player3" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Left" Visibility="Hidden">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -183,7 +183,7 @@
         </Grid>
 
         <!--Player 4-->
-        <Grid x:Name="player4" Grid.Row="1" Grid.Column="3" Grid.RowSpan="2" HorizontalAlignment="Right">
+        <Grid x:Name="player4" Grid.Row="1" Grid.Column="3" Grid.RowSpan="2" HorizontalAlignment="Right" Visibility="Hidden">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>

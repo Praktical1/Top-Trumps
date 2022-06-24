@@ -9,13 +9,13 @@ namespace TopTrumps.Model
 	public class Card
 	{
 		// values of each card
-		private string deck { get; set; }
-		private string id { get; set; }
-		private int property1 { get; set; }
-		private int property2 { get; set; }
-		private int property3 { get; set; }
-		private int property4 { get; set; }
-		private int property5 { get; set; }
+		public string deck { get; set; }
+		public string id { get; set; }
+		public int property1 { get; set; }
+		public int property2 { get; set; }
+		public int property3 { get; set; }
+		public int property4 { get; set; }
+		public int property5 { get; set; }
 
 		// constructor for cards
 		public Card(string deck, string id, int property1, int property2, int property3, int property4, int property5)

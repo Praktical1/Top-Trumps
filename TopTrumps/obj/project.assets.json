@@ -8,23 +8,23 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\fat_m\\.nuget\\packages\\": {},
+    "C:\\Users\\emsmi\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fat_m\\Source\\Repos\\Top-Trumps\\TopTrumps\\TopTrumps.csproj",
+      "projectUniqueName": "C:\\Users\\emsmi\\source\\repos\\TopTrumps\\TopTrumps\\TopTrumps.csproj",
       "projectName": "TopTrumps",
-      "projectPath": "C:\\Users\\fat_m\\Source\\Repos\\Top-Trumps\\TopTrumps\\TopTrumps.csproj",
-      "packagesPath": "C:\\Users\\fat_m\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fat_m\\Source\\Repos\\Top-Trumps\\TopTrumps\\obj\\",
+      "projectPath": "C:\\Users\\emsmi\\source\\repos\\TopTrumps\\TopTrumps\\TopTrumps.csproj",
+      "packagesPath": "C:\\Users\\emsmi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\emsmi\\source\\repos\\TopTrumps\\TopTrumps\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\fat_m\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\emsmi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -68,7 +68,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

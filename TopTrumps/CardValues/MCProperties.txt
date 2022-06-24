@@ -1,4 +1,9 @@
-﻿Anime A01 99 52 89 10 01
+﻿Power
+Dexterity
+Constitution
+Intelligence
+Luck
+Anime A01 99 52 89 10 01
 Anime A02 61 41 21 63 64
 Anime A03 42 75 51 32 50
 Anime A04 83 24 44 07 92

@@ -281,15 +281,15 @@ namespace TopTrumps
             deckButtonCats.Background = new SolidColorBrush(Color.FromRgb(40, 40, 40));
             deckButtonAnime.Background = new SolidColorBrush(Color.FromRgb(40, 40, 40));
 
-            if (newDeck.Equals("boxers"))
+            if (newDeck.Equals("boxer"))
             {
                 deckButtonBoxers.Background = new SolidColorBrush(Color.FromRgb(2, 0, 0));
-                s1.deck = "boxers";
+                s1.deck = "boxer";
             }
-            else if (newDeck.Equals("cats"))
+            else if (newDeck.Equals("cat"))
             {
                 deckButtonCats.Background = new SolidColorBrush(Color.FromRgb(2, 0, 0));
-                s1.deck = "cats";
+                s1.deck = "cat";
             }
             else
             {

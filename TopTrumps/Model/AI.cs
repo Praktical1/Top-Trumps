@@ -1,29 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TopTrumps.Model
 {
 	public class AI
 	{
-		public static Random rng = new Random();
-		public static int AIEasy()
+		public AI ()
+        {
+
+        }
+		public Random rng = new Random();
+		public int AIEasy()
 		{
 			int num = rng.Next(4, 6);
 			return num;
 		}
 
-		public static int AIHard()
+		public int AIHard()
 		{
 			int num = rng.Next(1, 4);
 			return num;
 		}
 
-		public static void main()
+		public void main()
 		{
 			int result = AIHard();
 			Console.WriteLine(result);

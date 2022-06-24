@@ -47,8 +47,8 @@ namespace TopTrumps
             mpHardButton.Click += (object sender, RoutedEventArgs e) => { mpDifficultySet(sender, e, "hard"); };
 
             //Set up deck button listeners - CP
-            deckButtonBoxers.Click += (object sender, RoutedEventArgs e) => { deckSet(sender, e, "boxers"); };
-            deckButtonCats.Click += (object sender, RoutedEventArgs e) => { deckSet(sender, e, "cats"); };
+            deckButtonBoxers.Click += (object sender, RoutedEventArgs e) => { deckSet(sender, e, "boxer"); };
+            deckButtonCats.Click += (object sender, RoutedEventArgs e) => { deckSet(sender, e, "cat"); };
             deckButtonAnime.Click += (object sender, RoutedEventArgs e) => { deckSet(sender, e, "anime"); };
         }
 
@@ -125,7 +125,7 @@ namespace TopTrumps
             deckButtonBoxers.Background = new SolidColorBrush(Color.FromRgb(2, 0, 0));
             deckButtonCats.Background = new SolidColorBrush(Color.FromRgb(40, 40, 40));
             deckButtonAnime.Background = new SolidColorBrush(Color.FromRgb(40, 40, 40));
-            s1.deck = "boxers";
+            s1.deck = "boxer";
             spMenu.Visibility = Visibility.Hidden;
             mpMenu.Visibility = Visibility.Hidden;
             if (deckMenu.Visibility == Visibility.Visible)
@@ -281,15 +281,15 @@ namespace TopTrumps
             deckButtonCats.Background = new SolidColorBrush(Color.FromRgb(40, 40, 40));
             deckButtonAnime.Background = new SolidColorBrush(Color.FromRgb(40, 40, 40));
 
-            if (newDeck.Equals("boxers"))
+            if (newDeck.Equals("boxer"))
             {
                 deckButtonBoxers.Background = new SolidColorBrush(Color.FromRgb(2, 0, 0));
-                s1.deck = "boxers";
+                s1.deck = "boxer";
             }
-            else if (newDeck.Equals("cats"))
+            else if (newDeck.Equals("cat"))
             {
                 deckButtonCats.Background = new SolidColorBrush(Color.FromRgb(2, 0, 0));
-                s1.deck = "cats";
+                s1.deck = "cat";
             }
             else
             {

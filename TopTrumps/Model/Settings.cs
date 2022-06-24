@@ -22,7 +22,7 @@ namespace TopTrumps.Model
             this.bots = 1;
             this.players = 1;
             this.difficulty = "easy";
-            this.deck = "boxers";
+            this.deck = "boxer";
         }
     }
 }

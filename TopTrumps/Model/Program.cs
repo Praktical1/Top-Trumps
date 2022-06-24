@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,8 +18,8 @@ namespace TopTrumps.Model
         public Program(Settings gameSettings)
         {
             this.gameSettings = gameSettings;
-            this.playingDeck = new Deck(gameSettings.deck); //Set up deck
-            determineWhichPlayersAreBots(gameSettings.players, gameSettings.bots); //Set up players
+            this.playingDeck = new Deck("cat"); //Set up deck
+            determineWhichPlayersAreBots(gameSettings.players, gameSettings.bots);
             int amountOfPlayerAndBots = gameSettings.players + gameSettings.bots;
             playingDeck.distributeCards(amountOfPlayerAndBots); //Distribute deck by amount of players and bots
         }

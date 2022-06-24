@@ -108,7 +108,7 @@ namespace TopTrumps.Model
         public Random rng = new Random();
         public void Shuffle(List<Card> listToShuffle)
         {
-            for(int i=0; i<listToShuffle.Count; i++)
+            for(int i=0; i<20; i++)
             {
                 int randomNum = rng.Next(listToShuffle.Count); //gets random number between 0 and amount of cards in list
                 Card randomCard = listToShuffle[randomNum]; //stores a random card using randomNum as the index

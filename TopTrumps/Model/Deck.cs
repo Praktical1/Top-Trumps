@@ -92,7 +92,7 @@ namespace TopTrumps.Model
                     break;
 
                 case ("anime"):
-                    string[] MClines = System.IO.File.ReadAllLines("CardValue/MCProperties.txt");
+                    string[] MClines = System.IO.File.ReadAllLines("../../../CardValue/MCProperties.txt");
                     for (int i = 5; i < MClines.Length; i++)
                     {
                         string[] lineParts = MClines[i].Split(" ");
@@ -108,7 +108,7 @@ namespace TopTrumps.Model
         public Random rng = new Random();
         public void Shuffle(List<Card> listToShuffle)
         {
-            for(int i=0; i<20; i++)
+            for(int i=0; i<listToShuffle.Count; i++)
             {
                 int randomNum = rng.Next(listToShuffle.Count); //gets random number between 0 and amount of cards in list
                 Card randomCard = listToShuffle[randomNum]; //stores a random card using randomNum as the index

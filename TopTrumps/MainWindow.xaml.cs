@@ -301,7 +301,7 @@ namespace TopTrumps
         // Open game window - PR
         private void goToGame(object sender, RoutedEventArgs e)
         {
-            var newWindow = new Game();
+            var newWindow = new Game(s1);
             newWindow.Show();
             this.Close();
         }

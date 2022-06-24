@@ -40,6 +40,7 @@
     <None Remove="Images\BoxerCards\b18.jpg" />
     <None Remove="Images\BoxerCards\b19.jpg" />
     <None Remove="Images\BoxerCards\b20.jpg" />
+    <None Remove="Images\Card-Back.png" />
     <None Remove="Images\CatCards\c01.JPG" />
     <None Remove="Images\CatCards\c02.JPG" />
     <None Remove="Images\CatCards\c03.JPG" />
@@ -60,7 +61,6 @@
     <None Remove="Images\CatCards\c18.JPG" />
     <None Remove="Images\CatCards\c19.JPG" />
     <None Remove="Images\CatCards\c20.JPG" />
-    <None Remove="Images\Cry.jpg" />
     <None Remove="Images\What.jpg" />
     <None Remove="Images\Winner.png" />
   </ItemGroup>
@@ -98,6 +98,7 @@
     <Resource Include="Images\BoxerCards\b18.jpg" />
     <Resource Include="Images\BoxerCards\b19.jpg" />
     <Resource Include="Images\BoxerCards\b20.jpg" />
+    <Resource Include="Images\Card-Back.png" />
     <Resource Include="Images\CatCards\c01.JPG" />
     <Resource Include="Images\CatCards\c02.JPG" />
     <Resource Include="Images\CatCards\c03.JPG" />
@@ -118,7 +119,6 @@
     <Resource Include="Images\CatCards\c18.JPG" />
     <Resource Include="Images\CatCards\c19.JPG" />
     <Resource Include="Images\CatCards\c20.JPG" />
-    <Resource Include="Images\Cry.jpg" />
     <Resource Include="Images\What.jpg" />
     <Resource Include="Images\Winner.png" />
   </ItemGroup>

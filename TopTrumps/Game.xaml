@@ -38,8 +38,8 @@
         </Grid>
         
         <!--Your Card-->
-        <Grid x:Name="player1Card" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2">
-            <Image Source="/Images/What.jpg" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 5 0 5"/>
+        <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <Image x:Name="player1Card" Source="/Images/What.jpg" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 5 0 5"/>
             <Image Source="/Images/Winner.png" x:Name="player1Winner" Margin="0 0 0 -10" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden"/>
         </Grid>
 
@@ -87,8 +87,8 @@
             </Grid.RowDefinitions>
 
             <!--Player 2 Card-->
-            <Grid x:Name="player2Card" Grid.Column="1" Grid.RowSpan="2">
-                <Image Source="/Images/What.jpg" Margin="0 0 0 0" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Grid Grid.Column="1" Grid.RowSpan="2">
+                <Image x:Name="player2Card" Source="/Images/What.jpg" Margin="0 0 0 0" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <Image.LayoutTransform>
                         <RotateTransform Angle="180"/>
                     </Image.LayoutTransform>
@@ -141,8 +141,8 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <!--Player 3 Card-->
-            <Grid x:Name="player3Card" Grid.Row="0">
-                <Image Source="/Images/What.jpg" Margin="0 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+            <Grid Grid.Row="0">
+                <Image x:Name="player3Card" Source="/Images/What.jpg" Margin="0 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Bottom">
                     <Image.LayoutTransform>
                         <RotateTransform Angle="90"/>
                     </Image.LayoutTransform>
@@ -189,8 +189,8 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <!--Player 4 Card-->
-            <Grid x:Name="player4Card" Grid.Row="1">
-                <Image Source="/Images/What.jpg" Margin="0 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Grid Grid.Row="1">
+                <Image x:Name="player4Card" Source="/Images/What.jpg" Margin="0 5 0 5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" VerticalAlignment="Top">
                     <Image.LayoutTransform>
                         <RotateTransform Angle="270"/>
                     </Image.LayoutTransform>

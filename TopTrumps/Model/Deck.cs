@@ -96,7 +96,7 @@ namespace TopTrumps.Model
                     for (int i = 5; i < MClines.Length; i++)
                     {
                         string[] lineParts = MClines[i].Split(" ");
-                        deckList.Add(new Card(lineParts[0], lineParts[1], Int16.Parse(lineParts[2]), Int16.Parse(lineParts[3]), Int16.Parse(lineParts[4]), Int16.Parse(lineParts[5]), Int16.Parse(lineParts[6])));
+                        sortedDeckList.Add(new Card(lineParts[0], lineParts[1], Int16.Parse(lineParts[2]), Int16.Parse(lineParts[3]), Int16.Parse(lineParts[4]), Int16.Parse(lineParts[5]), Int16.Parse(lineParts[6])));
                     }
                     break;
             }

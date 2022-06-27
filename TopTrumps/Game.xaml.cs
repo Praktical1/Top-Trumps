@@ -25,6 +25,9 @@ namespace TopTrumps
         int count2;
         int count3;
         int count4;
+        private String? dir;
+        private String? dirtype;
+
 
         Program gameProgram;
 
@@ -33,6 +36,26 @@ namespace TopTrumps
             InitializeComponent();
             gameProgram = new Program(s1);
             Players(s1.players+s1.bots);
+            switch (s1.deck)
+            {
+                case ("anime"):
+                    this.dir = "AnimeMCCards/";
+                    this.dirtype = ".png";
+                    break;
+                case ("boxer"):
+                    this.dir = "BoxerCards/";
+                    this.dirtype = ".jpg";
+                    break;
+                case ("cat"):
+                    this.dir = "CatCards/";
+                    this.dirtype = ".jpg";
+                    break;
+            }
+            count1 = gameProgram.playingDeck.player1DeckList.Count;
+            count2 = gameProgram.playingDeck.player2DeckList.Count;
+            count3 = gameProgram.playingDeck.player3DeckList.Count;
+            count4 = gameProgram.playingDeck.player4DeckList.Count;
+            Draw();
         }
 
         private void GoToMenu(object sender, RoutedEventArgs e)
@@ -97,9 +120,16 @@ namespace TopTrumps
             player3Deck.Text = count3.ToString();
             count4--;
             player4Deck.Text = count4.ToString();
+            var propertyName1 = gameProgram.playingDeck.propertyName1;
+            player1Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player1DeckList[0].id + dirtype, UriKind.Relative));
+            player2Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player2DeckList[0].id + dirtype, UriKind.Relative));
+            player3Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player3DeckList[0].id + dirtype, UriKind.Relative));
+            player4Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player4DeckList[0].id + dirtype, UriKind.Relative));
+            Trace.WriteLine(@"../../../Images/" + dir + gameProgram.playingDeck.player4DeckList[0].id);
         }
 
         // Shows the cards based on how many players/bots there are. Sets bool values to identify which players are bots - PK + CP
+
         public void Players(int playerCount)
         {
             switch (playerCount)

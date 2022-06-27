@@ -22,11 +22,15 @@ namespace TopTrumps.Model
             determineWhichPlayersAreBots(gameSettings.players, gameSettings.bots);
             int amountOfPlayerAndBots = gameSettings.players + gameSettings.bots;
             playingDeck.distributeCards(amountOfPlayerAndBots); //Distribute deck by amount of players and bots
+            int[] test = {1, 2, 3, 4, 5, 6};
             AI ai = new AI();
             if (gameSettings.difficulty == "hard")
             {
-                int v = ai.AIHard();
-                Trace.WriteLine("hi guys, the random value is " + v);
+                //int v = ai.AIHard();
+                //Trace.WriteLine("hi guys, the random value is " + v);
+
+                int element = ai.AIEasy(test);
+                Trace.WriteLine(element);
             }
         }
 

@@ -9,11 +9,17 @@ namespace TopTrumps.Model
 
         }
 		public Random rng = new Random();
-		public int AIEasy()
+		public int AIEasy(int[] propArr)
 		{
+			//generate a random number between 4 to 5
 			int num = rng.Next(4, 6);
-			return num;
-		}
+			//sort array in ascending order
+			Array.Sort(propArr);
+            //reverse array so it's in descending order
+			Array.Reverse(propArr);
+			//return numth element of array that's in descending order
+			return propArr[num];
+        }
 
 		public int AIHard()
 		{

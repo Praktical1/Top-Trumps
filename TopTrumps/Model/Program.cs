@@ -24,22 +24,19 @@ namespace TopTrumps.Model
             determineWhichPlayersAreBots(gameSettings.players, gameSettings.bots);
             int amountOfPlayerAndBots = gameSettings.players + gameSettings.bots;
             playingDeck.distributeCards(amountOfPlayerAndBots); //Distribute deck by amount of players and bots
-            int[] test = {1, 2, 3, 4, 5, 6};
+            decideWhoGoesFirst();
+            int[] test = {1, 2, 3, 4, 5};
             AI ai = new AI();
-            if (gameSettings.difficulty == "hard")
-            {
                 //int v = ai.AIHard();
                 //Trace.WriteLine("hi guys, the random value is " + v);
 
-                int element = ai.AIEasy(test);
+                int element = ai.AISelect(test, gameSettings.difficulty);
                 Trace.WriteLine(element);
-            }
-
         }
 
         public int decideWhoGoesFirst()
         {   Random rng = new Random();
-            int randomNum = rng.Next(4);
+            int randomNum = rng.Next(1,4);
             whosTurnIsIt = randomNum;
             Trace.WriteLine("its player" + whosTurnIsIt + "go");
             return whosTurnIsIt;
@@ -51,20 +48,31 @@ namespace TopTrumps.Model
         {
             switch (whosTurnIsIt)
             {
-                case 0:
-                    break;
                 case 1:
                     break;
                 case 2:
                     break;
                 case 3:
                     break;
+                case 4:
+                    break;
             }
 
         }
 
-        public void whoWon(int player1Prop, int player2Prop, int player3Prop, int player4Prop)
+        // determines the winner of the round and handles player deck adjustment as a result
+        public void choice(int currentPlayersButton)
         {
+            int highestValue = 0;
+            int whosWinning = whosTurnIsIt;
+
+            string propertyName = "property" + currentPlayersButton;
+
+            var player1Prop = playingDeck.player1DeckList[0].GetType().GetProperty(propertyName).GetValue();
+            int player2Prop = playingDeck.player2DeckList[0].property1;
+            int player3Prop = playingDeck.player3DeckList[0].property1;
+            int player4Prop = playingDeck.player4DeckList[0].property1;
+
 
         }
 

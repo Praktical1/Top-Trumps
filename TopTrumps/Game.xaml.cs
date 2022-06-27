@@ -150,7 +150,7 @@ namespace TopTrumps
             }
         }
 
-        public async void Winner(int player, int cardsOnTable)
+        public async void Winner(int player, int cardsWon)
         {
             switch (player)
             {
@@ -160,7 +160,7 @@ namespace TopTrumps
                     count1 = Int16.Parse(player1Deck.Text);
                     var delay1 = 100;
 
-                    for (int i = 0; i < 4; i++)
+                    for (int i = 0; i < cardsWon; i++)
                     {
                         count1++;
                         await Task.Delay(delay1);
@@ -176,7 +176,7 @@ namespace TopTrumps
                     await Task.Delay(200);
                     count2 = Int16.Parse(player2Deck.Text);
                     var delay2 = 100;
-                    for (int i = 0; i < 4; i++)
+                    for (int i = 0; i < cardsWon; i++)
                     {
                         count2++;
                         await Task.Delay(delay2);
@@ -204,7 +204,7 @@ namespace TopTrumps
                     await Task.Delay(200);
                     count4 = Int16.Parse(player4Deck.Text);
                     var delay4 = 100;
-                    for (int i = 0; i < 4; i++)
+                    for (int i = 0; i < cardsWon; i++)
                     {
                         count4++;
                         await Task.Delay(delay4);

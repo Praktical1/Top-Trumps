@@ -34,10 +34,10 @@ namespace TopTrumps.Model
             {
                 case ("boxer"):
                     this.propertyName1 = "Power";
-                    this.propertyName2 = "Intimidation";
-                    this.propertyName3 = "Charm";
-                    this.propertyName4 = "Reflexes";
-                    this.propertyName5 = "Endurance";
+                    this.propertyName2 = "Speed";
+                    this.propertyName3 = "Defence";
+                    this.propertyName4 = "Aggression";
+                    this.propertyName5 = "Footwork";
                     break;
 
                 case ("cat"):

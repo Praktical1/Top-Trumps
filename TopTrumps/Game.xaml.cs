@@ -25,6 +25,9 @@ namespace TopTrumps
         int count2;
         int count3;
         int count4;
+        private String? dir;
+        private String? dirtype;
+
 
         Program gameProgram;
 
@@ -32,7 +35,28 @@ namespace TopTrumps
         {
             InitializeComponent();
             gameProgram = new Program(s1);
-            Players(s1.players+s1.bots);
+            countPlayer = s1.players + s1.bots;
+            Players(countPlayer);
+            switch (s1.deck)
+            {
+                case ("anime"):
+                    this.dir = "AnimeMCCards/";
+                    this.dirtype = ".png";
+                    break;
+                case ("boxer"):
+                    this.dir = "BoxerCards/";
+                    this.dirtype = ".jpg";
+                    break;
+                case ("cat"):
+                    this.dir = "CatCards/";
+                    this.dirtype = ".jpg";
+                    break;
+            }
+            count1 = gameProgram.playingDeck.player1DeckList.Count;
+            count2 = gameProgram.playingDeck.player2DeckList.Count;
+            count3 = gameProgram.playingDeck.player3DeckList.Count;
+            count4 = gameProgram.playingDeck.player4DeckList.Count;
+            Draw();
         }
 
         private void GoToMenu(object sender, RoutedEventArgs e)
@@ -46,35 +70,35 @@ namespace TopTrumps
         {
             urTurn.Visibility = Visibility.Hidden;
             choices.Visibility = Visibility.Hidden;
-            Program.choice(1);
+            gameProgram.choice(1);
             Winner(1, 4);
         }
         private void Select2(object sender, RoutedEventArgs e)
         {
             urTurn.Visibility = Visibility.Hidden;
             choices.Visibility = Visibility.Hidden;
-            Program.choice(2);
+            gameProgram.choice(2);
             Winner(2, 4);
         }
         private void Select3(object sender, RoutedEventArgs e)
         {
             urTurn.Visibility = Visibility.Hidden;
             choices.Visibility = Visibility.Hidden;
-            Program.choice(3);
+            gameProgram.choice(3);
             Winner(3, 4);
         }
         private void Select4(object sender, RoutedEventArgs e)
         {
             urTurn.Visibility = Visibility.Hidden;
             choices.Visibility = Visibility.Hidden;
-            Program.choice(4);
+            gameProgram.choice(4);
             Winner(4, 4);
         }
         private void Select5(object sender, RoutedEventArgs e)
         {
             urTurn.Visibility = Visibility.Hidden;
             choices.Visibility = Visibility.Hidden;
-            Program.choice(5);
+            gameProgram.choice(5);
             Winner(1, 4);
             Winner(2, 4);
             Winner(3, 4);
@@ -97,9 +121,19 @@ namespace TopTrumps
             player3Deck.Text = count3.ToString();
             count4--;
             player4Deck.Text = count4.ToString();
+            player1Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player1DeckList[0].id + dirtype, UriKind.Relative));
+            player2Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player2DeckList[0].id + dirtype, UriKind.Relative));
+            if (countPlayer > 2) { player3Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player3DeckList[0].id + dirtype, UriKind.Relative)); }
+            if (countPlayer > 3) { player4Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player4DeckList[0].id + dirtype, UriKind.Relative)); }
+            choice1.Content = gameProgram.playingDeck.propertyName1 + ": " + gameProgram.playingDeck.player1DeckList[0].property1;
+            choice2.Content = gameProgram.playingDeck.propertyName2 + ": " + gameProgram.playingDeck.player1DeckList[0].property2;
+            choice3.Content = gameProgram.playingDeck.propertyName3 + ": " + gameProgram.playingDeck.player1DeckList[0].property3;
+            choice4.Content = gameProgram.playingDeck.propertyName4 + ": " + gameProgram.playingDeck.player1DeckList[0].property4;
+            choice5.Content = gameProgram.playingDeck.propertyName5 + ": " + gameProgram.playingDeck.player1DeckList[0].property5;
         }
 
         // Shows the cards based on how many players/bots there are. Sets bool values to identify which players are bots - PK + CP
+
         public void Players(int playerCount)
         {
             switch (playerCount)

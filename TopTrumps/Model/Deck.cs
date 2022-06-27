@@ -34,10 +34,10 @@ namespace TopTrumps.Model
             {
                 case ("boxer"):
                     this.propertyName1 = "Power";
-                    this.propertyName2 = "Intimidation";
-                    this.propertyName3 = "Charm";
-                    this.propertyName4 = "Reflexes";
-                    this.propertyName5 = "Endurance";
+                    this.propertyName2 = "Speed";
+                    this.propertyName3 = "Defence";
+                    this.propertyName4 = "Aggression";
+                    this.propertyName5 = "Footwork";
                     break;
 
                 case ("cat"):
@@ -49,7 +49,7 @@ namespace TopTrumps.Model
                     break;
 
                 case ("anime"):
-                    string[] MClines = System.IO.File.ReadAllLines("CardValue/MCProperties.txt");
+                    string[] MClines = System.IO.File.ReadAllLines("../../../CardValues/MCProperties.txt");
                     this.propertyName1 = MClines[0];
                     this.propertyName2 = MClines[1];
                     this.propertyName3 = MClines[2];
@@ -74,13 +74,19 @@ namespace TopTrumps.Model
             switch (deckType)
             {
                 case ("boxer"):
+                    string[] boxerlines = System.IO.File.ReadAllLines("../../../CardValues/BoxerProperties.txt");
+                    for (int i = 0; i < boxerlines.Length; i++)
+                    {
+                        string[] lineParts = boxerlines[i].Split(" ");
+                        sortedDeckList.Add(new Card(lineParts[0], lineParts[1], Int16.Parse(lineParts[2]), Int16.Parse(lineParts[3]), Int16.Parse(lineParts[4]), Int16.Parse(lineParts[5]), Int16.Parse(lineParts[6])));
+                    }
                     break;
 
                 case ("cat"):
                     try
                     {
-                        string[] lines = System.IO.File.ReadAllLines("../../../CardValues/CatProperties");
-                        foreach (string line in lines)
+                        string[] catlines = System.IO.File.ReadAllLines("../../../CardValues/CatProperties");
+                        foreach (string line in catlines)
                         {
                             string[] lineParts = line.Split(" ");
                             sortedDeckList.Add(new Card(lineParts[0], lineParts[1], Int16.Parse(lineParts[2]), Int16.Parse(lineParts[3]), Int16.Parse(lineParts[4]), Int16.Parse(lineParts[5]), Int16.Parse(lineParts[6])));
@@ -92,7 +98,7 @@ namespace TopTrumps.Model
                     break;
 
                 case ("anime"):
-                    string[] MClines = System.IO.File.ReadAllLines("../../../CardValue/MCProperties.txt");
+                    string[] MClines = System.IO.File.ReadAllLines("../../../CardValues/MCProperties.txt");
                     for (int i = 5; i < MClines.Length; i++)
                     {
                         string[] lineParts = MClines[i].Split(" ");

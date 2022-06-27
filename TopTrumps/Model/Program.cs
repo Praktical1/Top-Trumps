@@ -29,12 +29,12 @@ namespace TopTrumps.Model
             cardsToBeWon = gameSettings.players + gameSettings.bots;
             playingDeck.distributeCards(amountOfPlayerAndBots); //Distribute deck by amount of players and bots
             int[] test = {1, 2, 3, 4, 5};
-            AI ai = new AI();
+            //AI ai = new AI();
                 //int v = ai.AIHard();
                 //Trace.WriteLine("hi guys, the random value is " + v);
 
-                int element = ai.AISelect(test, gameSettings.difficulty);
-                Trace.WriteLine(element);
+                //int element = ai.AISelect(test, gameSettings.difficulty);
+                //Trace.WriteLine(element);
         }
 
         public int decideWhoGoesFirst()

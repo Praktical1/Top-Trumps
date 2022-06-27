@@ -9,15 +9,31 @@ namespace TopTrumps.Model
 
         }
 		public Random rng = new Random();
-		public int AIEasy()
+		public int AISelect(int[] propArr, string difficulty)
 		{
-			int num = rng.Next(4, 6);
-			return num;
-		}
+			int num;
+			if (difficulty == "easy")
+            {
+				//generate a random number between 3 to 4
+				num = rng.Next(3, 5);
+			}
+			else
+            {
+				//generate a random number between 0 to 2
+				num = rng.Next(0, 3);
+			}
+			//sort array in ascending order
+			Array.Sort(propArr);
+            //reverse array so it's in descending order
+			Array.Reverse(propArr);
+			//return numth element of array that's in descending order
+			return propArr[num];
+
+        }
 
 		public int AIHard()
 		{
-			int num = rng.Next(1, 4);
+			int num = rng.Next(0, 3);
 			return num;
 		}
 

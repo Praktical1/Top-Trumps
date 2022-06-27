@@ -24,22 +24,46 @@ namespace TopTrumps.Model
             determineWhichPlayersAreBots(gameSettings.players, gameSettings.bots);
             int amountOfPlayerAndBots = gameSettings.players + gameSettings.bots;
             playingDeck.distributeCards(amountOfPlayerAndBots); //Distribute deck by amount of players and bots
-            if (gameSettings.bots > 0)
+            int[] test = {1, 2, 3, 4, 5, 6};
+            AI ai = new AI();
+            if (gameSettings.difficulty == "hard")
             {
-                AI ai = new AI();
-                if (gameSettings.difficulty == "hard")
-                {
-                    int v = ai.AIHard();
-                }
-                else
-                {
-                    int v = ai.AIEasy();
-                }
+                //int v = ai.AIHard();
+                //Trace.WriteLine("hi guys, the random value is " + v);
+
+                int element = ai.AIEasy(test);
+                Trace.WriteLine(element);
             }
 
         }
 
-        public static void choice(int selection)
+        public int decideWhoGoesFirst()
+        {   Random rng = new Random();
+            int randomNum = rng.Next(4);
+            whosTurnIsIt = randomNum;
+            Trace.WriteLine("its player" + whosTurnIsIt + "go");
+            return whosTurnIsIt;
+        }
+
+
+
+        public void takeGo()
+        {
+            switch (whosTurnIsIt)
+            {
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+
+        }
+
+        public void whoWon(int player1Prop, int player2Prop, int player3Prop, int player4Prop)
         {
 
         }

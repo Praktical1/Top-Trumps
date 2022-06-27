@@ -15,19 +15,28 @@ namespace TopTrumps.Model
         public bool isPlayer3Bot;
         public bool isPlayer4Bot;
 
+        public int whosTurnIsIt;
+
         public Program(Settings gameSettings)
         {
             this.gameSettings = gameSettings;
-            this.playingDeck = new Deck("cat"); //Set up deck
+            this.playingDeck = new Deck(gameSettings.deck); //Set up deck
             determineWhichPlayersAreBots(gameSettings.players, gameSettings.bots);
             int amountOfPlayerAndBots = gameSettings.players + gameSettings.bots;
             playingDeck.distributeCards(amountOfPlayerAndBots); //Distribute deck by amount of players and bots
-            AI ai = new AI();
-            if (gameSettings.difficulty == "hard")
+            if (gameSettings.bots > 0)
             {
-                int v = ai.AIHard();
-                Trace.WriteLine("hi guys, the random value is " + v);
+                AI ai = new AI();
+                if (gameSettings.difficulty == "hard")
+                {
+                    int v = ai.AIHard();
+                }
+                else
+                {
+                    int v = ai.AIEasy();
+                }
             }
+
         }
 
         public static void choice(int selection)

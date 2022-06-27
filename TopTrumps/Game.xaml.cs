@@ -70,36 +70,36 @@ namespace TopTrumps
         {
             urTurn.Visibility = Visibility.Hidden;
             choices.Visibility = Visibility.Hidden;
-            int[] win = Program.choice(1);
-            Winner(win[0], win[1]);
+            int[] win = gameProgram.choice(1);
+            Winner(win[0], win[1]-1);
         }
         private void Select2(object sender, RoutedEventArgs e)
         {
             urTurn.Visibility = Visibility.Hidden;
             choices.Visibility = Visibility.Hidden;
-            int[] win = Program.choice(2);
-            Winner(win[0], win[1]);
+            int[] win = gameProgram.choice(2);
+            Winner(win[0], win[1]-1);
         }
         private void Select3(object sender, RoutedEventArgs e)
         {
             urTurn.Visibility = Visibility.Hidden;
             choices.Visibility = Visibility.Hidden;
-            int[] win = Program.choice(3);
-            Winner(win[0], win[1]);
+            int[] win = gameProgram.choice(3);
+            Winner(win[0], win[1]-1);
         }
         private void Select4(object sender, RoutedEventArgs e)
         {
             urTurn.Visibility = Visibility.Hidden;
             choices.Visibility = Visibility.Hidden;
-            int[] win = Program.choice(4);
-            Winner(win[0], win[1]);
+            int[] win = gameProgram.choice(4);
+            Winner(win[0], win[1]-1);
         }
         private void Select5(object sender, RoutedEventArgs e)
         {
             urTurn.Visibility = Visibility.Hidden;
             choices.Visibility = Visibility.Hidden;
-            int[] win = Program.choice(5);
-            Winner(win[0], win[1]);
+            int[] win = gameProgram.choice(5);
+            Winner(win[0], win[1]-1);
         }
 
         public void YourTurn()

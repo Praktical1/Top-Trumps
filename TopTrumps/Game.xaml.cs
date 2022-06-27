@@ -80,7 +80,10 @@ namespace TopTrumps
             {
                 delay += i * 100;
             }
-            await Task.Delay(delay);
+            if (delay > 0)
+            {
+                await Task.Delay(delay);
+            }
             playerTurn = win[0] - 1;
             if (playerTurn == 0)
             {
@@ -118,7 +121,10 @@ namespace TopTrumps
             {
                 delay += i * 100;
             }
-            await Task.Delay(delay);
+            if (delay > 0)
+            {
+                await Task.Delay(delay);
+            }
             playerTurn = win[0] - 1;
             if (playerTurn == 0)
             {
@@ -156,7 +162,10 @@ namespace TopTrumps
             {
                 delay += i * 100;
             }
-            await Task.Delay(delay);
+            if (delay > 0)
+            {
+                await Task.Delay(delay);
+            }
             playerTurn = win[0] - 1;
             if (playerTurn == 0)
             {
@@ -194,7 +203,10 @@ namespace TopTrumps
             {
                 delay += i * 100;
             }
-            await Task.Delay(delay);
+            if (delay > 0)
+            {
+                await Task.Delay(delay);
+            }
             playerTurn = win[0] - 1;
             if (playerTurn == 0)
             {
@@ -232,7 +244,10 @@ namespace TopTrumps
             {
                 delay += i * 100;
             }
-            await Task.Delay(delay);
+            if (delay > 0)
+            {
+                await Task.Delay(delay);
+            }
             playerTurn = win[0] - 1;
             if (playerTurn == 0)
             {
@@ -294,11 +309,14 @@ namespace TopTrumps
             if (count2 > 0) { player2Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player2DeckList[0].id + dirtype, UriKind.Relative)); } else if (count2 == 0) { new BitmapImage(new Uri(@"../../../Images/dead.jpg", UriKind.Relative)); }
             if (countPlayer > 2 && count3 > 0) { player3Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player3DeckList[0].id + dirtype, UriKind.Relative)); } else if (count3 == 0) { new BitmapImage(new Uri(@"../../../Images/dead.jpg", UriKind.Relative)); }
             if (countPlayer > 3 && count4 > 0) { player4Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player4DeckList[0].id + dirtype, UriKind.Relative)); } else if (count4 == 0) { new BitmapImage(new Uri(@"../../../Images/dead.jpg", UriKind.Relative)); }
-            choice1.Content = gameProgram.playingDeck.propertyName1 + ": " + gameProgram.playingDeck.player1DeckList[0].property1;
-            choice2.Content = gameProgram.playingDeck.propertyName2 + ": " + gameProgram.playingDeck.player1DeckList[0].property2;
-            choice3.Content = gameProgram.playingDeck.propertyName3 + ": " + gameProgram.playingDeck.player1DeckList[0].property3;
-            choice4.Content = gameProgram.playingDeck.propertyName4 + ": " + gameProgram.playingDeck.player1DeckList[0].property4;
-            choice5.Content = gameProgram.playingDeck.propertyName5 + ": " + gameProgram.playingDeck.player1DeckList[0].property5;
+            if (count1 > 0)
+            {
+                choice1.Content = gameProgram.playingDeck.propertyName1 + ": " + gameProgram.playingDeck.player1DeckList[0].property1;
+                choice2.Content = gameProgram.playingDeck.propertyName2 + ": " + gameProgram.playingDeck.player1DeckList[0].property2;
+                choice3.Content = gameProgram.playingDeck.propertyName3 + ": " + gameProgram.playingDeck.player1DeckList[0].property3;
+                choice4.Content = gameProgram.playingDeck.propertyName4 + ": " + gameProgram.playingDeck.player1DeckList[0].property4;
+                choice5.Content = gameProgram.playingDeck.propertyName5 + ": " + gameProgram.playingDeck.player1DeckList[0].property5;
+            }
         }
 
         // Shows the cards based on how many players/bots there are. Sets bool values to identify which players are bots - PK + CP

@@ -216,8 +216,8 @@ namespace TopTrumps.Model
             // Remove cards from index 0 for all players
             if (playingDeck.player1DeckList.Count > 0) { playingDeck.player1DeckList.RemoveAt(0); } else if (playingDeck.player1DeckList.Count == 0) { cardsToBeWon--; }
             if (playingDeck.player2DeckList.Count > 0) { playingDeck.player2DeckList.RemoveAt(0); } else if (playingDeck.player2DeckList.Count == 0) { cardsToBeWon--; }
-            if (amountOfPlayerAndBots > 2 && playingDeck.player3DeckList.Count > 0) { playingDeck.player3DeckList.RemoveAt(0); } else if (playingDeck.player3DeckList.Count == 0) { cardsToBeWon--; }
-            if (amountOfPlayerAndBots > 3 && playingDeck.player4DeckList.Count > 0) { playingDeck.player4DeckList.RemoveAt(0); } else if (playingDeck.player4DeckList.Count == 0) { cardsToBeWon--; }
+            if (amountOfPlayerAndBots > 2 && playingDeck.player3DeckList.Count > 0) { playingDeck.player3DeckList.RemoveAt(0); } else if (amountOfPlayerAndBots > 2 && playingDeck.player3DeckList.Count == 0) { cardsToBeWon--; }
+            if (amountOfPlayerAndBots > 3 && playingDeck.player4DeckList.Count > 0) { playingDeck.player4DeckList.RemoveAt(0); } else if (amountOfPlayerAndBots > 3 && playingDeck.player4DeckList.Count == 0) { cardsToBeWon--; }
 
             // if turn is a draw randomise who goes next
             int cardsWonThisRound = cardsToBeWon;

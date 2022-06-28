@@ -76,7 +76,7 @@ namespace TopTrumps
             int[] win = gameProgram.choice(1);
             Winner(win[0], win[1] - 1);
             int delay = DelayCalc(win[1]);
-            if (delay > 0)
+            if (win[1] > 0)
             {
                 Winner(win[0], win[1] - 1);
                 await Task.Delay(delay);
@@ -100,7 +100,7 @@ namespace TopTrumps
                     Trace.WriteLine("AI turn");
                     Draw();
                     await Task.Delay(1000);
-                    win = AiChoice();
+                    win = AiChoice(playerTurn + 1);
                     delay = DelayCalc(win[1]);
                     if (delay > 0)
                     {
@@ -129,7 +129,7 @@ namespace TopTrumps
             int[] win = gameProgram.choice(2);
             Winner(win[0], win[1] - 1);
             int delay = DelayCalc(win[1]);
-            if (delay > 0)
+            if (win[1] > 0)
             {
                 Winner(win[0], win[1] - 1);
                 await Task.Delay(delay);
@@ -153,7 +153,7 @@ namespace TopTrumps
                     Trace.WriteLine("AI turn");
                     Draw();
                     await Task.Delay(1000);
-                    win = AiChoice();
+                    win = AiChoice(playerTurn + 1);
                     delay = DelayCalc(win[1]);
                     if (delay > 0)
                     {
@@ -182,7 +182,7 @@ namespace TopTrumps
             int[] win = gameProgram.choice(3);
             Winner(win[0], win[1] - 1);
             int delay = DelayCalc(win[1]);
-            if (delay > 0)
+            if (win[1] > 0)
             {
                 Winner(win[0], win[1] - 1);
                 await Task.Delay(delay);
@@ -206,7 +206,7 @@ namespace TopTrumps
                     Trace.WriteLine("AI turn");
                     Draw();
                     await Task.Delay(1000);
-                    win = AiChoice();
+                    win = AiChoice(playerTurn + 1);
                     delay = DelayCalc(win[1]);
                     if (delay > 0)
                     {
@@ -234,7 +234,7 @@ namespace TopTrumps
             choices.Visibility = Visibility.Hidden;
             int[] win = gameProgram.choice(4);
             int delay = DelayCalc(win[1]);
-            if (delay > 0)
+            if (win[1] > 0)
             {
                 Winner(win[0], win[1] - 1);
                 await Task.Delay(delay);
@@ -258,7 +258,7 @@ namespace TopTrumps
                     Trace.WriteLine("AI turn");
                     Draw();
                     await Task.Delay(1000);
-                    win = AiChoice();
+                    win = AiChoice(playerTurn + 1);
                     delay = DelayCalc(win[1]);
                     if (delay > 0)
                     {
@@ -286,7 +286,7 @@ namespace TopTrumps
             choices.Visibility = Visibility.Hidden;
             int[] win = gameProgram.choice(5);
             int delay = DelayCalc(win[1]);
-            if (delay > 0)
+            if (win[1] > 0)
             {
                 Winner(win[0], win[1] - 1);
                 await Task.Delay(delay);
@@ -309,7 +309,7 @@ namespace TopTrumps
                     Trace.WriteLine("AI turn");
                     Draw();
                     await Task.Delay(1000);
-                    win = AiChoice();
+                    win = AiChoice(playerTurn + 1);
                     delay = DelayCalc(win[1]);
                     if (delay > 0)
                     {
@@ -345,14 +345,33 @@ namespace TopTrumps
             urTurn.Visibility = Visibility.Visible;
             choices.Visibility = Visibility.Visible;
         }
-        public int[] AiChoice()
+        public int[] AiChoice(int player)
         {
             int[] choices = new int [5];
-            choices[0] = gameProgram.playingDeck.player1DeckList[0].property1;
-            choices[1] = gameProgram.playingDeck.player1DeckList[0].property2;
-            choices[2] = gameProgram.playingDeck.player1DeckList[0].property3;
-            choices[3] = gameProgram.playingDeck.player1DeckList[0].property4;
-            choices[4] = gameProgram.playingDeck.player1DeckList[0].property5;
+            switch (player)
+            {
+                case 2:
+                    choices[0] = gameProgram.playingDeck.player2DeckList[0].property1;
+                    choices[1] = gameProgram.playingDeck.player2DeckList[0].property2;
+                    choices[2] = gameProgram.playingDeck.player2DeckList[0].property3;
+                    choices[3] = gameProgram.playingDeck.player2DeckList[0].property4;
+                    choices[4] = gameProgram.playingDeck.player2DeckList[0].property5;
+                    break;
+                case 3:
+                    choices[0] = gameProgram.playingDeck.player3DeckList[0].property1;
+                    choices[1] = gameProgram.playingDeck.player3DeckList[0].property2;
+                    choices[2] = gameProgram.playingDeck.player3DeckList[0].property3;
+                    choices[3] = gameProgram.playingDeck.player3DeckList[0].property4;
+                    choices[4] = gameProgram.playingDeck.player3DeckList[0].property5;
+                    break;
+                case 4:
+                    choices[0] = gameProgram.playingDeck.player4DeckList[0].property1;
+                    choices[1] = gameProgram.playingDeck.player4DeckList[0].property2;
+                    choices[2] = gameProgram.playingDeck.player4DeckList[0].property3;
+                    choices[3] = gameProgram.playingDeck.player4DeckList[0].property4;
+                    choices[4] = gameProgram.playingDeck.player4DeckList[0].property5;
+                    break;
+            }
             int selection = AI.AISelect(choices, s1.difficulty);
             int[] win = gameProgram.choice(selection);
             return win;

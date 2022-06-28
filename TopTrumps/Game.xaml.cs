@@ -155,6 +155,7 @@ namespace TopTrumps
                     Trace.WriteLine("AI turn");
                     Draw(1);
                     await Task.Delay(1000);
+                    Reveal();
                     win = AiChoice(playerTurn + 1);
                     delay = DelayCalc(win[1]);
                     if (delay > 0)

@@ -71,6 +71,7 @@
     <None Remove="Images\CatCards\c18.JPG" />
     <None Remove="Images\CatCards\c19.JPG" />
     <None Remove="Images\CatCards\c20.JPG" />
+    <None Remove="Images\dead.png" />
     <None Remove="Images\What.jpg" />
     <None Remove="Images\Winner.png" />
   </ItemGroup>
@@ -139,6 +140,7 @@
     <Resource Include="Images\CatCards\c18.JPG" />
     <Resource Include="Images\CatCards\c19.JPG" />
     <Resource Include="Images\CatCards\c20.JPG" />
+    <Resource Include="Images\dead.png" />
     <Resource Include="Images\What.jpg" />
     <Resource Include="Images\Winner.png" />
   </ItemGroup>

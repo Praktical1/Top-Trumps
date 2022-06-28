@@ -59,7 +59,7 @@ namespace TopTrumps
             count2 = gameProgram.playingDeck.player2DeckList.Count;
             count3 = gameProgram.playingDeck.player3DeckList.Count;
             count4 = gameProgram.playingDeck.player4DeckList.Count;
-            Draw();
+            Draw(1);
             YourTurn();
         }
 
@@ -70,11 +70,31 @@ namespace TopTrumps
             this.Close();
         }
 
-        private async void Select1(object sender, RoutedEventArgs e)
+        private void Select1(object sender, RoutedEventArgs e)
+        {
+            Select(1);
+        }
+        private void Select2(object sender, RoutedEventArgs e)
+        {
+            Select(2);
+        }
+        private void Select3(object sender, RoutedEventArgs e)
+        {
+            Select(3);
+        }
+        private void Select4(object sender, RoutedEventArgs e)
+        {
+            Select(4);
+        }
+        private void Select5(object sender, RoutedEventArgs e)
+        {
+            Select(5);
+        }
+        private async void Select(int Choice)
         {
             urTurn.Visibility = Visibility.Hidden;
             choices.Visibility = Visibility.Hidden;
-            int[] win = gameProgram.choice(1);
+            int[] win = gameProgram.choice(Choice);
             int delay = DelayCalc(win[1]);
             if (win[1] > 0)
             {
@@ -102,37 +122,38 @@ namespace TopTrumps
             if (playerTurn == 0)
             {
                 Trace.WriteLine("Player turn");
-                Draw();
+                Draw(1);
                 await Task.Delay(1000);
                 YourTurn();
             }
             else if (playerTurn == 1 && !gameProgram.isPlayer2Bot)
             {
                 Trace.WriteLine("Player turn");
-                Draw();
+                Draw(2);
                 await Task.Delay(1000);
                 YourTurn();
             }
             else if (playerTurn == 2 && !gameProgram.isPlayer3Bot)
             {
                 Trace.WriteLine("Player turn");
-                Draw();
+                Draw(3);
                 await Task.Delay(1000);
                 YourTurn();
             }
             else if (playerTurn == 3 && !gameProgram.isPlayer4Bot)
             {
                 Trace.WriteLine("Player turn");
-                Draw();
+                Draw(4);
                 await Task.Delay(1000);
                 YourTurn();
             }
             else
             {
+
                 while (playerTurn != 0)
                 {
                     Trace.WriteLine("AI turn");
-                    Draw();
+                    Draw(1);
                     await Task.Delay(1000);
                     win = AiChoice(playerTurn + 1);
                     delay = DelayCalc(win[1]);
@@ -163,513 +184,28 @@ namespace TopTrumps
                 if (playerTurn == 0)
                 {
                     Trace.WriteLine("Player turn");
-                    Draw();
+                    Draw(1);
                     await Task.Delay(1000);
                     YourTurn();
                 }
                 else if (playerTurn == 1 && !gameProgram.isPlayer2Bot)
                 {
                     Trace.WriteLine("Player turn");
-                    Draw();
+                    Draw(2);
                     await Task.Delay(1000);
                     YourTurn();
                 }
                 else if (playerTurn == 2 && !gameProgram.isPlayer3Bot)
                 {
                     Trace.WriteLine("Player turn");
-                    Draw();
+                    Draw(3);
                     await Task.Delay(1000);
                     YourTurn();
                 }
                 else if (playerTurn == 3 && !gameProgram.isPlayer4Bot)
                 {
                     Trace.WriteLine("Player turn");
-                    Draw();
-                    await Task.Delay(1000);
-                    YourTurn();
-                }
-                Trace.WriteLine("AI turn over");
-            }
-        }
-        private async void Select2(object sender, RoutedEventArgs e)
-        {
-            urTurn.Visibility = Visibility.Hidden;
-            choices.Visibility = Visibility.Hidden;
-            int[] win = gameProgram.choice(2);
-            int delay = DelayCalc(win[1]);
-            if (win[1] > 0)
-            {
-                Winner(win[0], win[1]);
-                await Task.Delay(delay);
-                cardsInMiddle.Text = "0";
-                middleCard.Visibility = Visibility.Hidden;
-            }
-            else
-            {
-                middleCard.Visibility = Visibility.Visible;
-                countMiddle = Int16.Parse(cardsInMiddle.Text);
-                int delay1 = 400;
-
-                for (int i = 0; i < 4; i++)
-                {
-                    countMiddle++;
-                    await Task.Delay(delay1);
-                    delay1 += 100 * (i);
-                    cardsInMiddle.Text = countMiddle.ToString();
-                }
-                await Task.Delay(400);
-            }
-            playerTurn = win[0] - 1;
-            if (playerTurn == 0)
-            {
-                Trace.WriteLine("Player turn");
-                Draw();
-                await Task.Delay(1000);
-                YourTurn();
-            }
-            else if (playerTurn == 1 && !gameProgram.isPlayer2Bot)
-            {
-                Trace.WriteLine("Player turn");
-                Draw();
-                await Task.Delay(1000);
-                YourTurn();
-            }
-            else if (playerTurn == 2 && !gameProgram.isPlayer3Bot)
-            {
-                Trace.WriteLine("Player turn");
-                Draw();
-                await Task.Delay(1000);
-                YourTurn();
-            }
-            else if (playerTurn == 3 && !gameProgram.isPlayer4Bot)
-            {
-                Trace.WriteLine("Player turn");
-                Draw();
-                await Task.Delay(1000);
-                YourTurn();
-            }
-            else
-            {
-                while (playerTurn != 0)
-                {
-                    Trace.WriteLine("AI turn");
-                    Draw();
-                    await Task.Delay(1000);
-                    win = AiChoice(playerTurn + 1);
-                    delay = DelayCalc(win[1]);
-                    if (delay > 0)
-                    {
-                        Winner(win[0], win[1]);
-                        await Task.Delay(delay);
-                        cardsInMiddle.Text = "0";
-                        middleCard.Visibility = Visibility.Hidden;
-                    }
-                    else
-                    {
-                        middleCard.Visibility = Visibility.Visible;
-                        countMiddle = Int16.Parse(cardsInMiddle.Text);
-                        int delay1 = 400;
-
-                        for (int i = 0; i < 4; i++)
-                        {
-                            countMiddle++;
-                            await Task.Delay(delay1);
-                            delay1 += 100 * (i);
-                            cardsInMiddle.Text = countMiddle.ToString();
-                        }
-                        await Task.Delay(400);
-                    }
-                    playerTurn = win[0] - 1;
-                }
-                if (playerTurn == 0)
-                {
-                    Trace.WriteLine("Player turn");
-                    Draw();
-                    await Task.Delay(1000);
-                    YourTurn();
-                }
-                else if (playerTurn == 1 && !gameProgram.isPlayer2Bot)
-                {
-                    Trace.WriteLine("Player turn");
-                    Draw();
-                    await Task.Delay(1000);
-                    YourTurn();
-                }
-                else if (playerTurn == 2 && !gameProgram.isPlayer3Bot)
-                {
-                    Trace.WriteLine("Player turn");
-                    Draw();
-                    await Task.Delay(1000);
-                    YourTurn();
-                }
-                else if (playerTurn == 3 && !gameProgram.isPlayer4Bot)
-                {
-                    Trace.WriteLine("Player turn");
-                    Draw();
-                    await Task.Delay(1000);
-                    YourTurn();
-                }
-                Trace.WriteLine("AI turn over");
-            }
-        }
-        private async void Select3(object sender, RoutedEventArgs e)
-        {
-            urTurn.Visibility = Visibility.Hidden;
-            choices.Visibility = Visibility.Hidden;
-            int[] win = gameProgram.choice(3);
-            int delay = DelayCalc(win[1]);
-            if (win[1] > 0)
-            {
-                Winner(win[0], win[1]);
-                await Task.Delay(delay);
-                cardsInMiddle.Text = "0";
-                middleCard.Visibility = Visibility.Hidden;
-            }
-            else
-            {
-                middleCard.Visibility = Visibility.Visible;
-                countMiddle = Int16.Parse(cardsInMiddle.Text);
-                int delay1 = 400;
-
-                for (int i = 0; i < 4; i++)
-                {
-                    countMiddle++;
-                    await Task.Delay(delay1);
-                    delay1 += 100 * (i);
-                    cardsInMiddle.Text = countMiddle.ToString();
-                }
-                await Task.Delay(400);
-            }
-            playerTurn = win[0] - 1;
-            if (playerTurn == 0)
-            {
-                Trace.WriteLine("Player turn");
-                Draw();
-                await Task.Delay(1000);
-                YourTurn();
-            }
-            else if (playerTurn == 1 && !gameProgram.isPlayer2Bot)
-            {
-                Trace.WriteLine("Player turn");
-                Draw();
-                await Task.Delay(1000);
-                YourTurn();
-            }
-            else if (playerTurn == 2 && !gameProgram.isPlayer3Bot)
-            {
-                Trace.WriteLine("Player turn");
-                Draw();
-                await Task.Delay(1000);
-                YourTurn();
-            }
-            else if (playerTurn == 3 && !gameProgram.isPlayer4Bot)
-            {
-                Trace.WriteLine("Player turn");
-                Draw();
-                await Task.Delay(1000);
-                YourTurn();
-            }
-            else
-            {
-
-                while (playerTurn != 0)
-                {
-                    Trace.WriteLine("AI turn");
-                    Draw();
-                    await Task.Delay(1000);
-                    win = AiChoice(playerTurn + 1);
-                    delay = DelayCalc(win[1]);
-                    if (delay > 0)
-                    {
-                        Winner(win[0], win[1]);
-                        await Task.Delay(delay);
-                        cardsInMiddle.Text = "0";
-                        middleCard.Visibility = Visibility.Hidden;
-                    }
-                    else
-                    {
-                        middleCard.Visibility = Visibility.Visible;
-                        countMiddle = Int16.Parse(cardsInMiddle.Text);
-                        int delay1 = 400;
-
-                        for (int i = 0; i < 4; i++)
-                        {
-                            countMiddle++;
-                            await Task.Delay(delay1);
-                            delay1 += 100 * (i);
-                            cardsInMiddle.Text = countMiddle.ToString();
-                        }
-                        await Task.Delay(400);
-                    }
-                    playerTurn = win[0] - 1;
-                }
-                if (playerTurn == 0)
-                {
-                    Trace.WriteLine("Player turn");
-                    Draw();
-                    await Task.Delay(1000);
-                    YourTurn();
-                }
-                else if (playerTurn == 1 && !gameProgram.isPlayer2Bot)
-                {
-                    Trace.WriteLine("Player turn");
-                    Draw();
-                    await Task.Delay(1000);
-                    YourTurn();
-                }
-                else if (playerTurn == 2 && !gameProgram.isPlayer3Bot)
-                {
-                    Trace.WriteLine("Player turn");
-                    Draw();
-                    await Task.Delay(1000);
-                    YourTurn();
-                }
-                else if (playerTurn == 3 && !gameProgram.isPlayer4Bot)
-                {
-                    Trace.WriteLine("Player turn");
-                    Draw();
-                    await Task.Delay(1000);
-                    YourTurn();
-                }
-                Trace.WriteLine("AI turn over");
-            }
-        }
-        private async void Select4(object sender, RoutedEventArgs e)
-        {
-            urTurn.Visibility = Visibility.Hidden;
-            choices.Visibility = Visibility.Hidden;
-            int[] win = gameProgram.choice(4);
-            int delay = DelayCalc(win[1]);
-            if (win[1] > 0)
-            {
-                Winner(win[0], win[1]);
-                await Task.Delay(delay);
-                cardsInMiddle.Text = "0";
-                middleCard.Visibility = Visibility.Hidden;
-            }
-            else
-            {
-                middleCard.Visibility = Visibility.Visible;
-                countMiddle = Int16.Parse(cardsInMiddle.Text);
-                int delay1 = 400;
-
-                for (int i = 0; i < 4; i++)
-                {
-                    countMiddle++;
-                    await Task.Delay(delay1);
-                    delay1 += 100 * (i);
-                    cardsInMiddle.Text = countMiddle.ToString();
-                }
-                await Task.Delay(400);
-            }
-            playerTurn = win[0] - 1;
-            if (playerTurn == 0)
-            {
-                Trace.WriteLine("Player turn");
-                Draw();
-                await Task.Delay(1000);
-                YourTurn();
-            }
-            else if (playerTurn == 1 && !gameProgram.isPlayer2Bot)
-            {
-                Trace.WriteLine("Player turn");
-                Draw();
-                await Task.Delay(1000);
-                YourTurn();
-            }
-            else if (playerTurn == 2 && !gameProgram.isPlayer3Bot)
-            {
-                Trace.WriteLine("Player turn");
-                Draw();
-                await Task.Delay(1000);
-                YourTurn();
-            }
-            else if (playerTurn == 3 && !gameProgram.isPlayer4Bot)
-            {
-                Trace.WriteLine("Player turn");
-                Draw();
-                await Task.Delay(1000);
-                YourTurn();
-            }
-            else
-            {
-                while (playerTurn != 0)
-                {
-                    Trace.WriteLine("AI turn");
-                    Draw();
-                    await Task.Delay(1000);
-                    win = AiChoice(playerTurn + 1);
-                    delay = DelayCalc(win[1]);
-                    if (delay > 0)
-                    {
-                        Winner(win[0], win[1]);
-                        await Task.Delay(delay);
-                        cardsInMiddle.Text = "0";
-                        middleCard.Visibility = Visibility.Hidden;
-                    }
-                    else
-                    {
-                        middleCard.Visibility = Visibility.Visible;
-                        countMiddle = Int16.Parse(cardsInMiddle.Text);
-                        int delay1 = 400;
-
-                        for (int i = 0; i < 4; i++)
-                        {
-                            countMiddle++;
-                            await Task.Delay(delay1);
-                            delay1 += 100 * (i);
-                            cardsInMiddle.Text = countMiddle.ToString();
-                        }
-                        await Task.Delay(400);
-                    }
-                    playerTurn = win[0] - 1;
-                }
-                if (playerTurn == 0)
-                {
-                    Trace.WriteLine("Player turn");
-                    Draw();
-                    await Task.Delay(1000);
-                    YourTurn();
-                }
-                else if (playerTurn == 1 && !gameProgram.isPlayer2Bot)
-                {
-                    Trace.WriteLine("Player turn");
-                    Draw();
-                    await Task.Delay(1000);
-                    YourTurn();
-                }
-                else if (playerTurn == 2 && !gameProgram.isPlayer3Bot)
-                {
-                    Trace.WriteLine("Player turn");
-                    Draw();
-                    await Task.Delay(1000);
-                    YourTurn();
-                }
-                else if (playerTurn == 3 && !gameProgram.isPlayer4Bot)
-                {
-                    Trace.WriteLine("Player turn");
-                    Draw();
-                    await Task.Delay(1000);
-                    YourTurn();
-                }
-                Trace.WriteLine("AI turn over");
-            }
-        }
-        private async void Select5(object sender, RoutedEventArgs e)
-        {
-            urTurn.Visibility = Visibility.Hidden;
-            choices.Visibility = Visibility.Hidden;
-            int[] win = gameProgram.choice(5);
-            int delay = DelayCalc(win[1]);
-            if (win[1] > 0)
-            {
-                Winner(win[0], win[1]);
-                await Task.Delay(delay);
-                cardsInMiddle.Text = "0";
-                middleCard.Visibility = Visibility.Hidden;
-            }
-            else
-            {
-                middleCard.Visibility = Visibility.Visible;
-                countMiddle = Int16.Parse(cardsInMiddle.Text);
-                int delay1 = 400;
-
-                for (int i = 0; i < 4; i++)
-                {
-                    countMiddle++;
-                    await Task.Delay(delay1);
-                    delay1 += 100 * (i);
-                    cardsInMiddle.Text = countMiddle.ToString();
-                }
-                await Task.Delay(400);
-            }
-            playerTurn = win[0] - 1;
-            if (playerTurn == 0)
-            {
-                Trace.WriteLine("Player turn");
-                Draw();
-                await Task.Delay(1000);
-                YourTurn();
-            }
-            else if (playerTurn == 1 && !gameProgram.isPlayer2Bot)
-            {
-                Trace.WriteLine("Player turn");
-                Draw();
-                await Task.Delay(1000);
-                YourTurn();
-            }
-            else if (playerTurn == 2 && !gameProgram.isPlayer3Bot)
-            {
-                Trace.WriteLine("Player turn");
-                Draw();
-                await Task.Delay(1000);
-                YourTurn();
-            }
-            else if (playerTurn == 3 && !gameProgram.isPlayer4Bot)
-            {
-                Trace.WriteLine("Player turn");
-                Draw();
-                await Task.Delay(1000);
-                YourTurn();
-            }
-            else
-            {
-                while(playerTurn != 0)
-                {
-                    Trace.WriteLine("AI turn");
-                    Draw();
-                    await Task.Delay(1000);
-                    win = AiChoice(playerTurn + 1);
-                    delay = DelayCalc(win[1]);
-                    if (delay > 0)
-                    {
-                        Winner(win[0], win[1]);
-                        await Task.Delay(delay);
-                        cardsInMiddle.Text = "0";
-                        middleCard.Visibility = Visibility.Hidden;
-                    }
-                    else
-                    {
-                        middleCard.Visibility = Visibility.Visible;
-                        countMiddle = Int16.Parse(cardsInMiddle.Text);
-                        int delay1 = 400;
-
-                        for (int i = 0; i < 4; i++)
-                        {
-                            countMiddle++;
-                            await Task.Delay(delay1);
-                            delay1 += 100 * (i);
-                            cardsInMiddle.Text = countMiddle.ToString();
-                        }
-                        await Task.Delay(400);
-                    }
-                    playerTurn = win[0]-1;
-                }
-                if (playerTurn == 0)
-                {
-                    Trace.WriteLine("Player turn");
-                    Draw();
-                    await Task.Delay(1000);
-                    YourTurn();
-                }
-                else if (playerTurn == 1 && !gameProgram.isPlayer2Bot)
-                {
-                    Trace.WriteLine("Player turn");
-                    Draw();
-                    await Task.Delay(1000);
-                    YourTurn();
-                }
-                else if (playerTurn == 2 && !gameProgram.isPlayer3Bot)
-                {
-                    Trace.WriteLine("Player turn");
-                    Draw();
-                    await Task.Delay(1000);
-                    YourTurn();
-                }
-                else if (playerTurn == 3 && !gameProgram.isPlayer4Bot)
-                {
-                    Trace.WriteLine("Player turn");
-                    Draw();
+                    Draw(4);
                     await Task.Delay(1000);
                     YourTurn();
                 }
@@ -721,7 +257,7 @@ namespace TopTrumps
             int[] win = gameProgram.choice(selection);
             return win;
         }
-        public void Draw()
+        public void Draw(int player)
         {
             if (count1 > 0) { count1--; }
             if (count2 > 0) { count2--; }
@@ -732,26 +268,61 @@ namespace TopTrumps
             player3Deck.Text = count3.ToString();
             player4Deck.Text = count4.ToString();
 
-            if (count1 > 0) { player1Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player1DeckList[0].id + dirtype, UriKind.Relative)); } else if (count1 == 0) { new BitmapImage(new Uri(@"../../../Images/dead.jpg", UriKind.Relative)); }
-            if (count2 > 0) { player2Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player2DeckList[0].id + dirtype, UriKind.Relative)); } else if (count2 == 0) { new BitmapImage(new Uri(@"../../../Images/dead.jpg", UriKind.Relative)); }
-            if (countPlayer > 2 && count3 > 0) { player3Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player3DeckList[0].id + dirtype, UriKind.Relative)); } else if (count3 == 0) { new BitmapImage(new Uri(@"../../../Images/dead.jpg", UriKind.Relative)); }
-            if (countPlayer > 3 && count4 > 0) { player4Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player4DeckList[0].id + dirtype, UriKind.Relative)); } else if (count4 == 0) { new BitmapImage(new Uri(@"../../../Images/dead.jpg", UriKind.Relative)); }
+            if (count1 > 0) { player1Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player1DeckList[0].id + dirtype, UriKind.Relative)); } else if (count1 == 0) { new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
+            if (count2 > 0) { player2Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player2DeckList[0].id + dirtype, UriKind.Relative)); } else if (count2 == 0) { new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
+            if (countPlayer > 2 && count3 > 0) { player3Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player3DeckList[0].id + dirtype, UriKind.Relative)); } else if (count3 == 0) { new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
+            if (countPlayer > 3 && count4 > 0) { player4Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player4DeckList[0].id + dirtype, UriKind.Relative)); } else if (count4 == 0) { new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
             if (count1 > 0)
             {
-                choice1.Content = gameProgram.playingDeck.propertyName1 + ": " + gameProgram.playingDeck.player1DeckList[0].property1;
-                choice2.Content = gameProgram.playingDeck.propertyName2 + ": " + gameProgram.playingDeck.player1DeckList[0].property2;
-                choice3.Content = gameProgram.playingDeck.propertyName3 + ": " + gameProgram.playingDeck.player1DeckList[0].property3;
-                choice4.Content = gameProgram.playingDeck.propertyName4 + ": " + gameProgram.playingDeck.player1DeckList[0].property4;
-                choice5.Content = gameProgram.playingDeck.propertyName5 + ": " + gameProgram.playingDeck.player1DeckList[0].property5;
+                switch (player)
+                {
+                    case 1:
+                        if (count1 > 0) { player1Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player1DeckList[0].id + dirtype, UriKind.Relative)); } else if (count1 == 0) { new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
+                        choice1.Content = gameProgram.playingDeck.propertyName1 + ": " + gameProgram.playingDeck.player1DeckList[0].property1;
+                        choice2.Content = gameProgram.playingDeck.propertyName2 + ": " + gameProgram.playingDeck.player1DeckList[0].property2;
+                        choice3.Content = gameProgram.playingDeck.propertyName3 + ": " + gameProgram.playingDeck.player1DeckList[0].property3;
+                        choice4.Content = gameProgram.playingDeck.propertyName4 + ": " + gameProgram.playingDeck.player1DeckList[0].property4;
+                        choice5.Content = gameProgram.playingDeck.propertyName5 + ": " + gameProgram.playingDeck.player1DeckList[0].property5;
+                        break;
+                    case 2:
+                        if (count2 > 0) { player2Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player2DeckList[0].id + dirtype, UriKind.Relative)); } else if (count2 == 0) { new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
+                        choice1.Content = gameProgram.playingDeck.propertyName1 + ": " + gameProgram.playingDeck.player2DeckList[0].property1;
+                        choice2.Content = gameProgram.playingDeck.propertyName2 + ": " + gameProgram.playingDeck.player2DeckList[0].property2;
+                        choice3.Content = gameProgram.playingDeck.propertyName3 + ": " + gameProgram.playingDeck.player2DeckList[0].property3;
+                        choice4.Content = gameProgram.playingDeck.propertyName4 + ": " + gameProgram.playingDeck.player2DeckList[0].property4;
+                        choice5.Content = gameProgram.playingDeck.propertyName5 + ": " + gameProgram.playingDeck.player2DeckList[0].property5;
+                        break;
+                    case 3:
+                        if (countPlayer > 2 && count3 > 0) { player3Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player3DeckList[0].id + dirtype, UriKind.Relative)); } else if (count3 == 0) { new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
+                        choice1.Content = gameProgram.playingDeck.propertyName1 + ": " + gameProgram.playingDeck.player3DeckList[0].property1;
+                        choice2.Content = gameProgram.playingDeck.propertyName2 + ": " + gameProgram.playingDeck.player3DeckList[0].property2;
+                        choice3.Content = gameProgram.playingDeck.propertyName3 + ": " + gameProgram.playingDeck.player3DeckList[0].property3;
+                        choice4.Content = gameProgram.playingDeck.propertyName4 + ": " + gameProgram.playingDeck.player3DeckList[0].property4;
+                        choice5.Content = gameProgram.playingDeck.propertyName5 + ": " + gameProgram.playingDeck.player3DeckList[0].property5;
+                        break;
+                    case 4:
+                        if (countPlayer > 3 && count4 > 0) { player4Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player4DeckList[0].id + dirtype, UriKind.Relative)); } else if (count4 == 0) { new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
+                        choice1.Content = gameProgram.playingDeck.propertyName1 + ": " + gameProgram.playingDeck.player4DeckList[0].property1;
+                        choice2.Content = gameProgram.playingDeck.propertyName2 + ": " + gameProgram.playingDeck.player4DeckList[0].property2;
+                        choice3.Content = gameProgram.playingDeck.propertyName3 + ": " + gameProgram.playingDeck.player4DeckList[0].property3;
+                        choice4.Content = gameProgram.playingDeck.propertyName4 + ": " + gameProgram.playingDeck.player4DeckList[0].property4;
+                        choice5.Content = gameProgram.playingDeck.propertyName5 + ": " + gameProgram.playingDeck.player4DeckList[0].property5;
+                        break;
+                }
+
             }
-            if (gameProgram.playingDeck.player1DeckList.Count == 0) { player1Card.Source = new BitmapImage(new Uri(@"../../../Images/Card-Back", UriKind.Relative)); }
-            if (gameProgram.playingDeck.player2DeckList.Count == 0) { player2Card.Source = new BitmapImage(new Uri(@"../../../Images/Card-Back", UriKind.Relative)); }
-            if (gameProgram.playingDeck.player3DeckList.Count == 0) { player3Card.Source = new BitmapImage(new Uri(@"../../../Images/Card-Back", UriKind.Relative)); }
-            if (gameProgram.playingDeck.player4DeckList.Count == 0) { player4Card.Source = new BitmapImage(new Uri(@"../../../Images/Card-Back", UriKind.Relative)); }
+            if (gameProgram.playingDeck.player1DeckList.Count == 0) { player1Card.Source = new BitmapImage(new Uri(@"../../../Images/Card-Back.png", UriKind.Relative)); }
+            if (gameProgram.playingDeck.player2DeckList.Count == 0) { player2Card.Source = new BitmapImage(new Uri(@"../../../Images/Card-Back.png", UriKind.Relative)); }
+            if (gameProgram.playingDeck.player3DeckList.Count == 0) { player3Card.Source = new BitmapImage(new Uri(@"../../../Images/Card-Back.png", UriKind.Relative)); }
+            if (gameProgram.playingDeck.player4DeckList.Count == 0) { player4Card.Source = new BitmapImage(new Uri(@"../../../Images/Card-Back.png", UriKind.Relative)); }
         }
 
         // Shows the cards based on how many players/bots there are. Sets bool values to identify which players are bots - PK + CP
 
+        public void Reveal()
+        {
+
+        }
         public void Players(int playerCount)
         {
             switch (playerCount)

@@ -69,7 +69,6 @@ namespace TopTrumps
             newWindow.Show();
             this.Close();
         }
-
         private void Select1(object sender, RoutedEventArgs e)
         {
             Select(1);

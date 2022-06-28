@@ -39,8 +39,27 @@ namespace TopTrumps.Model
 
         public int decideWhoGoesFirst()
         {   Random rng = new Random();
-            int randomNum = rng.Next(1,amountOfPlayerAndBots);
-            whosTurnIsIt = randomNum;
+            Boolean works = false;
+            while (!works)
+            {
+                int randomNum = rng.Next(1, amountOfPlayerAndBots);
+                whosTurnIsIt = randomNum;
+                switch (whosTurnIsIt)
+                {
+                    case 1:
+                        if (playingDeck.player1DeckList.Count > 0) { works = true; }
+                        break;
+                    case 2:
+                        if (playingDeck.player2DeckList.Count > 0) { works = true; }
+                        break;
+                    case 3:
+                        if (playingDeck.player3DeckList.Count > 0) { works = true; }
+                        break;
+                    case 4:
+                        if (playingDeck.player4DeckList.Count > 0) { works = true; }
+                        break;
+                }
+            }
             return whosTurnIsIt;
         }
 
@@ -218,7 +237,7 @@ namespace TopTrumps.Model
             Trace.WriteLine("P2 CARDS LEFT AFTER GO -" + playingDeck.player2DeckList.Count);
             Trace.WriteLine("P3 CARDS LEFT AFTER GO -" + playingDeck.player3DeckList.Count);
             Trace.WriteLine("P4 CARDS LEFT AFTER GO -" + playingDeck.player4DeckList.Count);
-            Trace.WriteLine("");
+            Trace.WriteLine("CardsWonThisRound" + cardsWonThisRound);
             Trace.WriteLine("");
             return returnValues;
         }

@@ -153,7 +153,7 @@ namespace TopTrumps
                 while (playerIsAi)
                 {
                     Trace.WriteLine("AI turn");
-                    Draw(1);
+                    Draw(0);
                     Reveal();
                     await Task.Delay(1000);
                     win = AiChoice(playerTurn + 1);
@@ -283,13 +283,15 @@ namespace TopTrumps
             player2Deck.Text = count2.ToString();
             player3Deck.Text = count3.ToString();
             player4Deck.Text = count4.ToString();
-
+            Trace.WriteLine("Post-draw count - " + count1 + " " + count2 + " " + count3 + " " + count4 + " ");
             if (gameProgram.playingDeck.player1DeckList.Count > 0) { player1Card.Source = new BitmapImage(new Uri(@"../../../Images/Card-Back.png", UriKind.Relative)); } else if (gameProgram.playingDeck.player1DeckList.Count == 0) { player1Card.Source = new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
             if (gameProgram.playingDeck.player2DeckList.Count > 0) { player2Card.Source = new BitmapImage(new Uri(@"../../../Images/Card-Back.png", UriKind.Relative)); } else if (gameProgram.playingDeck.player2DeckList.Count == 0) { player2Card.Source = new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
             if (countPlayer > 2 && gameProgram.playingDeck.player3DeckList.Count > 0) { player3Card.Source = new BitmapImage(new Uri(@"../../../Images/Card-Back.png", UriKind.Relative)); } else if (gameProgram.playingDeck.player3DeckList.Count == 0) { player3Card.Source = new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
             if (countPlayer > 3 && gameProgram.playingDeck.player4DeckList.Count > 0) { player4Card.Source = new BitmapImage(new Uri(@"../../../Images/Card-Back.png", UriKind.Relative)); } else if (gameProgram.playingDeck.player4DeckList.Count == 0) { player4Card.Source = new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
             switch (player)
             {
+                case 0:
+                    break;
                 case 1:
                     if (gameProgram.playingDeck.player1DeckList.Count > 0) { player1Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player1DeckList[0].id + dirtype, UriKind.Relative)); } else if (gameProgram.playingDeck.player1DeckList.Count == 0) { player1Card.Source = new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
                     choice1.Content = gameProgram.playingDeck.propertyName1 + ": " + gameProgram.playingDeck.player1DeckList[0].property1;
@@ -355,8 +357,7 @@ namespace TopTrumps
 
         public async void Winner(int player, int cardsWon)
         {
-            Trace.WriteLine(player);
-            Trace.WriteLine(cardsWon);
+            Trace.WriteLine("Winner: Player " + player + "   Cards won: " + cardsWon);
             switch (player)
             {
                 case 1:

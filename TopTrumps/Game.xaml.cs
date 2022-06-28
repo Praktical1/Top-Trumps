@@ -75,14 +75,15 @@ namespace TopTrumps
             choices.Visibility = Visibility.Hidden;
             int[] win = gameProgram.choice(1);
             Winner(win[0], win[1] - 1);
-            int delay = 800 * (win[1] - 1);
-            for (int i = 0; i < win[1]; i++)
-            {
-                delay += i * 100;
-            }
+            int delay = DelayCalc(win[1]);
             if (delay > 0)
             {
+                Winner(win[0], win[1] - 1);
                 await Task.Delay(delay);
+            } 
+            else
+            {
+                await Task.Delay(1000);
             }
             playerTurn = win[0] - 1;
             if (playerTurn == 0)
@@ -99,12 +100,23 @@ namespace TopTrumps
                     Trace.WriteLine("AI turn");
                     Draw();
                     await Task.Delay(1000);
-                    playerTurn = AiChoice();
-                    await Task.Delay(5000);
+                    win = AiChoice();
+                    delay = DelayCalc(win[1]);
+                    if (delay > 0)
+                    {
+                        Winner(win[0], win[1] - 1);
+                        await Task.Delay(delay);
+                    }
+                    else
+                    {
+                        await Task.Delay(1000);
+                    }
+                    playerTurn = win[0] - 1;
                 }
                 if (playerTurn == 0)
                 {
                     Draw();
+                    await Task.Delay(1000);
                     YourTurn();
                 }
                 Trace.WriteLine("AI turn over");
@@ -116,14 +128,15 @@ namespace TopTrumps
             choices.Visibility = Visibility.Hidden;
             int[] win = gameProgram.choice(2);
             Winner(win[0], win[1] - 1);
-            int delay = 800 * (win[1] - 1);
-            for (int i = 0; i < win[1]; i++)
-            {
-                delay += i * 100;
-            }
+            int delay = DelayCalc(win[1]);
             if (delay > 0)
             {
+                Winner(win[0], win[1] - 1);
                 await Task.Delay(delay);
+            }
+            else
+            {
+                await Task.Delay(1000);
             }
             playerTurn = win[0] - 1;
             if (playerTurn == 0)
@@ -140,12 +153,23 @@ namespace TopTrumps
                     Trace.WriteLine("AI turn");
                     Draw();
                     await Task.Delay(1000);
-                    playerTurn = AiChoice();
-                    await Task.Delay(5000);
+                    win = AiChoice();
+                    delay = DelayCalc(win[1]);
+                    if (delay > 0)
+                    {
+                        Winner(win[0], win[1] - 1);
+                        await Task.Delay(delay);
+                    }
+                    else
+                    {
+                        await Task.Delay(1000);
+                    }
+                    playerTurn = win[0] - 1;
                 }
                 if (playerTurn == 0)
                 {
                     Draw();
+                    await Task.Delay(1000);
                     YourTurn();
                 }
                 Trace.WriteLine("AI turn over");
@@ -157,14 +181,15 @@ namespace TopTrumps
             choices.Visibility = Visibility.Hidden;
             int[] win = gameProgram.choice(3);
             Winner(win[0], win[1] - 1);
-            int delay = 800 * (win[1] - 1);
-            for (int i = 0; i < win[1]; i++)
-            {
-                delay += i * 100;
-            }
+            int delay = DelayCalc(win[1]);
             if (delay > 0)
             {
+                Winner(win[0], win[1] - 1);
                 await Task.Delay(delay);
+            }
+            else
+            {
+                await Task.Delay(1000);
             }
             playerTurn = win[0] - 1;
             if (playerTurn == 0)
@@ -181,12 +206,23 @@ namespace TopTrumps
                     Trace.WriteLine("AI turn");
                     Draw();
                     await Task.Delay(1000);
-                    playerTurn = AiChoice();
-                    await Task.Delay(5000);
+                    win = AiChoice();
+                    delay = DelayCalc(win[1]);
+                    if (delay > 0)
+                    {
+                        Winner(win[0], win[1] - 1);
+                        await Task.Delay(delay);
+                    }
+                    else
+                    {
+                        await Task.Delay(1000);
+                    }
+                    playerTurn = win[0] - 1;
                 }
                 if (playerTurn == 0)
                 {
                     Draw();
+                    await Task.Delay(1000);
                     YourTurn();
                 }
                 Trace.WriteLine("AI turn over");
@@ -197,15 +233,15 @@ namespace TopTrumps
             urTurn.Visibility = Visibility.Hidden;
             choices.Visibility = Visibility.Hidden;
             int[] win = gameProgram.choice(4);
-            Winner(win[0], win[1] - 1);
-            int delay = 800 * (win[1] - 1);
-            for (int i = 0; i < win[1]; i++)
-            {
-                delay += i * 100;
-            }
+            int delay = DelayCalc(win[1]);
             if (delay > 0)
             {
+                Winner(win[0], win[1] - 1);
                 await Task.Delay(delay);
+            }
+            else
+            {
+                await Task.Delay(1000);
             }
             playerTurn = win[0] - 1;
             if (playerTurn == 0)
@@ -222,12 +258,23 @@ namespace TopTrumps
                     Trace.WriteLine("AI turn");
                     Draw();
                     await Task.Delay(1000);
-                    playerTurn = AiChoice();
-                    await Task.Delay(5000);
+                    win = AiChoice();
+                    delay = DelayCalc(win[1]);
+                    if (delay > 0)
+                    {
+                        Winner(win[0], win[1] - 1);
+                        await Task.Delay(delay);
+                    }
+                    else
+                    {
+                        await Task.Delay(1000);
+                    }
+                    playerTurn = win[0] - 1;
                 }
                 if (playerTurn == 0)
                 {
                     Draw();
+                    await Task.Delay(1000);
                     YourTurn();
                 }
                 Trace.WriteLine("AI turn over");
@@ -238,15 +285,15 @@ namespace TopTrumps
             urTurn.Visibility = Visibility.Hidden;
             choices.Visibility = Visibility.Hidden;
             int[] win = gameProgram.choice(5);
-            Winner(win[0], win[1] - 1);
-            int delay = 800 * (win[1] - 1);
-            for (int i = 0; i < win[1]; i++)
-            {
-                delay += i * 100;
-            }
+            int delay = DelayCalc(win[1]);
             if (delay > 0)
             {
+                Winner(win[0], win[1] - 1);
                 await Task.Delay(delay);
+            }
+            else
+            {
+                await Task.Delay(1000);
             }
             playerTurn = win[0] - 1;
             if (playerTurn == 0)
@@ -262,24 +309,43 @@ namespace TopTrumps
                     Trace.WriteLine("AI turn");
                     Draw();
                     await Task.Delay(1000);
-                    playerTurn = AiChoice();
-                    await Task.Delay(5000);
+                    win = AiChoice();
+                    delay = DelayCalc(win[1]);
+                    if (delay > 0)
+                    {
+                        Winner(win[0], win[1] - 1);
+                        await Task.Delay(delay);
+                    }
+                    else
+                    {
+                        await Task.Delay(1000);
+                    }
+                    playerTurn = win[0]-1;
                 }
                 if (playerTurn == 0)
                 {
                     Draw();
+                    await Task.Delay(1000);
                     YourTurn();
                 }
                 Trace.WriteLine("AI turn over");
             }
         }
-
+        public int DelayCalc(int cardswon)
+        {
+            int delay = 800 * (cardswon - 1);
+            for (int i = 0; i < cardswon; i++)
+            {
+                delay += i * 100;
+            }
+            return delay;
+        }
         public void YourTurn()
         {
             urTurn.Visibility = Visibility.Visible;
             choices.Visibility = Visibility.Visible;
         }
-        public int AiChoice()
+        public int[] AiChoice()
         {
             int[] choices = new int [5];
             choices[0] = gameProgram.playingDeck.player1DeckList[0].property1;
@@ -289,10 +355,7 @@ namespace TopTrumps
             choices[4] = gameProgram.playingDeck.player1DeckList[0].property5;
             int selection = AI.AISelect(choices, s1.difficulty);
             int[] win = gameProgram.choice(selection);
-            Winner(win[0], win[1]-1);
-            playerTurn = win[0] - 1;
-            
-            return playerTurn;
+            return win;
         }
         public void Draw()
         {

@@ -44,32 +44,14 @@ namespace TopTrumps.Model
             return whosTurnIsIt;
         }
 
-
-
-        public void takeGo()
-        {
-            switch (whosTurnIsIt)
-            {
-                case 1:
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-            }
-
-        }
-
-        // determines the winner of the round and handles player deck adjustment as a result - CP + PK + RS  Fix Draw, Fix empty array error (State when player looses)
+        // determines the winner of the round and handles player deck adjustment as a result - CP + PK + RS Fix empty array error (State when player looses)
         public int[] choice(int currentPlayersButton)
         {
-            Trace.WriteLine("P1 CARDS LEFT " + playingDeck.player1DeckList.Count);
-            Trace.WriteLine("P2 CARDS LEFT " + playingDeck.player2DeckList.Count);
-            Trace.WriteLine(" - ");
-            Trace.WriteLine("P1 POWER " + playingDeck.player1DeckList[0].property1);
-            Trace.WriteLine("P2 POWER " + playingDeck.player2DeckList[0].property1);
+            Trace.WriteLine("P1 CARDS LEFT BEFORE GO -" + playingDeck.player1DeckList.Count);
+            Trace.WriteLine("P2 CARDS LEFT BEFORE GO -" + playingDeck.player2DeckList.Count);
+            Trace.WriteLine("P3 CARDS LEFT BEFORE GO -" + playingDeck.player3DeckList.Count);
+            Trace.WriteLine("P4 CARDS LEFT BEFORE GO -" + playingDeck.player4DeckList.Count);
+            Trace.WriteLine("-");
 
             int highestValue = 0;
             int whosWinning = whosTurnIsIt;
@@ -91,30 +73,35 @@ namespace TopTrumps.Model
             switch (currentPlayersButton)
             {
                 case 1:
-                     player1Prop = playingDeck.player1DeckList[0].property1;
-                     player2Prop = playingDeck.player2DeckList[0].property1;
+                    Trace.WriteLine("PLAYER CHOSE " + playingDeck.propertyName1);
+                    player1Prop = playingDeck.player1DeckList[0].property1;
+                    player2Prop = playingDeck.player2DeckList[0].property1;
                     if (amountOfPlayerAndBots > 2) { player3Prop = playingDeck.player3DeckList[0].property1;}
                     if (amountOfPlayerAndBots > 3) { player4Prop = playingDeck.player4DeckList[0].property1;}
                     break;
                 case 2:
-                     player1Prop = playingDeck.player1DeckList[0].property2;
-                     player2Prop = playingDeck.player2DeckList[0].property2;
+                    Trace.WriteLine("PLAYER CHOSE " + playingDeck.propertyName2);
+                    player1Prop = playingDeck.player1DeckList[0].property2;
+                    player2Prop = playingDeck.player2DeckList[0].property2;
                     if (amountOfPlayerAndBots > 2) { player3Prop = playingDeck.player3DeckList[0].property2; }
                     if (amountOfPlayerAndBots > 3) { player4Prop = playingDeck.player4DeckList[0].property2; }
                     break;
                 case 3:
-                     player1Prop = playingDeck.player1DeckList[0].property3;
+                    Trace.WriteLine("PLAYER CHOSE " + playingDeck.propertyName3);
+                    player1Prop = playingDeck.player1DeckList[0].property3;
                      player2Prop = playingDeck.player2DeckList[0].property3;
                     if (amountOfPlayerAndBots > 2) { player3Prop = playingDeck.player3DeckList[0].property3; }
                     if (amountOfPlayerAndBots > 3) { player4Prop = playingDeck.player4DeckList[0].property3; }
                     break;
                 case 4:
-                     player1Prop = playingDeck.player1DeckList[0].property4;
+                    Trace.WriteLine("PLAYER CHOSE " + playingDeck.propertyName4);
+                    player1Prop = playingDeck.player1DeckList[0].property4;
                      player2Prop = playingDeck.player2DeckList[0].property4;
                     if (amountOfPlayerAndBots > 2) { player3Prop = playingDeck.player3DeckList[0].property4; }
                     if (amountOfPlayerAndBots > 3) { player4Prop = playingDeck.player4DeckList[0].property4; }
                     break;
                 case 5:
+                    Trace.WriteLine("PLAYER CHOSE " + playingDeck.propertyName5);
                     player1Prop = playingDeck.player1DeckList[0].property5;
                     player2Prop = playingDeck.player2DeckList[0].property5;
                     if (amountOfPlayerAndBots > 2) { player3Prop = playingDeck.player3DeckList[0].property5; }
@@ -165,10 +152,12 @@ namespace TopTrumps.Model
             {
                 //draw, add cards to the middle
                 case 0:
+                    Trace.WriteLine("DRAW");
                     cardsInTheMiddle.Add(playingDeck.player1DeckList[0]);
                     cardsInTheMiddle.Add(playingDeck.player2DeckList[0]);
                     if (amountOfPlayerAndBots > 2) { cardsInTheMiddle.Add(playingDeck.player3DeckList[0]); }
                     if (amountOfPlayerAndBots > 3) { cardsInTheMiddle.Add(playingDeck.player4DeckList[0]); }
+                    wasLastGoADraw = true;
                     break;
 
                 //player 1 won, give all cards to player1 including any cards in the middle
@@ -178,7 +167,9 @@ namespace TopTrumps.Model
                     playingDeck.player1DeckList.Add(playingDeck.player2DeckList[0]);
                     if (amountOfPlayerAndBots > 2) { playingDeck.player1DeckList.Add(playingDeck.player3DeckList[0]); }
                     if (amountOfPlayerAndBots > 3) { playingDeck.player1DeckList.Add(playingDeck.player4DeckList[0]); }
-                    for (int i = 0; i < cardsInTheMiddle.Count; i++) { playingDeck.player1DeckList.Add(cardsInTheMiddle[i]); cardsInTheMiddle.RemoveAt(i); }
+                    for (int i = 0; i < cardsInTheMiddle.Count; i++) { playingDeck.player1DeckList.Add(cardsInTheMiddle[i]);}
+                    cardsInTheMiddle.Clear();
+                    wasLastGoADraw = false;
                     break;
                 //player 2 won
                 case 2:
@@ -187,7 +178,9 @@ namespace TopTrumps.Model
                     playingDeck.player2DeckList.Add(playingDeck.player2DeckList[0]);
                     if (amountOfPlayerAndBots > 2) { playingDeck.player2DeckList.Add(playingDeck.player3DeckList[0]); }
                     if (amountOfPlayerAndBots > 3) { playingDeck.player2DeckList.Add(playingDeck.player4DeckList[0]); }
-                    for (int i = 0; i < cardsInTheMiddle.Count; i++) { playingDeck.player2DeckList.Add(cardsInTheMiddle[i]); cardsInTheMiddle.RemoveAt(i); }
+                    for (int i = 0; i < cardsInTheMiddle.Count; i++) { playingDeck.player2DeckList.Add(cardsInTheMiddle[i]);}
+                    cardsInTheMiddle.Clear();
+                    wasLastGoADraw = false;
                     break;
                 //player 3 won
                 case 3:
@@ -196,7 +189,9 @@ namespace TopTrumps.Model
                     playingDeck.player3DeckList.Add(playingDeck.player2DeckList[0]);
                     if (amountOfPlayerAndBots > 2) { playingDeck.player3DeckList.Add(playingDeck.player3DeckList[0]); }
                     if (amountOfPlayerAndBots > 3) { playingDeck.player3DeckList.Add(playingDeck.player4DeckList[0]); }
-                    for (int i = 0; i < cardsInTheMiddle.Count; i++) { playingDeck.player3DeckList.Add(cardsInTheMiddle[i]); cardsInTheMiddle.RemoveAt(i); }
+                    for (int i = 0; i < cardsInTheMiddle.Count; i++) { playingDeck.player3DeckList.Add(cardsInTheMiddle[i]);}
+                    cardsInTheMiddle.Clear();
+                    wasLastGoADraw = false;
                     break;
                 //player 4 won
                 case 4:
@@ -205,7 +200,9 @@ namespace TopTrumps.Model
                     playingDeck.player4DeckList.Add(playingDeck.player2DeckList[0]);
                     if (amountOfPlayerAndBots > 2) { playingDeck.player4DeckList.Add(playingDeck.player3DeckList[0]); }
                     if (amountOfPlayerAndBots > 3) { playingDeck.player4DeckList.Add(playingDeck.player4DeckList[0]); }
-                    for (int i = 0; i < cardsInTheMiddle.Count; i++) { playingDeck.player4DeckList.Add(cardsInTheMiddle[i]); cardsInTheMiddle.RemoveAt(i); }
+                    for (int i = 0; i < cardsInTheMiddle.Count; i++) { playingDeck.player4DeckList.Add(cardsInTheMiddle[i]);}
+                    cardsInTheMiddle.Clear();
+                    wasLastGoADraw = false;
                     break;
             }
 
@@ -226,10 +223,15 @@ namespace TopTrumps.Model
             returnValues[0] = whosWinning;
             returnValues[1] = cardsWonThisRound;
 
+            Trace.WriteLine("-");
             Trace.WriteLine("WINNER = PLAYER " + whosWinning);
-            Trace.WriteLine("CARES WON " + cardsWonThisRound);
-            Trace.WriteLine("P1 CARDS LEFT " + playingDeck.player1DeckList.Count);
-            Trace.WriteLine("P2 CARDS LEFT " + playingDeck.player2DeckList.Count);
+            Trace.WriteLine("-");
+            Trace.WriteLine("P1 CARDS LEFT AFTER GO -" + playingDeck.player1DeckList.Count);
+            Trace.WriteLine("P2 CARDS LEFT AFTER GO -" + playingDeck.player2DeckList.Count);
+            Trace.WriteLine("P3 CARDS LEFT AFTER GO -" + playingDeck.player3DeckList.Count);
+            Trace.WriteLine("P4 CARDS LEFT AFTER GO -" + playingDeck.player4DeckList.Count);
+            Trace.WriteLine("");
+            Trace.WriteLine("");
             return returnValues;
         }
 

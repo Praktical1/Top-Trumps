@@ -8,8 +8,8 @@ namespace TopTrumps.Model
         {
 
         }
-		public Random rng = new Random();
-		public int AISelect(int[] propArr, string difficulty)
+		private static Random rng = new Random();
+		public static int AISelect(int[] propArr, string difficulty)
 		{
 			int num;
 			if (difficulty == "easy")
@@ -20,14 +20,16 @@ namespace TopTrumps.Model
 			else
             {
 				//generate a random number between 0 to 2
-				num = rng.Next(0, 3);
+				num = rng.Next(0, 1);
 			}
+			int[] orderedpropArr = propArr;
 			//sort array in ascending order
-			Array.Sort(propArr);
+			Array.Sort(orderedpropArr);
             //reverse array so it's in descending order
-			Array.Reverse(propArr);
+			Array.Reverse(orderedpropArr);
+			int option = Array.IndexOf(propArr, orderedpropArr[num]);
 			//return numth element of array that's in descending order
-			return propArr[num];
+			return option;
 
         }
 

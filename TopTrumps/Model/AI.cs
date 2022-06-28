@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace TopTrumps.Model
 {
@@ -9,9 +10,13 @@ namespace TopTrumps.Model
 
         }
 		private static Random rng = new Random();
-		public static int AISelect(int[] propArr, string difficulty)
+		public static int AISelect(int[] choices, string difficulty)
 		{
-			int num;
+			int num; 
+			foreach (var item in choices)
+			{
+				Trace.WriteLine("Original"+item.ToString());
+			}
 			if (difficulty == "easy")
             {
 				//generate a random number between 3 to 4
@@ -20,15 +25,20 @@ namespace TopTrumps.Model
 			else
             {
 				//generate a random number between 0 to 2
-				num = rng.Next(0, 1);
+				num = rng.Next(0, 3);
 			}
-			int[] orderedpropArr = propArr;
+			int[] orderedpropArr = choices;
 			//sort array in ascending order
 			Array.Sort(orderedpropArr);
             //reverse array so it's in descending order
 			Array.Reverse(orderedpropArr);
-			int option = Array.IndexOf(propArr, orderedpropArr[num]);
+			int option = Array.IndexOf(choices, orderedpropArr[num]);
 			//return numth element of array that's in descending order
+			foreach (var item in orderedpropArr)
+			{
+				Trace.WriteLine("Ordered" + item.ToString());
+			}
+			Trace.WriteLine(option);
 			return option;
 
         }

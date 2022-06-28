@@ -38,7 +38,7 @@ namespace TopTrumps.Model
 			{
 				Trace.WriteLine("Ordered" + item.ToString());
 			}
-			Trace.WriteLine(option);
+			Trace.WriteLine("AI chose - " + option);
 			return option;
 
         }

@@ -62,6 +62,7 @@ namespace TopTrumps
             count4 = gameProgram.playingDeck.player4DeckList.Count;
             Draw(1);
             YourTurn();
+            urTurn.Content = "Player 1's Turn";
         }
 
         private void GoToMenu(object sender, RoutedEventArgs e)
@@ -92,7 +93,6 @@ namespace TopTrumps
         }
         private async void Select(int Choice)
         {
-            urTurn.Visibility = Visibility.Hidden;
             choices.Visibility = Visibility.Hidden;
             Reveal();
             int[] win = gameProgram.choice(Choice);
@@ -123,6 +123,7 @@ namespace TopTrumps
             if (playerTurn == 0)
             {
                 Trace.WriteLine("Player turn");
+                urTurn.Content = "Player 1's Turn";
                 Draw(1);
                 await Task.Delay(1000);
                 YourTurn();
@@ -130,6 +131,7 @@ namespace TopTrumps
             else if (playerTurn == 1 && !gameProgram.isPlayer2Bot)
             {
                 Trace.WriteLine("Player turn");
+                urTurn.Content = "Player 2's Turn";
                 Draw(2);
                 await Task.Delay(1000);
                 YourTurn();
@@ -137,6 +139,7 @@ namespace TopTrumps
             else if (playerTurn == 2 && !gameProgram.isPlayer3Bot)
             {
                 Trace.WriteLine("Player turn");
+                urTurn.Content = "Player 3's Turn";
                 Draw(3);
                 await Task.Delay(1000);
                 YourTurn();
@@ -144,6 +147,7 @@ namespace TopTrumps
             else if (playerTurn == 3 && !gameProgram.isPlayer4Bot)
             {
                 Trace.WriteLine("Player turn");
+                urTurn.Content = "Player 4's Turn";
                 Draw(4);
                 await Task.Delay(1000);
                 YourTurn();
@@ -154,6 +158,8 @@ namespace TopTrumps
                 while (playerIsAi)
                 {
                     Trace.WriteLine("AI turn");
+                    urTurn.Content = "AI Player " + win[1] + "'s Turn";
+                    urTurn.Visibility = Visibility.Visible;
                     Draw(0);
                     Reveal();
                     await Task.Delay(1000);
@@ -197,10 +203,15 @@ namespace TopTrumps
                             playerIsAi = gameProgram.isPlayer4Bot;
                             break;
                     }
+                    if (count1==0 && count2 == 0 && count3 == 0 || count1 == 0 && count2 == 0 && count4 == 0 || count1 == 0 && count3 == 0 && count4 == 0 || count2 == 0 && count3 == 0 && count4 == 0)
+                    {
+                        await Task.Delay(9999999);
+                    }
                 }
                 if (playerTurn == 0)
                 {
                     Trace.WriteLine("Player turn");
+                    urTurn.Content = "Player 1's Turn";
                     Draw(1);
                     await Task.Delay(1000);
                     YourTurn();
@@ -208,6 +219,7 @@ namespace TopTrumps
                 else if (playerTurn == 1 && !gameProgram.isPlayer2Bot)
                 {
                     Trace.WriteLine("Player turn");
+                    urTurn.Content = "Player 2's Turn";
                     Draw(2);
                     await Task.Delay(1000);
                     YourTurn();
@@ -215,6 +227,7 @@ namespace TopTrumps
                 else if (playerTurn == 2 && !gameProgram.isPlayer3Bot)
                 {
                     Trace.WriteLine("Player turn");
+                    urTurn.Content = "Player 3's Turn";
                     Draw(3);
                     await Task.Delay(1000);
                     YourTurn();
@@ -222,6 +235,7 @@ namespace TopTrumps
                 else if (playerTurn == 3 && !gameProgram.isPlayer4Bot)
                 {
                     Trace.WriteLine("Player turn");
+                    urTurn.Content = "Player 4's Turn";
                     Draw(4);
                     await Task.Delay(1000);
                     YourTurn();
@@ -333,10 +347,10 @@ namespace TopTrumps
 
         public void Reveal()
         {
-            if (count1 > 0) { player1Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player1DeckList[0].id + dirtype, UriKind.Relative)); } else if (count1 == 0) { new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
-            if (count2 > 0) { player2Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player2DeckList[0].id + dirtype, UriKind.Relative)); } else if (count2 == 0) { new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
-            if (countPlayers > 2 && count3 > 0) { player3Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player3DeckList[0].id + dirtype, UriKind.Relative)); } else if (count3 == 0) { new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
-            if (countPlayers > 3 && count4 > 0) { player4Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player4DeckList[0].id + dirtype, UriKind.Relative)); } else if (count4 == 0) { new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
+            if (gameProgram.playingDeck.player1DeckList.Count > 0) { player1Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player1DeckList[0].id + dirtype, UriKind.Relative)); } else if (gameProgram.playingDeck.player1DeckList.Count == 0) { new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
+            if (gameProgram.playingDeck.player2DeckList.Count > 0) { player2Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player2DeckList[0].id + dirtype, UriKind.Relative)); } else if (gameProgram.playingDeck.player2DeckList.Count == 0) { new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
+            if (countPlayers > 2 && gameProgram.playingDeck.player3DeckList.Count > 0) { player3Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player3DeckList[0].id + dirtype, UriKind.Relative)); } else if (gameProgram.playingDeck.player3DeckList.Count == 0) { new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
+            if (countPlayers > 3 && gameProgram.playingDeck.player4DeckList.Count > 0) { player4Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player4DeckList[0].id + dirtype, UriKind.Relative)); } else if (gameProgram.playingDeck.player4DeckList.Count == 0) { new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
         }
         public void Players(int playerCount)
         {
@@ -424,28 +438,28 @@ namespace TopTrumps
             if (gameProgram.playingDeck.player1DeckList.Count==0 && gameProgram.playingDeck.player2DeckList.Count == 0 && gameProgram.playingDeck.player3DeckList.Count == 0)
             {
                 WINNERPOV.Visibility = Visibility.Visible;
-                WINNERPOV.Content = "PLAYER 4 WINS";
+                WINNERMESSAGE.Content = "PLAYER 4 WINS";
                 urTurn.Visibility = Visibility.Hidden;
                 choices.Visibility = Visibility.Hidden;
             }
             else if(gameProgram.playingDeck.player1DeckList.Count == 0 && gameProgram.playingDeck.player2DeckList.Count == 0 && gameProgram.playingDeck.player4DeckList.Count == 0)
             {
                 WINNERPOV.Visibility = Visibility.Visible;
-                WINNERPOV.Content = "PLAYER 3 WINS";
+                WINNERMESSAGE.Content = "PLAYER 3 WINS";
                 urTurn.Visibility = Visibility.Hidden;
                 choices.Visibility = Visibility.Hidden;
             }
             else if (gameProgram.playingDeck.player1DeckList.Count == 0 && gameProgram.playingDeck.player3DeckList.Count == 0 && gameProgram.playingDeck.player4DeckList.Count == 0)
             {
                 WINNERPOV.Visibility = Visibility.Visible;
-                WINNERPOV.Content = "PLAYER 2 WINS";
+                WINNERMESSAGE.Content = "PLAYER 2 WINS";
                 urTurn.Visibility = Visibility.Hidden;
                 choices.Visibility = Visibility.Hidden;
             }
             else if (gameProgram.playingDeck.player2DeckList.Count == 0 && gameProgram.playingDeck.player3DeckList.Count == 0 && gameProgram.playingDeck.player4DeckList.Count == 0)
             {
                 WINNERPOV.Visibility = Visibility.Visible;
-                WINNERPOV.Content = "PLAYER 1 WINS";
+                WINNERMESSAGE.Content = "PLAYER 1 WINS";
                 urTurn.Visibility = Visibility.Hidden;
                 choices.Visibility = Visibility.Hidden;
             }

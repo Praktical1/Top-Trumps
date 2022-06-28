@@ -306,6 +306,14 @@ namespace TopTrumps
             this.Close();
         }
 
+        private void goToLobby(object sender, RoutedEventArgs e)
+        {
+            string newUserName = uName.Text;
+            var newWindow = new Lobby(s1, newUserName);
+            newWindow.Show();
+            this.Close();
+        }
+
         private void exitGame(object sender, RoutedEventArgs e)
         {
             this.Close();

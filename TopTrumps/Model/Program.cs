@@ -44,7 +44,7 @@ namespace TopTrumps.Model
             return whosTurnIsIt;
         }
 
-        // determines the winner of the round and handles player deck adjustment as a result - CP + PK + RS Fix empty array error (State when player looses)
+        // determines the winner of the round and handles player deck adjustment as a result - CP + PK + RS
         public int[] choice(int currentPlayersButton)
         {
             int highestValue = 0;

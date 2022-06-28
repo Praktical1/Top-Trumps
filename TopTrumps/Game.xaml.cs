@@ -425,21 +425,29 @@ namespace TopTrumps
             {
                 WINNERPOV.Visibility = Visibility.Visible;
                 WINNERPOV.Content = "PLAYER 4 WINS";
+                urTurn.Visibility = Visibility.Hidden;
+                choices.Visibility = Visibility.Hidden;
             }
             else if(gameProgram.playingDeck.player1DeckList.Count == 0 && gameProgram.playingDeck.player2DeckList.Count == 0 && gameProgram.playingDeck.player4DeckList.Count == 0)
             {
                 WINNERPOV.Visibility = Visibility.Visible;
                 WINNERPOV.Content = "PLAYER 3 WINS";
+                urTurn.Visibility = Visibility.Hidden;
+                choices.Visibility = Visibility.Hidden;
             }
             else if (gameProgram.playingDeck.player1DeckList.Count == 0 && gameProgram.playingDeck.player3DeckList.Count == 0 && gameProgram.playingDeck.player4DeckList.Count == 0)
             {
                 WINNERPOV.Visibility = Visibility.Visible;
                 WINNERPOV.Content = "PLAYER 2 WINS";
+                urTurn.Visibility = Visibility.Hidden;
+                choices.Visibility = Visibility.Hidden;
             }
             else if (gameProgram.playingDeck.player2DeckList.Count == 0 && gameProgram.playingDeck.player3DeckList.Count == 0 && gameProgram.playingDeck.player4DeckList.Count == 0)
             {
                 WINNERPOV.Visibility = Visibility.Visible;
                 WINNERPOV.Content = "PLAYER 1 WINS";
+                urTurn.Visibility = Visibility.Hidden;
+                choices.Visibility = Visibility.Hidden;
             }
         }
     }

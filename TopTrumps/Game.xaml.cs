@@ -75,7 +75,15 @@ namespace TopTrumps
             choices.Visibility = Visibility.Hidden;
             int[] win = gameProgram.choice(1);
             Winner(win[0], win[1] - 1);
-            await Task.Delay(5000);
+            int delay = 800 * (win[1] - 1);
+            for (int i = 0; i < win[1]; i++)
+            {
+                delay += i * 100;
+            }
+            if (delay > 0)
+            {
+                await Task.Delay(delay);
+            }
             playerTurn = win[0] - 1;
             if (playerTurn == 0)
             {
@@ -93,6 +101,11 @@ namespace TopTrumps
                     await Task.Delay(1000);
                     playerTurn = AiChoice();
                     await Task.Delay(5000);
+                }
+                if (playerTurn == 0)
+                {
+                    Draw();
+                    YourTurn();
                 }
                 Trace.WriteLine("AI turn over");
             }
@@ -103,7 +116,15 @@ namespace TopTrumps
             choices.Visibility = Visibility.Hidden;
             int[] win = gameProgram.choice(2);
             Winner(win[0], win[1] - 1);
-            await Task.Delay(5000);
+            int delay = 800 * (win[1] - 1);
+            for (int i = 0; i < win[1]; i++)
+            {
+                delay += i * 100;
+            }
+            if (delay > 0)
+            {
+                await Task.Delay(delay);
+            }
             playerTurn = win[0] - 1;
             if (playerTurn == 0)
             {
@@ -121,6 +142,11 @@ namespace TopTrumps
                     await Task.Delay(1000);
                     playerTurn = AiChoice();
                     await Task.Delay(5000);
+                }
+                if (playerTurn == 0)
+                {
+                    Draw();
+                    YourTurn();
                 }
                 Trace.WriteLine("AI turn over");
             }
@@ -131,7 +157,15 @@ namespace TopTrumps
             choices.Visibility = Visibility.Hidden;
             int[] win = gameProgram.choice(3);
             Winner(win[0], win[1] - 1);
-            await Task.Delay(5000);
+            int delay = 800 * (win[1] - 1);
+            for (int i = 0; i < win[1]; i++)
+            {
+                delay += i * 100;
+            }
+            if (delay > 0)
+            {
+                await Task.Delay(delay);
+            }
             playerTurn = win[0] - 1;
             if (playerTurn == 0)
             {
@@ -149,6 +183,11 @@ namespace TopTrumps
                     await Task.Delay(1000);
                     playerTurn = AiChoice();
                     await Task.Delay(5000);
+                }
+                if (playerTurn == 0)
+                {
+                    Draw();
+                    YourTurn();
                 }
                 Trace.WriteLine("AI turn over");
             }
@@ -159,7 +198,15 @@ namespace TopTrumps
             choices.Visibility = Visibility.Hidden;
             int[] win = gameProgram.choice(4);
             Winner(win[0], win[1] - 1);
-            await Task.Delay(5000);
+            int delay = 800 * (win[1] - 1);
+            for (int i = 0; i < win[1]; i++)
+            {
+                delay += i * 100;
+            }
+            if (delay > 0)
+            {
+                await Task.Delay(delay);
+            }
             playerTurn = win[0] - 1;
             if (playerTurn == 0)
             {
@@ -178,6 +225,11 @@ namespace TopTrumps
                     playerTurn = AiChoice();
                     await Task.Delay(5000);
                 }
+                if (playerTurn == 0)
+                {
+                    Draw();
+                    YourTurn();
+                }
                 Trace.WriteLine("AI turn over");
             }
         }
@@ -187,7 +239,15 @@ namespace TopTrumps
             choices.Visibility = Visibility.Hidden;
             int[] win = gameProgram.choice(5);
             Winner(win[0], win[1] - 1);
-            await Task.Delay(5000);
+            int delay = 800 * (win[1] - 1);
+            for (int i = 0; i < win[1]; i++)
+            {
+                delay += i * 100;
+            }
+            if (delay > 0)
+            {
+                await Task.Delay(delay);
+            }
             playerTurn = win[0] - 1;
             if (playerTurn == 0)
             {
@@ -204,6 +264,11 @@ namespace TopTrumps
                     await Task.Delay(1000);
                     playerTurn = AiChoice();
                     await Task.Delay(5000);
+                }
+                if (playerTurn == 0)
+                {
+                    Draw();
+                    YourTurn();
                 }
                 Trace.WriteLine("AI turn over");
             }
@@ -226,32 +291,32 @@ namespace TopTrumps
             int[] win = gameProgram.choice(selection);
             Winner(win[0], win[1]-1);
             playerTurn = win[0] - 1;
-            if (playerTurn == 0)
-            {
-                YourTurn();
-            }
+            
             return playerTurn;
         }
         public void Draw()
         {
-            count1--;
-            count2--;
-            count3--;
-            count4--;
+            if (count1 > 0) { count1--; }
+            if (count2 > 0) { count2--; }
+            if (count3 > 0) { count3--; }
+            if (count4 > 0) { count4--; }
             player1Deck.Text = count1.ToString();
             player2Deck.Text = count2.ToString();
             player3Deck.Text = count3.ToString();
             player4Deck.Text = count4.ToString();
 
-            if (count1 > 0) { player1Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player1DeckList[0].id + dirtype, UriKind.Relative)); }
-            if (count2 > 0) { player2Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player2DeckList[0].id + dirtype, UriKind.Relative)); }
-            if (countPlayer > 2 && count3 > 0) { player3Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player3DeckList[0].id + dirtype, UriKind.Relative)); }
-            if (countPlayer > 3 && count4 > 0) { player4Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player4DeckList[0].id + dirtype, UriKind.Relative)); }
-            choice1.Content = gameProgram.playingDeck.propertyName1 + ": " + gameProgram.playingDeck.player1DeckList[0].property1;
-            choice2.Content = gameProgram.playingDeck.propertyName2 + ": " + gameProgram.playingDeck.player1DeckList[0].property2;
-            choice3.Content = gameProgram.playingDeck.propertyName3 + ": " + gameProgram.playingDeck.player1DeckList[0].property3;
-            choice4.Content = gameProgram.playingDeck.propertyName4 + ": " + gameProgram.playingDeck.player1DeckList[0].property4;
-            choice5.Content = gameProgram.playingDeck.propertyName5 + ": " + gameProgram.playingDeck.player1DeckList[0].property5;
+            if (count1 > 0) { player1Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player1DeckList[0].id + dirtype, UriKind.Relative)); } else if (count1 == 0) { new BitmapImage(new Uri(@"../../../Images/dead.jpg", UriKind.Relative)); }
+            if (count2 > 0) { player2Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player2DeckList[0].id + dirtype, UriKind.Relative)); } else if (count2 == 0) { new BitmapImage(new Uri(@"../../../Images/dead.jpg", UriKind.Relative)); }
+            if (countPlayer > 2 && count3 > 0) { player3Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player3DeckList[0].id + dirtype, UriKind.Relative)); } else if (count3 == 0) { new BitmapImage(new Uri(@"../../../Images/dead.jpg", UriKind.Relative)); }
+            if (countPlayer > 3 && count4 > 0) { player4Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player4DeckList[0].id + dirtype, UriKind.Relative)); } else if (count4 == 0) { new BitmapImage(new Uri(@"../../../Images/dead.jpg", UriKind.Relative)); }
+            if (count1 > 0)
+            {
+                choice1.Content = gameProgram.playingDeck.propertyName1 + ": " + gameProgram.playingDeck.player1DeckList[0].property1;
+                choice2.Content = gameProgram.playingDeck.propertyName2 + ": " + gameProgram.playingDeck.player1DeckList[0].property2;
+                choice3.Content = gameProgram.playingDeck.propertyName3 + ": " + gameProgram.playingDeck.player1DeckList[0].property3;
+                choice4.Content = gameProgram.playingDeck.propertyName4 + ": " + gameProgram.playingDeck.player1DeckList[0].property4;
+                choice5.Content = gameProgram.playingDeck.propertyName5 + ": " + gameProgram.playingDeck.player1DeckList[0].property5;
+            }
         }
 
         // Shows the cards based on how many players/bots there are. Sets bool values to identify which players are bots - PK + CP

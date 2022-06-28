@@ -94,9 +94,9 @@ namespace TopTrumps
         {
             urTurn.Visibility = Visibility.Hidden;
             choices.Visibility = Visibility.Hidden;
+            Reveal();
             int[] win = gameProgram.choice(Choice);
             int delay = DelayCalc(win[1]);
-            Reveal();
             if (win[1] > 0)
             {
                 Winner(win[0], win[1]);

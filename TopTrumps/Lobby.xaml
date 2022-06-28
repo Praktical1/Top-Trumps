@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Lobby" Height="450" Width="800" Background="#FF595959">
     <StackPanel Orientation="Vertical" HorizontalAlignment="center">
-        <Label Style="white">Lobby</Label>
+        <Label>Lobby</Label>
         <Label x:Name="player1Label">Player 1</Label>
         <Label x:Name="player2Label">Player 2</Label>
         <Label x:Name="player3Label">Player 3</Label>

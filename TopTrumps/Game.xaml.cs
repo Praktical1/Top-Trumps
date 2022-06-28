@@ -106,6 +106,27 @@ namespace TopTrumps
                 await Task.Delay(1000);
                 YourTurn();
             }
+            else if (playerTurn == 1 && !gameProgram.isPlayer2Bot)
+            {
+                Trace.WriteLine("Player turn");
+                Draw();
+                await Task.Delay(1000);
+                YourTurn();
+            }
+            else if (playerTurn == 2 && !gameProgram.isPlayer3Bot)
+            {
+                Trace.WriteLine("Player turn");
+                Draw();
+                await Task.Delay(1000);
+                YourTurn();
+            }
+            else if (playerTurn == 3 && !gameProgram.isPlayer4Bot)
+            {
+                Trace.WriteLine("Player turn");
+                Draw();
+                await Task.Delay(1000);
+                YourTurn();
+            }
             else
             {
                 while (playerTurn != 0)
@@ -141,6 +162,28 @@ namespace TopTrumps
                 }
                 if (playerTurn == 0)
                 {
+                    Trace.WriteLine("Player turn");
+                    Draw();
+                    await Task.Delay(1000);
+                    YourTurn();
+                }
+                else if (playerTurn == 1 && !gameProgram.isPlayer2Bot)
+                {
+                    Trace.WriteLine("Player turn");
+                    Draw();
+                    await Task.Delay(1000);
+                    YourTurn();
+                }
+                else if (playerTurn == 2 && !gameProgram.isPlayer3Bot)
+                {
+                    Trace.WriteLine("Player turn");
+                    Draw();
+                    await Task.Delay(1000);
+                    YourTurn();
+                }
+                else if (playerTurn == 3 && !gameProgram.isPlayer4Bot)
+                {
+                    Trace.WriteLine("Player turn");
                     Draw();
                     await Task.Delay(1000);
                     YourTurn();
@@ -184,6 +227,27 @@ namespace TopTrumps
                 await Task.Delay(1000);
                 YourTurn();
             }
+            else if (playerTurn == 1 && !gameProgram.isPlayer2Bot)
+            {
+                Trace.WriteLine("Player turn");
+                Draw();
+                await Task.Delay(1000);
+                YourTurn();
+            }
+            else if (playerTurn == 2 && !gameProgram.isPlayer3Bot)
+            {
+                Trace.WriteLine("Player turn");
+                Draw();
+                await Task.Delay(1000);
+                YourTurn();
+            }
+            else if (playerTurn == 3 && !gameProgram.isPlayer4Bot)
+            {
+                Trace.WriteLine("Player turn");
+                Draw();
+                await Task.Delay(1000);
+                YourTurn();
+            }
             else
             {
                 while (playerTurn != 0)
@@ -219,6 +283,28 @@ namespace TopTrumps
                 }
                 if (playerTurn == 0)
                 {
+                    Trace.WriteLine("Player turn");
+                    Draw();
+                    await Task.Delay(1000);
+                    YourTurn();
+                }
+                else if (playerTurn == 1 && !gameProgram.isPlayer2Bot)
+                {
+                    Trace.WriteLine("Player turn");
+                    Draw();
+                    await Task.Delay(1000);
+                    YourTurn();
+                }
+                else if (playerTurn == 2 && !gameProgram.isPlayer3Bot)
+                {
+                    Trace.WriteLine("Player turn");
+                    Draw();
+                    await Task.Delay(1000);
+                    YourTurn();
+                }
+                else if (playerTurn == 3 && !gameProgram.isPlayer4Bot)
+                {
+                    Trace.WriteLine("Player turn");
                     Draw();
                     await Task.Delay(1000);
                     YourTurn();
@@ -262,8 +348,30 @@ namespace TopTrumps
                 await Task.Delay(1000);
                 YourTurn();
             }
+            else if (playerTurn == 1 && !gameProgram.isPlayer2Bot)
+            {
+                Trace.WriteLine("Player turn");
+                Draw();
+                await Task.Delay(1000);
+                YourTurn();
+            }
+            else if (playerTurn == 2 && !gameProgram.isPlayer3Bot)
+            {
+                Trace.WriteLine("Player turn");
+                Draw();
+                await Task.Delay(1000);
+                YourTurn();
+            }
+            else if (playerTurn == 3 && !gameProgram.isPlayer4Bot)
+            {
+                Trace.WriteLine("Player turn");
+                Draw();
+                await Task.Delay(1000);
+                YourTurn();
+            }
             else
             {
+
                 while (playerTurn != 0)
                 {
                     Trace.WriteLine("AI turn");
@@ -297,6 +405,28 @@ namespace TopTrumps
                 }
                 if (playerTurn == 0)
                 {
+                    Trace.WriteLine("Player turn");
+                    Draw();
+                    await Task.Delay(1000);
+                    YourTurn();
+                }
+                else if (playerTurn == 1 && !gameProgram.isPlayer2Bot)
+                {
+                    Trace.WriteLine("Player turn");
+                    Draw();
+                    await Task.Delay(1000);
+                    YourTurn();
+                }
+                else if (playerTurn == 2 && !gameProgram.isPlayer3Bot)
+                {
+                    Trace.WriteLine("Player turn");
+                    Draw();
+                    await Task.Delay(1000);
+                    YourTurn();
+                }
+                else if (playerTurn == 3 && !gameProgram.isPlayer4Bot)
+                {
+                    Trace.WriteLine("Player turn");
                     Draw();
                     await Task.Delay(1000);
                     YourTurn();
@@ -340,6 +470,27 @@ namespace TopTrumps
                 await Task.Delay(1000);
                 YourTurn();
             }
+            else if (playerTurn == 1 && !gameProgram.isPlayer2Bot)
+            {
+                Trace.WriteLine("Player turn");
+                Draw();
+                await Task.Delay(1000);
+                YourTurn();
+            }
+            else if (playerTurn == 2 && !gameProgram.isPlayer3Bot)
+            {
+                Trace.WriteLine("Player turn");
+                Draw();
+                await Task.Delay(1000);
+                YourTurn();
+            }
+            else if (playerTurn == 3 && !gameProgram.isPlayer4Bot)
+            {
+                Trace.WriteLine("Player turn");
+                Draw();
+                await Task.Delay(1000);
+                YourTurn();
+            }
             else
             {
                 while (playerTurn != 0)
@@ -375,6 +526,28 @@ namespace TopTrumps
                 }
                 if (playerTurn == 0)
                 {
+                    Trace.WriteLine("Player turn");
+                    Draw();
+                    await Task.Delay(1000);
+                    YourTurn();
+                }
+                else if (playerTurn == 1 && !gameProgram.isPlayer2Bot)
+                {
+                    Trace.WriteLine("Player turn");
+                    Draw();
+                    await Task.Delay(1000);
+                    YourTurn();
+                }
+                else if (playerTurn == 2 && !gameProgram.isPlayer3Bot)
+                {
+                    Trace.WriteLine("Player turn");
+                    Draw();
+                    await Task.Delay(1000);
+                    YourTurn();
+                }
+                else if (playerTurn == 3 && !gameProgram.isPlayer4Bot)
+                {
+                    Trace.WriteLine("Player turn");
                     Draw();
                     await Task.Delay(1000);
                     YourTurn();
@@ -417,7 +590,29 @@ namespace TopTrumps
                 Draw();
                 await Task.Delay(1000);
                 YourTurn();
-            } else
+            }
+            else if (playerTurn == 1 && !gameProgram.isPlayer2Bot)
+            {
+                Trace.WriteLine("Player turn");
+                Draw();
+                await Task.Delay(1000);
+                YourTurn();
+            }
+            else if (playerTurn == 2 && !gameProgram.isPlayer3Bot)
+            {
+                Trace.WriteLine("Player turn");
+                Draw();
+                await Task.Delay(1000);
+                YourTurn();
+            }
+            else if (playerTurn == 3 && !gameProgram.isPlayer4Bot)
+            {
+                Trace.WriteLine("Player turn");
+                Draw();
+                await Task.Delay(1000);
+                YourTurn();
+            }
+            else
             {
                 while(playerTurn != 0)
                 {
@@ -452,6 +647,28 @@ namespace TopTrumps
                 }
                 if (playerTurn == 0)
                 {
+                    Trace.WriteLine("Player turn");
+                    Draw();
+                    await Task.Delay(1000);
+                    YourTurn();
+                }
+                else if (playerTurn == 1 && !gameProgram.isPlayer2Bot)
+                {
+                    Trace.WriteLine("Player turn");
+                    Draw();
+                    await Task.Delay(1000);
+                    YourTurn();
+                }
+                else if (playerTurn == 2 && !gameProgram.isPlayer3Bot)
+                {
+                    Trace.WriteLine("Player turn");
+                    Draw();
+                    await Task.Delay(1000);
+                    YourTurn();
+                }
+                else if (playerTurn == 3 && !gameProgram.isPlayer4Bot)
+                {
+                    Trace.WriteLine("Player turn");
                     Draw();
                     await Task.Delay(1000);
                     YourTurn();

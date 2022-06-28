@@ -11,9 +11,9 @@ namespace TopTrumps.Model
     {
         public Settings gameSettings;
         public Deck playingDeck;
-        public bool isPlayer2Bot;
-        public bool isPlayer3Bot;
-        public bool isPlayer4Bot;
+        public bool isPlayer2Bot = false;
+        public bool isPlayer3Bot = false;
+        public bool isPlayer4Bot = false;
         int amountOfPlayerAndBots;
         int cardsToBeWon;
         bool wasLastGoADraw=false;

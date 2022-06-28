@@ -81,10 +81,10 @@
                 <Button Margin="5 0 5 0" Padding="5 0 5 0" FontSize="25" Background="#282828" Foreground="White" x:Name="mpHardButton">Hard</Button>
             </StackPanel>
 
-            <Label FontSize="25" Margin="10 10 10 10" Foreground="White">Username</Label>
-            <TextBox FontSize="25" Margin="10 10 10 10" Foreground="White" Background="#020000" MaxWidth="200" MinWidth="200" HorizontalAlignment="Left" x:Name="uName"> </TextBox>
+            <!--<Label FontSize="25" Margin="10 10 10 10" Foreground="White">Username</Label>
+            <TextBox FontSize="25" Margin="10 10 10 10" Foreground="White" Background="#020000" MaxWidth="200" MinWidth="200" HorizontalAlignment="Left" x:Name="uName"> </TextBox>-->
 
-            <Button HorizontalAlignment="Left" Margin="15 40 15 0" Padding="5 0 5 0" FontSize="25" Background="#282828" Foreground="White" Click="goToLobby">Lobby</Button>
+            <Button HorizontalAlignment="Left" Margin="15 40 15 0" Padding="5 0 5 0" FontSize="25" Background="#282828" Foreground="White" Click="goToGame">Play</Button>
 
         </StackPanel>
 

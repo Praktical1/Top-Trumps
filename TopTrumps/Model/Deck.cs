@@ -123,7 +123,7 @@ namespace TopTrumps.Model
             }
         }
 
-        //Splits the deck list into seperate lists for the amount of players in the game
+        //Splits the deck list into seperate lists for the amount of players in the game - CP
         public void distributeCards(int players)
         {
             switch (players)

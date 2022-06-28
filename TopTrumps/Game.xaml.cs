@@ -154,8 +154,8 @@ namespace TopTrumps
                 {
                     Trace.WriteLine("AI turn");
                     Draw(1);
-                    await Task.Delay(1000);
                     Reveal();
+                    await Task.Delay(1000);
                     win = AiChoice(playerTurn + 1);
                     delay = DelayCalc(win[1]);
                     if (delay > 0)
@@ -244,7 +244,7 @@ namespace TopTrumps
         }
         public int[] AiChoice(int player)
         {
-            int[] choices = new int [5];
+            int[] choices = new int[5];
             switch (player)
             {
                 case 2:
@@ -284,53 +284,45 @@ namespace TopTrumps
             player3Deck.Text = count3.ToString();
             player4Deck.Text = count4.ToString();
 
-            if (count1 > 0) { player1Card.Source = new BitmapImage(new Uri(@"../../../Images/Card-Back.png", UriKind.Relative)); } else if (count1 == 0) { new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
-            if (count2 > 0) { player2Card.Source = new BitmapImage(new Uri(@"../../../Images/Card-Back.png", UriKind.Relative)); } else if (count2 == 0) { new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
-            if (countPlayer > 2 && count3 > 0) { player3Card.Source = new BitmapImage(new Uri(@"../../../Images/Card-Back.png", UriKind.Relative)); } else if (count3 == 0) { new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
-            if (countPlayer > 3 && count4 > 0) { player4Card.Source = new BitmapImage(new Uri(@"../../../Images/Card-Back.png", UriKind.Relative)); } else if (count4 == 0) { new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
-            if (count1 > 0)
+            if (gameProgram.playingDeck.player1DeckList.Count > 0) { player1Card.Source = new BitmapImage(new Uri(@"../../../Images/Card-Back.png", UriKind.Relative)); } else if (gameProgram.playingDeck.player1DeckList.Count == 0) { player1Card.Source = new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
+            if (gameProgram.playingDeck.player2DeckList.Count > 0) { player2Card.Source = new BitmapImage(new Uri(@"../../../Images/Card-Back.png", UriKind.Relative)); } else if (gameProgram.playingDeck.player2DeckList.Count == 0) { player2Card.Source = new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
+            if (countPlayer > 2 && gameProgram.playingDeck.player3DeckList.Count > 0) { player3Card.Source = new BitmapImage(new Uri(@"../../../Images/Card-Back.png", UriKind.Relative)); } else if (gameProgram.playingDeck.player3DeckList.Count == 0) { player3Card.Source = new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
+            if (countPlayer > 3 && gameProgram.playingDeck.player4DeckList.Count > 0) { player4Card.Source = new BitmapImage(new Uri(@"../../../Images/Card-Back.png", UriKind.Relative)); } else if (gameProgram.playingDeck.player4DeckList.Count == 0) { player4Card.Source = new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
+            switch (player)
             {
-                switch (player)
-                {
-                    case 1:
-                        if (count1 > 0) { player1Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player1DeckList[0].id + dirtype, UriKind.Relative)); } else if (count1 == 0) { new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
-                        choice1.Content = gameProgram.playingDeck.propertyName1 + ": " + gameProgram.playingDeck.player1DeckList[0].property1;
-                        choice2.Content = gameProgram.playingDeck.propertyName2 + ": " + gameProgram.playingDeck.player1DeckList[0].property2;
-                        choice3.Content = gameProgram.playingDeck.propertyName3 + ": " + gameProgram.playingDeck.player1DeckList[0].property3;
-                        choice4.Content = gameProgram.playingDeck.propertyName4 + ": " + gameProgram.playingDeck.player1DeckList[0].property4;
-                        choice5.Content = gameProgram.playingDeck.propertyName5 + ": " + gameProgram.playingDeck.player1DeckList[0].property5;
-                        break;
-                    case 2:
-                        if (count2 > 0) { player2Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player2DeckList[0].id + dirtype, UriKind.Relative)); } else if (count2 == 0) { new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
-                        choice1.Content = gameProgram.playingDeck.propertyName1 + ": " + gameProgram.playingDeck.player2DeckList[0].property1;
-                        choice2.Content = gameProgram.playingDeck.propertyName2 + ": " + gameProgram.playingDeck.player2DeckList[0].property2;
-                        choice3.Content = gameProgram.playingDeck.propertyName3 + ": " + gameProgram.playingDeck.player2DeckList[0].property3;
-                        choice4.Content = gameProgram.playingDeck.propertyName4 + ": " + gameProgram.playingDeck.player2DeckList[0].property4;
-                        choice5.Content = gameProgram.playingDeck.propertyName5 + ": " + gameProgram.playingDeck.player2DeckList[0].property5;
-                        break;
-                    case 3:
-                        if (countPlayer > 2 && count3 > 0) { player3Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player3DeckList[0].id + dirtype, UriKind.Relative)); } else if (count3 == 0) { new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
-                        choice1.Content = gameProgram.playingDeck.propertyName1 + ": " + gameProgram.playingDeck.player3DeckList[0].property1;
-                        choice2.Content = gameProgram.playingDeck.propertyName2 + ": " + gameProgram.playingDeck.player3DeckList[0].property2;
-                        choice3.Content = gameProgram.playingDeck.propertyName3 + ": " + gameProgram.playingDeck.player3DeckList[0].property3;
-                        choice4.Content = gameProgram.playingDeck.propertyName4 + ": " + gameProgram.playingDeck.player3DeckList[0].property4;
-                        choice5.Content = gameProgram.playingDeck.propertyName5 + ": " + gameProgram.playingDeck.player3DeckList[0].property5;
-                        break;
-                    case 4:
-                        if (countPlayer > 3 && count4 > 0) { player4Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player4DeckList[0].id + dirtype, UriKind.Relative)); } else if (count4 == 0) { new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
-                        choice1.Content = gameProgram.playingDeck.propertyName1 + ": " + gameProgram.playingDeck.player4DeckList[0].property1;
-                        choice2.Content = gameProgram.playingDeck.propertyName2 + ": " + gameProgram.playingDeck.player4DeckList[0].property2;
-                        choice3.Content = gameProgram.playingDeck.propertyName3 + ": " + gameProgram.playingDeck.player4DeckList[0].property3;
-                        choice4.Content = gameProgram.playingDeck.propertyName4 + ": " + gameProgram.playingDeck.player4DeckList[0].property4;
-                        choice5.Content = gameProgram.playingDeck.propertyName5 + ": " + gameProgram.playingDeck.player4DeckList[0].property5;
-                        break;
-                }
-
+                case 1:
+                    if (gameProgram.playingDeck.player1DeckList.Count > 0) { player1Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player1DeckList[0].id + dirtype, UriKind.Relative)); } else if (gameProgram.playingDeck.player1DeckList.Count == 0) { player1Card.Source = new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
+                    choice1.Content = gameProgram.playingDeck.propertyName1 + ": " + gameProgram.playingDeck.player1DeckList[0].property1;
+                    choice2.Content = gameProgram.playingDeck.propertyName2 + ": " + gameProgram.playingDeck.player1DeckList[0].property2;
+                    choice3.Content = gameProgram.playingDeck.propertyName3 + ": " + gameProgram.playingDeck.player1DeckList[0].property3;
+                    choice4.Content = gameProgram.playingDeck.propertyName4 + ": " + gameProgram.playingDeck.player1DeckList[0].property4;
+                    choice5.Content = gameProgram.playingDeck.propertyName5 + ": " + gameProgram.playingDeck.player1DeckList[0].property5;
+                    break;
+                case 2:
+                    if (gameProgram.playingDeck.player2DeckList.Count > 0) { player2Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player2DeckList[0].id + dirtype, UriKind.Relative)); } else if (gameProgram.playingDeck.player2DeckList.Count == 0) { player2Card.Source = new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
+                    choice1.Content = gameProgram.playingDeck.propertyName1 + ": " + gameProgram.playingDeck.player2DeckList[0].property1;
+                    choice2.Content = gameProgram.playingDeck.propertyName2 + ": " + gameProgram.playingDeck.player2DeckList[0].property2;
+                    choice3.Content = gameProgram.playingDeck.propertyName3 + ": " + gameProgram.playingDeck.player2DeckList[0].property3;
+                    choice4.Content = gameProgram.playingDeck.propertyName4 + ": " + gameProgram.playingDeck.player2DeckList[0].property4;
+                    choice5.Content = gameProgram.playingDeck.propertyName5 + ": " + gameProgram.playingDeck.player2DeckList[0].property5;
+                    break;
+                case 3:
+                    if (countPlayer > 2 && gameProgram.playingDeck.player3DeckList.Count > 0) { player3Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player3DeckList[0].id + dirtype, UriKind.Relative)); } else if (gameProgram.playingDeck.player3DeckList.Count == 0) { player3Card.Source = new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
+                    choice1.Content = gameProgram.playingDeck.propertyName1 + ": " + gameProgram.playingDeck.player3DeckList[0].property1;
+                    choice2.Content = gameProgram.playingDeck.propertyName2 + ": " + gameProgram.playingDeck.player3DeckList[0].property2;
+                    choice3.Content = gameProgram.playingDeck.propertyName3 + ": " + gameProgram.playingDeck.player3DeckList[0].property3;
+                    choice4.Content = gameProgram.playingDeck.propertyName4 + ": " + gameProgram.playingDeck.player3DeckList[0].property4;
+                    choice5.Content = gameProgram.playingDeck.propertyName5 + ": " + gameProgram.playingDeck.player3DeckList[0].property5;
+                    break;
+                case 4:
+                    if (countPlayer > 3 && gameProgram.playingDeck.player4DeckList.Count > 0) { player4Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player4DeckList[0].id + dirtype, UriKind.Relative)); } else if (gameProgram.playingDeck.player4DeckList.Count == 0) { player4Card.Source = new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
+                    choice1.Content = gameProgram.playingDeck.propertyName1 + ": " + gameProgram.playingDeck.player4DeckList[0].property1;
+                    choice2.Content = gameProgram.playingDeck.propertyName2 + ": " + gameProgram.playingDeck.player4DeckList[0].property2;
+                    choice3.Content = gameProgram.playingDeck.propertyName3 + ": " + gameProgram.playingDeck.player4DeckList[0].property3;
+                    choice4.Content = gameProgram.playingDeck.propertyName4 + ": " + gameProgram.playingDeck.player4DeckList[0].property4;
+                    choice5.Content = gameProgram.playingDeck.propertyName5 + ": " + gameProgram.playingDeck.player4DeckList[0].property5;
+                    break;
             }
-            if (gameProgram.playingDeck.player1DeckList.Count == 0) { player1Card.Source = new BitmapImage(new Uri(@"../../../Images/Card-Back.png", UriKind.Relative)); }
-            if (gameProgram.playingDeck.player2DeckList.Count == 0) { player2Card.Source = new BitmapImage(new Uri(@"../../../Images/Card-Back.png", UriKind.Relative)); }
-            if (gameProgram.playingDeck.player3DeckList.Count == 0) { player3Card.Source = new BitmapImage(new Uri(@"../../../Images/Card-Back.png", UriKind.Relative)); }
-            if (gameProgram.playingDeck.player4DeckList.Count == 0) { player4Card.Source = new BitmapImage(new Uri(@"../../../Images/Card-Back.png", UriKind.Relative)); }
         }
 
         // Shows the cards based on how many players/bots there are. Sets bool values to identify which players are bots - PK + CP

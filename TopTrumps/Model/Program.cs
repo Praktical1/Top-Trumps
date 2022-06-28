@@ -44,25 +44,7 @@ namespace TopTrumps.Model
             return whosTurnIsIt;
         }
 
-
-
-        public void takeGo()
-        {
-            switch (whosTurnIsIt)
-            {
-                case 1:
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-            }
-
-        }
-
-        // determines the winner of the round and handles player deck adjustment as a result - CP + PK + RS  Fix Draw, Fix empty array error (State when player looses)
+        // determines the winner of the round and handles player deck adjustment as a result - CP + PK + RS Fix empty array error (State when player looses)
         public int[] choice(int currentPlayersButton)
         {
             int highestValue = 0;
@@ -220,10 +202,15 @@ namespace TopTrumps.Model
             returnValues[0] = whosWinning;
             returnValues[1] = cardsWonThisRound;
 
+            Trace.WriteLine("-");
             Trace.WriteLine("WINNER = PLAYER " + whosWinning);
-            Trace.WriteLine("CARES WON " + cardsWonThisRound);
-            Trace.WriteLine("P1 CARDS LEFT " + playingDeck.player1DeckList.Count);
-            Trace.WriteLine("P2 CARDS LEFT " + playingDeck.player2DeckList.Count);
+            Trace.WriteLine("-");
+            Trace.WriteLine("P1 CARDS LEFT AFTER GO -" + playingDeck.player1DeckList.Count);
+            Trace.WriteLine("P2 CARDS LEFT AFTER GO -" + playingDeck.player2DeckList.Count);
+            Trace.WriteLine("P3 CARDS LEFT AFTER GO -" + playingDeck.player3DeckList.Count);
+            Trace.WriteLine("P4 CARDS LEFT AFTER GO -" + playingDeck.player4DeckList.Count);
+            Trace.WriteLine("");
+            Trace.WriteLine("");
             return returnValues;
         }
 

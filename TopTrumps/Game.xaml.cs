@@ -25,6 +25,7 @@ namespace TopTrumps
         private int count2;
         private int count3;
         private int count4;
+        private int countMiddle;
         private String? dir;
         private String? dirtype;
         private Settings s1;
@@ -74,16 +75,28 @@ namespace TopTrumps
             urTurn.Visibility = Visibility.Hidden;
             choices.Visibility = Visibility.Hidden;
             int[] win = gameProgram.choice(1);
-            Winner(win[0], win[1] - 1);
             int delay = DelayCalc(win[1]);
             if (win[1] > 0)
             {
-                Winner(win[0], win[1] - 1);
+                Winner(win[0], win[1]);
                 await Task.Delay(delay);
-            } 
+                cardsInMiddle.Text = "0";
+                middleCard.Visibility = Visibility.Hidden;
+            }
             else
             {
-                await Task.Delay(1000);
+                middleCard.Visibility = Visibility.Visible;
+                countMiddle = Int16.Parse(cardsInMiddle.Text);
+                int delay1 = 400;
+
+                for (int i = 0; i < 4; i++)
+                {
+                    countMiddle++;
+                    await Task.Delay(delay1);
+                    delay1 += 100 * (i);
+                    cardsInMiddle.Text = countMiddle.ToString();
+                }
+                await Task.Delay(400);
             }
             playerTurn = win[0] - 1;
             if (playerTurn == 0)
@@ -104,12 +117,25 @@ namespace TopTrumps
                     delay = DelayCalc(win[1]);
                     if (delay > 0)
                     {
-                        Winner(win[0], win[1] - 1);
+                        Winner(win[0], win[1]);
                         await Task.Delay(delay);
+                        cardsInMiddle.Text = "0";
+                        middleCard.Visibility = Visibility.Hidden;
                     }
                     else
                     {
-                        await Task.Delay(1000);
+                        middleCard.Visibility = Visibility.Visible;
+                        countMiddle = Int16.Parse(cardsInMiddle.Text);
+                        int delay1 = 400;
+
+                        for (int i = 0; i < 4; i++)
+                        {
+                            countMiddle++;
+                            await Task.Delay(delay1);
+                            delay1 += 100 * (i);
+                            cardsInMiddle.Text = countMiddle.ToString();
+                        }
+                        await Task.Delay(400);
                     }
                     playerTurn = win[0] - 1;
                 }
@@ -127,16 +153,28 @@ namespace TopTrumps
             urTurn.Visibility = Visibility.Hidden;
             choices.Visibility = Visibility.Hidden;
             int[] win = gameProgram.choice(2);
-            Winner(win[0], win[1] - 1);
             int delay = DelayCalc(win[1]);
             if (win[1] > 0)
             {
-                Winner(win[0], win[1] - 1);
+                Winner(win[0], win[1]);
                 await Task.Delay(delay);
+                cardsInMiddle.Text = "0";
+                middleCard.Visibility = Visibility.Hidden;
             }
             else
             {
-                await Task.Delay(1000);
+                middleCard.Visibility = Visibility.Visible;
+                countMiddle = Int16.Parse(cardsInMiddle.Text);
+                int delay1 = 400;
+
+                for (int i = 0; i < 4; i++)
+                {
+                    countMiddle++;
+                    await Task.Delay(delay1);
+                    delay1 += 100 * (i);
+                    cardsInMiddle.Text = countMiddle.ToString();
+                }
+                await Task.Delay(400);
             }
             playerTurn = win[0] - 1;
             if (playerTurn == 0)
@@ -157,12 +195,25 @@ namespace TopTrumps
                     delay = DelayCalc(win[1]);
                     if (delay > 0)
                     {
-                        Winner(win[0], win[1] - 1);
+                        Winner(win[0], win[1]);
                         await Task.Delay(delay);
+                        cardsInMiddle.Text = "0";
+                        middleCard.Visibility = Visibility.Hidden;
                     }
                     else
                     {
-                        await Task.Delay(1000);
+                        middleCard.Visibility = Visibility.Visible;
+                        countMiddle = Int16.Parse(cardsInMiddle.Text);
+                        int delay1 = 400;
+
+                        for (int i = 0; i < 4; i++)
+                        {
+                            countMiddle++;
+                            await Task.Delay(delay1);
+                            delay1 += 100 * (i);
+                            cardsInMiddle.Text = countMiddle.ToString();
+                        }
+                        await Task.Delay(400);
                     }
                     playerTurn = win[0] - 1;
                 }
@@ -180,16 +231,28 @@ namespace TopTrumps
             urTurn.Visibility = Visibility.Hidden;
             choices.Visibility = Visibility.Hidden;
             int[] win = gameProgram.choice(3);
-            Winner(win[0], win[1] - 1);
             int delay = DelayCalc(win[1]);
             if (win[1] > 0)
             {
-                Winner(win[0], win[1] - 1);
+                Winner(win[0], win[1]);
                 await Task.Delay(delay);
+                cardsInMiddle.Text = "0";
+                middleCard.Visibility = Visibility.Hidden;
             }
             else
             {
-                await Task.Delay(1000);
+                middleCard.Visibility = Visibility.Visible;
+                countMiddle = Int16.Parse(cardsInMiddle.Text);
+                int delay1 = 400;
+
+                for (int i = 0; i < 4; i++)
+                {
+                    countMiddle++;
+                    await Task.Delay(delay1);
+                    delay1 += 100 * (i);
+                    cardsInMiddle.Text = countMiddle.ToString();
+                }
+                await Task.Delay(400);
             }
             playerTurn = win[0] - 1;
             if (playerTurn == 0)
@@ -210,12 +273,25 @@ namespace TopTrumps
                     delay = DelayCalc(win[1]);
                     if (delay > 0)
                     {
-                        Winner(win[0], win[1] - 1);
+                        Winner(win[0], win[1]);
                         await Task.Delay(delay);
+                        cardsInMiddle.Text = "0";
+                        middleCard.Visibility = Visibility.Hidden;
                     }
                     else
                     {
-                        await Task.Delay(1000);
+                        middleCard.Visibility = Visibility.Visible;
+                        countMiddle = Int16.Parse(cardsInMiddle.Text);
+                        int delay1 = 400;
+
+                        for (int i = 0; i < 4; i++)
+                        {
+                            countMiddle++;
+                            await Task.Delay(delay1);
+                            delay1 += 100 * (i);
+                            cardsInMiddle.Text = countMiddle.ToString();
+                        }
+                        await Task.Delay(400);
                     }
                     playerTurn = win[0] - 1;
                 }
@@ -236,12 +312,25 @@ namespace TopTrumps
             int delay = DelayCalc(win[1]);
             if (win[1] > 0)
             {
-                Winner(win[0], win[1] - 1);
+                Winner(win[0], win[1]);
                 await Task.Delay(delay);
+                cardsInMiddle.Text = "0";
+                middleCard.Visibility = Visibility.Hidden;
             }
             else
             {
-                await Task.Delay(1000);
+                middleCard.Visibility = Visibility.Visible;
+                countMiddle = Int16.Parse(cardsInMiddle.Text);
+                int delay1 = 400;
+
+                for (int i = 0; i < 4; i++)
+                {
+                    countMiddle++;
+                    await Task.Delay(delay1);
+                    delay1 += 100 * (i);
+                    cardsInMiddle.Text = countMiddle.ToString();
+                }
+                await Task.Delay(400);
             }
             playerTurn = win[0] - 1;
             if (playerTurn == 0)
@@ -262,12 +351,25 @@ namespace TopTrumps
                     delay = DelayCalc(win[1]);
                     if (delay > 0)
                     {
-                        Winner(win[0], win[1] - 1);
+                        Winner(win[0], win[1]);
                         await Task.Delay(delay);
+                        cardsInMiddle.Text = "0";
+                        middleCard.Visibility = Visibility.Hidden;
                     }
                     else
                     {
-                        await Task.Delay(1000);
+                        middleCard.Visibility = Visibility.Visible;
+                        countMiddle = Int16.Parse(cardsInMiddle.Text);
+                        int delay1 = 400;
+
+                        for (int i = 0; i < 4; i++)
+                        {
+                            countMiddle++;
+                            await Task.Delay(delay1);
+                            delay1 += 100 * (i);
+                            cardsInMiddle.Text = countMiddle.ToString();
+                        }
+                        await Task.Delay(400);
                     }
                     playerTurn = win[0] - 1;
                 }
@@ -288,12 +390,25 @@ namespace TopTrumps
             int delay = DelayCalc(win[1]);
             if (win[1] > 0)
             {
-                Winner(win[0], win[1] - 1);
+                Winner(win[0], win[1]);
                 await Task.Delay(delay);
+                cardsInMiddle.Text = "0";
+                middleCard.Visibility = Visibility.Hidden;
             }
             else
             {
-                await Task.Delay(1000);
+                middleCard.Visibility = Visibility.Visible;
+                countMiddle = Int16.Parse(cardsInMiddle.Text);
+                int delay1 = 400;
+
+                for (int i = 0; i < 4; i++)
+                {
+                    countMiddle++;
+                    await Task.Delay(delay1);
+                    delay1 += 100 * (i);
+                    cardsInMiddle.Text = countMiddle.ToString();
+                }
+                await Task.Delay(400);
             }
             playerTurn = win[0] - 1;
             if (playerTurn == 0)
@@ -313,12 +428,25 @@ namespace TopTrumps
                     delay = DelayCalc(win[1]);
                     if (delay > 0)
                     {
-                        Winner(win[0], win[1] - 1);
+                        Winner(win[0], win[1]);
                         await Task.Delay(delay);
+                        cardsInMiddle.Text = "0";
+                        middleCard.Visibility = Visibility.Hidden;
                     }
                     else
                     {
-                        await Task.Delay(1000);
+                        middleCard.Visibility = Visibility.Visible;
+                        countMiddle = Int16.Parse(cardsInMiddle.Text);
+                        int delay1 = 400;
+
+                        for (int i = 0; i < 4; i++)
+                        {
+                            countMiddle++;
+                            await Task.Delay(delay1);
+                            delay1 += 100 * (i);
+                            cardsInMiddle.Text = countMiddle.ToString();
+                        }
+                        await Task.Delay(400);
                     }
                     playerTurn = win[0]-1;
                 }
@@ -333,7 +461,7 @@ namespace TopTrumps
         }
         public int DelayCalc(int cardswon)
         {
-            int delay = 800 * (cardswon - 1);
+            int delay = 800 * (cardswon);
             for (int i = 0; i < cardswon; i++)
             {
                 delay += i * 100;
@@ -399,6 +527,10 @@ namespace TopTrumps
                 choice4.Content = gameProgram.playingDeck.propertyName4 + ": " + gameProgram.playingDeck.player1DeckList[0].property4;
                 choice5.Content = gameProgram.playingDeck.propertyName5 + ": " + gameProgram.playingDeck.player1DeckList[0].property5;
             }
+            if (gameProgram.playingDeck.player1DeckList.Count == 0) { player1Card.Source = new BitmapImage(new Uri(@"../../../Images/Card-Back", UriKind.Relative)); }
+            if (gameProgram.playingDeck.player2DeckList.Count == 0) { player2Card.Source = new BitmapImage(new Uri(@"../../../Images/Card-Back", UriKind.Relative)); }
+            if (gameProgram.playingDeck.player3DeckList.Count == 0) { player3Card.Source = new BitmapImage(new Uri(@"../../../Images/Card-Back", UriKind.Relative)); }
+            if (gameProgram.playingDeck.player4DeckList.Count == 0) { player4Card.Source = new BitmapImage(new Uri(@"../../../Images/Card-Back", UriKind.Relative)); }
         }
 
         // Shows the cards based on how many players/bots there are. Sets bool values to identify which players are bots - PK + CP
@@ -424,6 +556,8 @@ namespace TopTrumps
 
         public async void Winner(int player, int cardsWon)
         {
+            Trace.WriteLine(player);
+            Trace.WriteLine(cardsWon);
             switch (player)
             {
                 case 1:
@@ -440,8 +574,6 @@ namespace TopTrumps
                         player1Deck.Text = count1.ToString();
                     }
                     player1Winner.Visibility = Visibility.Hidden;
-                    urTurn.Visibility = Visibility.Visible;
-                    choices.Visibility = Visibility.Visible;
                     break;
                 case 2:
                     player2Winner.Visibility = Visibility.Visible;

@@ -420,6 +420,27 @@ namespace TopTrumps
                     player4Winner.Visibility = Visibility.Hidden;
                     break;
             }
+
+            if (gameProgram.playingDeck.player1DeckList.Count==0 && gameProgram.playingDeck.player2DeckList.Count == 0 && gameProgram.playingDeck.player3DeckList.Count == 0)
+            {
+                WINNERPOV.Visibility = Visibility.Visible;
+                WINNERPOV.Content = "PLAYER 4 WINS";
+            }
+            else if(gameProgram.playingDeck.player1DeckList.Count == 0 && gameProgram.playingDeck.player2DeckList.Count == 0 && gameProgram.playingDeck.player4DeckList.Count == 0)
+            {
+                WINNERPOV.Visibility = Visibility.Visible;
+                WINNERPOV.Content = "PLAYER 3 WINS";
+            }
+            else if (gameProgram.playingDeck.player1DeckList.Count == 0 && gameProgram.playingDeck.player3DeckList.Count == 0 && gameProgram.playingDeck.player4DeckList.Count == 0)
+            {
+                WINNERPOV.Visibility = Visibility.Visible;
+                WINNERPOV.Content = "PLAYER 2 WINS";
+            }
+            else if (gameProgram.playingDeck.player2DeckList.Count == 0 && gameProgram.playingDeck.player3DeckList.Count == 0 && gameProgram.playingDeck.player4DeckList.Count == 0)
+            {
+                WINNERPOV.Visibility = Visibility.Visible;
+                WINNERPOV.Content = "PLAYER 1 WINS";
+            }
         }
     }
 }

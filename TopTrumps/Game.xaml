@@ -36,7 +36,7 @@
             </Grid.RowDefinitions>
             <Button Margin="5" Padding="0" FontSize="25" Background="#808080" Foreground="#bfe6ff" x:Name="backToMenu" Click="GoToMenu">Back to Menu</Button>
         </Grid>
-        
+
         <!--Cards in Middle-->
         <Grid x:Name="middleCard" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Visibility="Hidden">
             <Grid.ColumnDefinitions>
@@ -60,7 +60,7 @@
                 </Viewbox>
             </Grid>
         </Grid>
-        
+
         <!--Your Card-->
         <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2">
             <Image x:Name="player1Card" Source="/Images/AnimeMCCards/A01.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 5 0 5"/>
@@ -78,7 +78,7 @@
                 <TextBlock x:Name="player1Deck" Text="20" Foreground="Red"/>
             </Viewbox>
         </Grid>
-        
+
         <!--Card Selector-->
         <Grid x:Name="choices" Grid.Row="4" Grid.ColumnSpan="4" Background="Black">
             <Grid.ColumnDefinitions>
@@ -253,5 +253,8 @@
                 </Grid>
             </Grid>
         </Grid>
+
+        <Label x:Name="WINNERPOV" Grid.ColumnSpan="4" Margin="289,117,0,0" Grid.RowSpan="2" Grid.Row="1" VerticalAlignment="Top"
+               HorizontalAlignment="Left" FontSize="100" Foreground="White" Background="#020000" Visibility="Hidden">PLAYER X WINS</Label>
     </Grid>
 </Window>

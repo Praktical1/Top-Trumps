@@ -309,7 +309,7 @@ namespace TopTrumps
         private void goToLobby(object sender, RoutedEventArgs e)
         {
             string newUserName = uName.Text;
-            var newWindow = new Lobby(s1, newUserName);
+            var newWindow = new Lobby(s1);
             newWindow.Show();
             this.Close();
         }

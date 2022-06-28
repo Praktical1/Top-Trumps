@@ -145,6 +145,7 @@ namespace TopTrumps.Model
                     if (playingDeck.player2DeckList.Count > 0) { cardsInTheMiddle.Add(playingDeck.player2DeckList[0]); }
                     if (amountOfPlayerAndBots > 2 && playingDeck.player3DeckList.Count > 0) { cardsInTheMiddle.Add(playingDeck.player3DeckList[0]); }
                     if (amountOfPlayerAndBots > 3 && playingDeck.player4DeckList.Count > 0) { cardsInTheMiddle.Add(playingDeck.player4DeckList[0]); }
+                    wasLastGoADraw = true;
                     break;
 
                 //player 1 won, give all cards to player1 including any cards in the middle
@@ -154,7 +155,9 @@ namespace TopTrumps.Model
                     if (playingDeck.player2DeckList.Count > 0) { playingDeck.player1DeckList.Add(playingDeck.player2DeckList[0]); }
                     if (amountOfPlayerAndBots > 2 && playingDeck.player3DeckList.Count > 0) { playingDeck.player1DeckList.Add(playingDeck.player3DeckList[0]); }
                     if (amountOfPlayerAndBots > 3 && playingDeck.player4DeckList.Count > 0) { playingDeck.player1DeckList.Add(playingDeck.player4DeckList[0]); }
-                    for (int i = 0; i < cardsInTheMiddle.Count; i++) { playingDeck.player1DeckList.Add(cardsInTheMiddle[i]); cardsInTheMiddle.RemoveAt(i); }
+                    for (int i = 0; i < cardsInTheMiddle.Count; i++) { playingDeck.player1DeckList.Add(cardsInTheMiddle[i]);}
+                    cardsInTheMiddle.Clear();
+                    wasLastGoADraw = false;
                     break;
                 //player 2 won
                 case 2:
@@ -163,7 +166,9 @@ namespace TopTrumps.Model
                     if (playingDeck.player2DeckList.Count > 0) { playingDeck.player2DeckList.Add(playingDeck.player2DeckList[0]); }
                     if (amountOfPlayerAndBots > 2 && playingDeck.player3DeckList.Count > 0) { playingDeck.player2DeckList.Add(playingDeck.player3DeckList[0]); }
                     if (amountOfPlayerAndBots > 3 && playingDeck.player4DeckList.Count > 0) { playingDeck.player2DeckList.Add(playingDeck.player4DeckList[0]); }
-                    for (int i = 0; i < cardsInTheMiddle.Count; i++) { playingDeck.player2DeckList.Add(cardsInTheMiddle[i]); cardsInTheMiddle.RemoveAt(i); }
+                    for (int i = 0; i < cardsInTheMiddle.Count; i++) { playingDeck.player2DeckList.Add(cardsInTheMiddle[i]);}
+                    cardsInTheMiddle.Clear();
+                    wasLastGoADraw = false;
                     break;
                 //player 3 won
                 case 3:
@@ -172,7 +177,9 @@ namespace TopTrumps.Model
                     if (playingDeck.player2DeckList.Count > 0) { playingDeck.player3DeckList.Add(playingDeck.player2DeckList[0]); }
                     if (amountOfPlayerAndBots > 2 && playingDeck.player3DeckList.Count > 0) { playingDeck.player3DeckList.Add(playingDeck.player3DeckList[0]); }
                     if (amountOfPlayerAndBots > 3 && playingDeck.player4DeckList.Count > 0) { playingDeck.player3DeckList.Add(playingDeck.player4DeckList[0]); }
-                    for (int i = 0; i < cardsInTheMiddle.Count; i++) { playingDeck.player3DeckList.Add(cardsInTheMiddle[i]); cardsInTheMiddle.RemoveAt(i); }
+                    for (int i = 0; i < cardsInTheMiddle.Count; i++) { playingDeck.player3DeckList.Add(cardsInTheMiddle[i]);}
+                    cardsInTheMiddle.Clear();
+                    wasLastGoADraw = false;
                     break;
                 //player 4 won
                 case 4:
@@ -181,7 +188,9 @@ namespace TopTrumps.Model
                     if (playingDeck.player2DeckList.Count > 0) { playingDeck.player4DeckList.Add(playingDeck.player2DeckList[0]); }
                     if (amountOfPlayerAndBots > 2 && playingDeck.player3DeckList.Count > 0) { playingDeck.player4DeckList.Add(playingDeck.player3DeckList[0]); }
                     if (amountOfPlayerAndBots > 3 && playingDeck.player4DeckList.Count > 0) { playingDeck.player4DeckList.Add(playingDeck.player4DeckList[0]); }
-                    for (int i = 0; i < cardsInTheMiddle.Count; i++) { playingDeck.player4DeckList.Add(cardsInTheMiddle[i]); cardsInTheMiddle.RemoveAt(i); }
+                    for (int i = 0; i < cardsInTheMiddle.Count; i++) { playingDeck.player4DeckList.Add(cardsInTheMiddle[i]);}
+                    cardsInTheMiddle.Clear();
+                    wasLastGoADraw = false;
                     break;
             }
 

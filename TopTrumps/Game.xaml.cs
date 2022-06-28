@@ -243,14 +243,16 @@ namespace TopTrumps
                 Trace.WriteLine("AI turn over");
             }
         }
-        public int DelayCalc(int cardswon)
+        public int DelayCalc(int cardsWon)
         {
-            int delay = 800 * (cardswon);
-            for (int i = 0; i < cardswon; i++)
+            int delay = 1000;
+            int delaytotal = 0;
+            for (int i = 0; i < cardsWon; i++)
             {
-                delay += i * 100;
+                delaytotal += delay / (cardsWon / (i + 1));
             }
-            return delay;
+            delaytotal += 1200;
+            return delaytotal;
         }
         public void YourTurn()
         {
@@ -374,19 +376,18 @@ namespace TopTrumps
         public async void Winner(int player, int cardsWon)
         {
             Trace.WriteLine("Winner: Player " + player + "   Cards won: " + cardsWon);
+            int delay = 1000;
             switch (player)
             {
                 case 1:
                     player1Winner.Visibility = Visibility.Visible;
                     await Task.Delay(200);
                     count1 = Int16.Parse(player1Deck.Text);
-                    var delay1 = 400;
 
                     for (int i = 0; i < cardsWon; i++)
                     {
                         count1++;
-                        await Task.Delay(delay1);
-                        delay1 += 100 * (i);
+                        await Task.Delay(delay / (cardsWon / (i + 1)));
                         player1Deck.Text = count1.ToString();
                     }
                     player1Winner.Visibility = Visibility.Hidden;
@@ -395,12 +396,10 @@ namespace TopTrumps
                     player2Winner.Visibility = Visibility.Visible;
                     await Task.Delay(200);
                     count2 = Int16.Parse(player2Deck.Text);
-                    var delay2 = 400;
                     for (int i = 0; i < cardsWon; i++)
                     {
                         count2++;
-                        await Task.Delay(delay2);
-                        delay2 += 100 * (i);
+                        await Task.Delay(delay / (cardsWon / (i + 1)));
                         player2Deck.Text = count2.ToString();
                     }
                     player2Winner.Visibility = Visibility.Hidden;
@@ -409,12 +408,10 @@ namespace TopTrumps
                     player3Winner.Visibility = Visibility.Visible;
                     await Task.Delay(200);
                     count3 = Int16.Parse(player3Deck.Text);
-                    var delay3 = 400;
                     for (int i = 0; i < 4; i++)
                     {
                         count3++;
-                        await Task.Delay(delay3);
-                        delay3 += 100 * (i);
+                        await Task.Delay(delay / (cardsWon / (i + 1)));
                         player3Deck.Text = count3.ToString();
                     }
                     player3Winner.Visibility = Visibility.Hidden;
@@ -423,12 +420,10 @@ namespace TopTrumps
                     player4Winner.Visibility = Visibility.Visible;
                     await Task.Delay(200);
                     count4 = Int16.Parse(player4Deck.Text);
-                    var delay4 = 400;
                     for (int i = 0; i < cardsWon; i++)
                     {
                         count4++;
-                        await Task.Delay(delay4);
-                        delay4 += 100 * (i);
+                        await Task.Delay(delay / (cardsWon / (i + 1)));
                         player4Deck.Text = count4.ToString();
                     }
                     player4Winner.Visibility = Visibility.Hidden;
@@ -441,6 +436,11 @@ namespace TopTrumps
                 WINNERMESSAGE.Content = "PLAYER 4 WINS";
                 urTurn.Visibility = Visibility.Hidden;
                 choices.Visibility = Visibility.Hidden;
+                choice1.Visibility = Visibility.Hidden;
+                choice2.Visibility = Visibility.Hidden;
+                choice3.Visibility = Visibility.Hidden;
+                choice4.Visibility = Visibility.Hidden;
+                choice5.Visibility = Visibility.Hidden;
             }
             else if(gameProgram.playingDeck.player1DeckList.Count == 0 && gameProgram.playingDeck.player2DeckList.Count == 0 && gameProgram.playingDeck.player4DeckList.Count == 0)
             {
@@ -448,6 +448,11 @@ namespace TopTrumps
                 WINNERMESSAGE.Content = "PLAYER 3 WINS";
                 urTurn.Visibility = Visibility.Hidden;
                 choices.Visibility = Visibility.Hidden;
+                choice1.Visibility = Visibility.Hidden;
+                choice2.Visibility = Visibility.Hidden;
+                choice3.Visibility = Visibility.Hidden;
+                choice4.Visibility = Visibility.Hidden;
+                choice5.Visibility = Visibility.Hidden;
             }
             else if (gameProgram.playingDeck.player1DeckList.Count == 0 && gameProgram.playingDeck.player3DeckList.Count == 0 && gameProgram.playingDeck.player4DeckList.Count == 0)
             {
@@ -455,6 +460,11 @@ namespace TopTrumps
                 WINNERMESSAGE.Content = "PLAYER 2 WINS";
                 urTurn.Visibility = Visibility.Hidden;
                 choices.Visibility = Visibility.Hidden;
+                choice1.Visibility = Visibility.Hidden;
+                choice2.Visibility = Visibility.Hidden;
+                choice3.Visibility = Visibility.Hidden;
+                choice4.Visibility = Visibility.Hidden;
+                choice5.Visibility = Visibility.Hidden;
             }
             else if (gameProgram.playingDeck.player2DeckList.Count == 0 && gameProgram.playingDeck.player3DeckList.Count == 0 && gameProgram.playingDeck.player4DeckList.Count == 0)
             {
@@ -462,6 +472,11 @@ namespace TopTrumps
                 WINNERMESSAGE.Content = "PLAYER 1 WINS";
                 urTurn.Visibility = Visibility.Hidden;
                 choices.Visibility = Visibility.Hidden;
+                choice1.Visibility = Visibility.Hidden;
+                choice2.Visibility = Visibility.Hidden;
+                choice3.Visibility = Visibility.Hidden;
+                choice4.Visibility = Visibility.Hidden;
+                choice5.Visibility = Visibility.Hidden;
             }
         }
     }

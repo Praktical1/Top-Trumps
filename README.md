@@ -1,6 +1,6 @@
 # Top-Trumps
 
-Top Trumps Project by Cameron, Prakhash and Ryan
+Top Trumps Project built using WPF and C# by Cameron, Prakhash and Ryan
 
 <ul>
 <li>it works</li>

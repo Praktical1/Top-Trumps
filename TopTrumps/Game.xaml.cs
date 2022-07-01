@@ -16,6 +16,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TopTrumps.Model;
 
+//Everything in this is mine - PR (Just kidding but mostly true)
+
 namespace TopTrumps
 {
     public partial class Game : Window
@@ -37,6 +39,8 @@ namespace TopTrumps
         public Game(Settings s1)
         {
             InitializeComponent();
+
+            //Responsible ensuring all components and dependencies are ready before game begins - PR
             this.s1 = s1;
             gameProgram = new Program(s1);
             countPlayers = s1.players + s1.bots;
@@ -65,12 +69,15 @@ namespace TopTrumps
             urTurn.Content = "Player 1's Turn";
         }
 
+        //The below functions are essentially listeners from the buttons in XAML file - PR
+
         private void GoToMenu(object sender, RoutedEventArgs e)
         {
             var newWindow = new MainWindow();
             newWindow.Show();
             this.Close();
         }
+
         private void Select1(object sender, RoutedEventArgs e)
         {
             Select(1);
@@ -91,6 +98,8 @@ namespace TopTrumps
         {
             Select(5);
         }
+
+        //Uses the call from the listeners above to carry out the process behind when a player or AI selects a card - PR
         private async void Select(int Choice)
         {
             choices.Visibility = Visibility.Hidden;
@@ -128,7 +137,7 @@ namespace TopTrumps
                 await Task.Delay(1000);
                 YourTurn();
             }
-            else if (playerTurn == 1 && !gameProgram.isPlayer2Bot)
+            else if (playerTurn == 1 && !gameProgram.isPlayer2Bot)                            //CP made this multiplayer using bits of my code - PR + CP
             {
                 Trace.WriteLine("Player turn");
                 urTurn.Content = "Player 2's Turn";
@@ -243,6 +252,8 @@ namespace TopTrumps
                 Trace.WriteLine("AI turn over");
             }
         }
+
+        //Responsible for calculating delay to ensure animations finish before next process happens - PR
         public int DelayCalc(int cardsWon)
         {
             int delay = 1000;
@@ -254,11 +265,15 @@ namespace TopTrumps
             delaytotal += 1200;
             return delaytotal;
         }
+
+        //Responsible for showing GUI player elements to allow user to interact with game - PR
         public void YourTurn()
         {
             urTurn.Visibility = Visibility.Visible;
             choices.Visibility = Visibility.Visible;
         }
+
+        //Function that uses AI class to determine actions done by the bot - PR
         public int[] AiChoice(int player)
         {
             int[] choices = new int[5];
@@ -290,6 +305,8 @@ namespace TopTrumps
             int[] win = gameProgram.choice(selection);
             return win;
         }
+
+        //Responsible for the visual changes when a card is draw from the deck (aka hide other player cards and reveal yours when it's your turn) - PR
         public void Draw(int player)
         {
             alivePlayers = 4;
@@ -354,6 +371,8 @@ namespace TopTrumps
             if (countPlayers > 2 && gameProgram.playingDeck.player3DeckList.Count > 0) { player3Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player3DeckList[0].id + dirtype, UriKind.Relative)); } else if (gameProgram.playingDeck.player3DeckList.Count == 0) { new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
             if (countPlayers > 3 && gameProgram.playingDeck.player4DeckList.Count > 0) { player4Card.Source = new BitmapImage(new Uri(@"../../../Images/" + dir + gameProgram.playingDeck.player4DeckList[0].id + dirtype, UriKind.Relative)); } else if (gameProgram.playingDeck.player4DeckList.Count == 0) { new BitmapImage(new Uri(@"../../../Images/dead.png", UriKind.Relative)); }
         }
+
+        //Determines which players are visible based on player count - PR
         public void Players(int playerCount)
         {
             switch (playerCount)
@@ -373,6 +392,7 @@ namespace TopTrumps
             }
         }
 
+        //Used for the visual aspect of showing who is the winner of a round in the game as well as doing a small counter animation that slows the closer it is to the final value - PR
         public async void Winner(int player, int cardsWon)
         {
             Trace.WriteLine("Winner: Player " + player + "   Cards won: " + cardsWon);
@@ -430,6 +450,7 @@ namespace TopTrumps
                     break;
             }
 
+            //Arguments responsible for the winner screen when a player wins the game - CP + PR
             if (gameProgram.playingDeck.player1DeckList.Count==0 && gameProgram.playingDeck.player2DeckList.Count == 0 && gameProgram.playingDeck.player3DeckList.Count == 0)
             {
                 WINNERPOV.Visibility = Visibility.Visible;

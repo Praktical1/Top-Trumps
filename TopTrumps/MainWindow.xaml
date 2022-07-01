@@ -13,7 +13,7 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
 
-        <!-- Settings Buttons -->
+        <!-- Settings Buttons - CP -->
         <StackPanel Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Button Click="spMenuToggle" Background="#282828" Margin="10 10 10 10" FontSize="25" Foreground="White"> Single Player </Button>
             <Button Click="mpMenuToggle" Background="#282828" Margin="10 10 10 10" FontSize="25" Foreground="White"> Multi Player </Button>

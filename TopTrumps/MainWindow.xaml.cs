@@ -164,7 +164,7 @@ namespace TopTrumps
 
         }
 
-        // visual feedback for difficulty game setting selected, changes difficulty game setting attribute - CP
+        // Visual feedback for difficulty game setting selected, changes difficulty game setting attribute - CP
         private void spDifficultySet(object sender, RoutedEventArgs e, string newDifficulty)
         {
             //Reset bg colour of buttons

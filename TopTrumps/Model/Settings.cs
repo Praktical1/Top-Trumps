@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//Settings class responsible for settings object to hold player configuration for the game - CP
+
 namespace TopTrumps.Model
 {
     public class Settings
@@ -15,6 +17,7 @@ namespace TopTrumps.Model
         public string difficulty { get; set; }
         public string deck { get; set; }
 
+        //Uses default values to start with but are changed by choices in MainWindow.xaml - CP
         public Settings()
         {
             this.sp = true;

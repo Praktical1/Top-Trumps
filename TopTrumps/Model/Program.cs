@@ -37,6 +37,7 @@ namespace TopTrumps.Model
                 //Trace.WriteLine(element);
         }
 
+        //Slightly depreciated function now instead used for determining which player goes next in the case of a draw
         public int decideWhoGoesFirst()
         {   Random rng = new Random();
             Boolean works = false;
@@ -63,7 +64,7 @@ namespace TopTrumps.Model
             return whosTurnIsIt;
         }
 
-        // determines the winner of the round and handles player deck adjustment as a result - CP + PK + RS
+        // determines the winner of the round and handles player deck adjustment as a result - CP + PR + RS
         public int[] choice(int currentPlayersButton)
         {
             int highestValue = 0;
@@ -118,7 +119,7 @@ namespace TopTrumps.Model
 
             }
 
-            // Comapres the players values to decide on a winner
+            // Compares the players values to decide on a winner
             highestValue = player1Prop;
             whosWinning = 1;
 

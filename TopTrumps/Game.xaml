@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="Game" Height="720" Width="1280">
     <Grid>
+        <!--I believe the comments I have used are self explanatory and I made everything except the last bit which I commented - PR-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition/>
@@ -20,7 +21,6 @@
             <RowDefinition/>
             <RowDefinition Height="50px"/>
         </Grid.RowDefinitions>
-
         <!--Background-->
         <Image Source="/Images/Background.jpg" Stretch="Fill" Grid.ColumnSpan="4" Grid.RowSpan="4"/>
 
@@ -254,6 +254,8 @@
                 </Grid>
             </Grid>
         </Grid>
+        
+        <!--Winner - PR+CP-->
         <StackPanel x:Name="WINNERPOV" Grid.ColumnSpan="4" Grid.RowSpan="2" Grid.Row="1" VerticalAlignment="Top" Visibility="Hidden">
             <Label x:Name="WINNERMESSAGE" HorizontalAlignment="Center" FontSize="100" Foreground="White" Background="#020000">PLAYER X WINS</Label>
             <Button Margin="5" Padding="0 20 0 20" FontSize="80" Background="#808080" Foreground="White" Click="GoToMenu">Return to Menu</Button>

@@ -30,6 +30,7 @@ namespace TopTrumps.Model
         {
             this.deckType = deckType;
 
+            //Determines content on player buttons based on deck chosen - CP + PR
             switch (deckType)
             {
                 case ("boxer"):
@@ -68,7 +69,7 @@ namespace TopTrumps.Model
             createDeck(deckType);
         }
 
-        // Read txt file containing card information to create card objects based on the values in the txt file - CP + PK
+        // Read txt file containing card information to create card objects based on the values in the txt file - CP + PR
         public void createDeck(string deckType)
         {
             switch (deckType)

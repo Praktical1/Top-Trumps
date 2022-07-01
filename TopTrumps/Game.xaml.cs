@@ -167,7 +167,7 @@ namespace TopTrumps
                 while (playerIsAi)
                 {
                     Trace.WriteLine("AI turn");
-                    urTurn.Content = "AI Player " + win[1] + "'s Turn";
+                    urTurn.Content = "AI Player " + win[0] + "'s Turn";
                     urTurn.Visibility = Visibility.Visible;
                     Draw(0);
                     Reveal();

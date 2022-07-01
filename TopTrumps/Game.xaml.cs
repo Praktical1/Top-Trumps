@@ -174,7 +174,7 @@ namespace TopTrumps
                     await Task.Delay(1000);
                     win = AiChoice(playerTurn + 1);
                     delay = DelayCalc(win[1]);
-                    if (delay > 0)
+                    if (win[1] > 0)
                     {
                         Winner(win[0], win[1]);
                         await Task.Delay(delay);

@@ -16,5 +16,4 @@ Things that could've been worked on if more time was delegated
   stick with what we have right now)</li>
   <li>Online multiplayer using a database complete with lobby system</li>
   <li>Fancy animations to make game seem more refined (special effects?)</li>
-  <li>Fancy animations to make game seem more refined (special effects?)</li>
 </ul>

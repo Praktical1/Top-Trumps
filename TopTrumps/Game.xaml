@@ -8,6 +8,7 @@
         Title="Game" Height="720" Width="1280">
     <Grid>
         <!--I believe the comments I have used are self explanatory and I made everything except the last bit which I commented - PR-->
+        <!--Decks are made by the person responsible (AnimeMCs - PR, Boxers - RS, Cats - CP) while every other component was made/obtained by PR-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition/>

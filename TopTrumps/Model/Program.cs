@@ -243,7 +243,7 @@ namespace TopTrumps.Model
             return returnValues;
         }
 
-        // Shows the cards based on how many players/bots there are. Sets bool values to identify which players are bots - PK + CP
+        // Shows the cards based on how many players/bots there are. Sets bool values to identify which players are bots - PR + CP
         public void determineWhichPlayersAreBots(int playerCount, int botCount)
         {
             switch (playerCount)
